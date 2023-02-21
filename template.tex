@@ -16,8 +16,21 @@
 \usepackage{xcolor,colortbl} % to add table color
 \graphicspath{ {./images/} } % path to images
 \usepackage{array} % add verticle space to tables
+% to set up lists in tables to be left aligned:
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{etoolbox}
+\AtBeginEnvironment{table}{%
+    \setlist[itemize]{nosep,     % <-- table's list setup
+                      leftmargin = *         ,
+                      label      = $\bullet$ ,
+                      before     = \vspace{-0.6\baselineskip},
+                      after      = \vspace{-\baselineskip}
+                        }
+                           }% end of AtBeginEnvironment
+                           
 
-\title{Are we measuring what we think we are? Motivations and challenges of measuring the usage and impact of software designed for biomedical research}
+\title{Impact of software designed for biomedical research: Are we measuring what we think we are?}
 
 
 \author{
@@ -89,12 +102,8 @@ Collecting an exhaustive amount of user data, and then selecting metrics, can ad
 
 Clear understanding of which use cases, personas, and audience(s) are of interest, as well as what motivations are of interest, can help guide what user metrics to collect to achieve project goals.  For example, if the audience is the developers themselves, and the motivation is to learn how to retain new users, it may be helpful to understand how well new users are able to learn the basics of the tool. Thus focusing on metrics related to interactions with tutorials may be the most useful. These measurements might be very different from metrics used to understand which scripting features are being used by advanced users. 
 
-It is also worthwhile to consider which presentations of software metrics will be most compelling to the intended audience. For example, detailed metrics on the inner workings of a software tool might be highly-informative to developers, but such metrics would be far too granular to be of interest to funding agencies.  See \ref{tab:int_table} for more details.
+It is also worthwhile to consider which presentations of software metrics will be most compelling to the intended audience. For example, detailed metrics on the inner workings of a software tool might be highly-informative to developers, but such metrics would be far too granular to be of interest to funding agencies.  See \ref{tab:benefit_table} for more details.
  
-
-
- See Table 
-
 
 
 \subsection{No single evaluation method works for every type of software}
@@ -113,67 +122,193 @@ When software has sufficient use, observed spikes in usage, both up and down, pr
 
 \subsection{Software infrastructure enables impact evaluation}
 There are several components of a software tool that can assist with the assessments of the software impact and engagement. Once a developer team better understands their audience, use cases, personas, and assessment motivations, the following infrastructure could benefit or enable such evaluations, as well as improve user awareness and engagement. 
+See Table~\ref{tab:inf_table} and supplementary note 1 for suggestions.
 
-\subsubsection{Web presence}
-Tools vary in terms of web presence. For example, some tools are web-based, some tools simply rely on a README file in a code repository, with simple installation information, while others provide extensive information and documentation on a separate website. Google Analytics can allow for more fine-grained tracking of how users are interacting with web-based tools or websites and can be helpful for later assessments, in addition to improving access, as one can also perform search engine optimization (SEO) to further encourage the visibility. For example, a developer could track what parts of the documentation users appear to read more frequently and pair this with information about common errors. For web-based tools, great detail can be determined about user interaction. Again Google Analytics can be helpful or for tools using a web-server manual log file inspection, or a service like Cronitor \cite{cronitor}  if the tool relies on a web-based server using cron \cite{cron_2009} job scheduling can also be informative.  It is however important to be mindful of user privacy regulations, see section \ref{sec:legal_ethics}.
+\begin{table}
+ \caption{\textbf{Software infrastructure enables the capture of valuable metrics for evaluating engagement and impact.} More fine-grained tracking of how users are interacting with web-based tools or websites and can be helpful for later assessments, in addition to improving access, as one can also perform search engine optimization (SEO) to further encourage the visibility. Tools like Altmetric can indicate where  digital object identifiers(DOIs) are cited in multiple sources besides scientific articles, such as blogs, news articles, Wikipedia, social media, and more. }
+  \centering
+  \begin{tabular} {|p{0.1\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.23\textwidth}|p{0.24\textwidth}|}
+    \hline
+    \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Infrastructure}} 
+    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Options}}
+    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{\shortstack{\\Tools to Enable \\Metric Collection}}}
+    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{\shortstack{\\Possible\\ Enabled Metrics}}}
+    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Considerations}}\\[1.1ex]
+    \hline
+    \multirow{17}{*}{Web Presence}               
+    & Readme on Code Repository &  &
+    Identify page visits overtime & \\
+ \cline{2-5}
+    &   \multirow{3}{*}[-3em]{ Web-based tool} & \begin{itemize}
+        \item Cronitor \cite{cronitor} for tools using cron job scheduling \cite{cron_2009})
+        \item Google Analytics\cite{google_analytics}
+    \end{itemize}
+    & 
+    \begin{itemize}
+    \item Identify details about usage
+    \item Identify where your tool is being used
+    \item Possibly identify what data is being used
+    \end{itemize} &  May need to consider privacy restrictions for tracking IP addresses\\
+    \cline{2-5}
+    & \multirow{5}{*}{ \shortstack{Documentation \\ Website}} &
+    \begin{itemize}
+        \item Google Analytics\cite{google_analytics}
+    \end{itemize}
+    &
+    \begin{itemize}
+    \item Counts of page views and scrolls
+    \end{itemize} &
+    Pages with more views may identify widely used features or confusing aspects \\
+    \hline
+    \multirow{3}{*}{Citability}
+    & \raggedright{Providing something to cite (Software DOI or manuscript) and information on how to cite} & 
+    \begin{itemize}
+        \item To create DOIs for software and more: Zenodo \cite{zenodo}, Dryad \cite{datadryad}, and Figshare \cite{figshare} 
+        \item To track DOIs: Altmetric \cite{noauthor_altmetric_2015}
+        \item To track paper citations: Semantic Scholar \cite{noauthor_semantic_nodate}
+    \end{itemize} &
+     \begin{itemize}
+         \item total citation counts 
+         \item counts of citations in by journals of different fields
+     \end{itemize} & Semantic Scholar \cite{noauthor_semantic_nodate} provides reports that indicate where citations have occurred within scientific articles. \\
+        \hline
+    \multirow{3}{*}{Communications} &
+    \shortstack{Feedback \\Mechanisms} & 
+    \begin{itemize}
+    \item GitHub Issue Templates
+    \item Surveys
+    \end{itemize}
+    & 
+    \begin{itemize}
+    \item User feedback count
+    \item addressed user feedback count 
+    \end{itemize} &\\
+    \cline{2-5}
+    & \multirow{2}{*}{ \shortstack{Discussion \\ Forums}} &
+    \begin{itemize}
+        \item Discourse\cite{discourse}
+    \end{itemize} &
+    Metrics based on user engagements and answered questions & Forums save time for development as users help each other instead of developers answering individual emails for repeat problems. A code of conduct can help create a supportive community.\\
+    \cline{2-5}
+    & \multirow{2}{*}{ \shortstack{Newsletter\\Emails}} &
+    \begin{itemize}
+        \item Mailchimp \cite{mailchimp}
+        \item HubSpot \cite{hubspot} 
+    \end{itemize} & how often recipients open the news letter, click on links, or unsubscribe & \\
+    \hline
+    \multirow{3}{*}{Usability Testing}
+    & \raggedright{Observe a few people use the tool} & & &\\
+    \hline
+    \multirow{3}{*}{Workshops}
+    & \raggedright{ Online or in-person, Basics for new users or New features for existing users} & Attendees can participate in surveys &  Quantity, duration, and attendance at workshops are metrics that can be reported to funding agencies & Recordings of instructors can  be posted on Social Media (for additional metrics)\\
+    \hline
+    \multirow{3}{*}{Socail Media}
+    & \begin{itemize}
+        \item YouTube Videos
+        \item twitter
+        \item instagram
+        \item linkedin 
+    \end{itemize} & &  Pairing engagement metrics (video watch counts, likes, etc) with software engagement metrics can determine if outreach strategies are successful & \\
+    \hline
+       \multirow{3}{*}{Reviews}
+    & Review Forum & SourceForge &  Stars and review metrics can be directly used to reasure users and funders & \\ 
+    \hline
+  \end{tabular}
+  \label{tab:inf_table}
+\end{table}
 
-\subsubsection{Citability}
-Another component that can assist with evaluations is providing users with a method of citation, as well as information about how to cite the software, as some users may not be familiar with such practices. This is often done by publishing a manuscript about the software in a scientific journal and providing information about the publication on the software website and code repository. In addition, digital object identifiers (DOI), from publishing platforms like Zenodo, can be used for other less conventionally cited materials, such as documentation, case studies, data, and the actual software itself.
 
-Services like Altmetric \cite{noauthor_altmetric_2015}, allow for deeper analysis of engagement for anything with a DOI. They provide reports and badges that can be added to websites or manuscripts (depending on where they are published) that indicate how often a DOI is cited in multiple sources besides scientific articles, such as blogs, news articles, Wikipedia, social media, and more.  Individuals or organizations can use Altmetric to get such reports by simply searching for the DOI. These reports also have links to individual social media posts, citing articles, and more. In addition, Semantic Scholar \cite{noauthor_semantic_nodate} provides reports that indicate where citations have occurred within scientific articles. 
-
-
-\subsubsection{Documentation}
-Documenting software not only helps guide users but can also enable collection of useful metrics.  Documentation on websites can be tracked and provide detailed information about such usage. If a particular page has more traffic, it may indicate that the aspect of the tool discussed on that page is either particularly popular or particularly confusing. As with all metrics, pairing information together can aid interpretation. Providing different types of documentation is another step that assures confidence in software, and enables varying roles to succeed in using the software. For example, command-line usage is important for the users of software, while API documentation is important for developers who may want to extend the software.
-
-\subsubsection{Communications} 
-Providing mechanisms for users to communicate with one another and with the developers can provide another avenue for understanding usage and engagement.
-
-\subsubsubsection{Feedback mechanisms}
-
-One very helpful method of obtaining software usage metrics is to have users directly provide feedback. Providing such feedback mechanisms helps to identify software weaknesses. However, few users provide feedback and often feedback requires interpretation. Individuals are also unlikely to provide positive feedback. Nevertheless, user feedback mechanisms can be powerful for gaining insight from users. 
-Feedback mechanisms can be passive or active in nature. More passive mechanisms may involve providing an email address on a website or simply allowing users to post an issue on a GitHub repository. More active mechanisms may include usability testing interviews, Google forms or other surveys, or providing automated GitHub issue templates to encourage specific kinds of feedback.
-
-
-\subsubsection{Email and support forums}
-While it’s possible to collect user feedback and provide support through email,  if a public support forum is used instead, users can learn from answers to questions of other users, reducing the burden on developers, and provide another opportunity for easier tracking of software engagement. This also provides an opportunity to build a community around the software and to learn what is and isn’t working for users. Some forum platforms support upvoting (where other forum users can upvote questions or feature requests). Using an existing support forum platform such as Discourse (\url{https://www.discourse.org/}) provides many features that are convenient in forum moderation, such as user trust levels, categorization and tagging of topics, and detailed tracking of forum posts, forum post views, and user and moderator activity levels that serve as useful metrics about a software project and the community around it.
-
-Engaging with users about what new features they are excited about and acting on those discussions, is a great way to get informed feedback while rewarding user involvement. To further support community, developers could consider inviting user to attend workshops on new features or inviting them to help teach workshops on fundamentals.  Forum members who provide intellectual contributions to projects, including technical support, feature suggestions, highly referenced posts, etc, should be included as authors on relevant papers. And public facing activity summaries (e.g., \url{https://forum.qiime2.org/u/gregcaporaso/summary}) can also be useful for resume building for early career contributors.
-
-Emailing newsletters to registered users, can be a useful method for informing users about new features, updates or issues. Systems like Mailchimp \cite{mailchimp} or HubSpot \cite{hubspot} can allow analytics about how often recipients open the news letter, click on links, or unsubscribe.
-
-\subsubsection{Usability testing}
-
-Usability refers to the ease of use for an individual to use software. Usability testing is a method of purposefully investigating the usability of a software tool. Usability testing can be highly powerful for collecting valuable metrics and information regarding the usage. This involves applying the scientific method to investigating a user's experience with a software tool and asking users to use the software tool while the tester observes their interactions with the tool. 
-
-Often research institutions do not have these experts in user design and testing on staff. However, developers can and should utilize these techniques to conduct their own informal usability testing. Step-by-step guides of how to conduct usability testing have been published elsewhere \cite{savonen_2021}.  It should be noted that the benefits of usability testing are high even when only a few users are observed. 
-
-\subsubsection{Workshops}
-Hands-on workshops (online\cite{dillon_experiences_2021} or in-person) for your software are an excellent way to build a user community and get feedback. Workshops allow developers identify what confuses or challenges users. This can be illuminating as the challenges are often not what developers expect. Attendees can also be asked to participate in surveys about what they like and don't like to help guide future development. The quantity, duration, and attendance at your workshops are metrics that can be reported to funding agencies in grant proposals or reports. Posting recordings of events can be shared on YouTube or other platforms, which allows for other useful metrics. 
-
-\subsubsection{Code of conduct}
-Before engaging with user or developer communities, it is important to develop and publish a code of conduct for your project to outline expectations of behavior and how contributors can report violations. A code of conduct can be reassuring of community health and are required by some scientific software funders, such as the Chan Zuckerberg Initative’s Essential Open Source Software for Science program. Thus the presence of a Code of Conduct may be a measure that is assessed by potential funders. A good starting point for a code of conduct is the Contributor Covenant (https://www.contributor-covenant.org/), which can be adapted. Adopting and effectively managing\cite{aurora_how_2019} a  Code of Conduct can support the growth of your community by indicating a safe space, thereby encouraging engagement by individuals who might feel intimidated about getting publicly involved.
-
-\subsubsection{Social media}
-Having a social media presence through platforms such as twitter, instagram, and youtube, provides opportunities to track engagement with social media posts.  Pairing this with evaluations of engagement with the software itself, to determine if outreach strategies are successful. This can also be helpful to determine if documentation resources are useful. For example, the number of video views on a youtube documentation video can be informative to know what percentage of users may have actually seen the documentation. Videos with many views can also reassure others about using the software . 
-
-\subsection{Reviews}
-There are review mechanisms that can help reassure users about software. For example, SourceForge\cite{sourceforge} a platform for publishing and developing software allows users to rate software on the platform. Developers can integrate their GitHub repositories with SorceForge to take advantage of this review platform. Alternatively, GitHub also has a system of adding stars or followers to repositories, however, this appears to be somewhat inconsistently done in the community. 
 
 \subsection{Software project health metrics can reassure users and funders}
-Tracking adherence to standards of software engineering can be a useful way to assess software project health including the use of version control systems, high coverage of code with testing, and use of automated or continuous integration. None of these measures of project health are perfect but can be collectively assessed as indicators of whether a project is healthy. Like any tool, version control and testing can be used well or poorly, and the appropriate use of these tools truly indicates project health. A good resource for additional detail on these topics, can be found in The Pragmatic Programmer\cite{thomas_pragmatic_2019}. 
+Tracking adherence to standards of software engineering can be a useful way to assess software project health including the use of version control systems, high coverage of code with testing, and use of automated or continuous integration. None of these measures of project health are perfect but can be collectively assessed as indicators of whether a project is healthy. Like any tool, version control and testing can be used well or poorly, and the appropriate use of these tools truly indicates project health. A good resource for additional detail on these topics, can be found in The Pragmatic Programmer\cite{thomas_pragmatic_2019}. See Table~\ref{tab:soft_health_table} and supplementary note 2 for suggestions.
+
+
+\begin{table}
+ \caption{\textbf{Software health infrastructure enables collecting metrics that can reassure users and funders.} More fine-grained tracking of how users are interacting with web-based tools or websites and can be helpful for later assessments, in addition to improving access, as one can also perform search engine optimization (SEO) to further encourage the visibility. Tools like Altmetric can indicate where  digital object identifiers(DOIs) are cited in multiple sources besides scientific articles, such as blogs, news articles, Wikipedia, social media, and more. }
+  \centering
+  \begin{tabular} {|p{0.1\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.23\textwidth}|p{0.24\textwidth}|}
+    \hline
+    \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Infrastructure}} 
+    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Options}}
+    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{\shortstack{\\Tools to Enable \\Metric Collection}}}
+    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{\shortstack{\\Possible\\ Enabled Metrics}}}
+    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Considerations}}\\[1.1ex]
+    \hline
+    \multirow{17}{*}{Version Control}               
+    &   \multirow{3}{*}[-3em]{\shortstack{Continuous \\ Integration}} & \begin{itemize}
+        \item Git/GitHub \cite{GitHub} 
+        \item Git/GitLab\cite{GitLab})
+        \item BitBucket\cite{bitbucket}
+    \end{itemize}
+    & 
+    \begin{itemize}
+    \item Identify details about usage
+    \item Identify where your tool is being used
+    \item Possibly identify what data is being used
+    \end{itemize} &  May need to consider privacy restrictions for tracking IP addresses\\
+    \cline{2-5}
+    & \multirow{5}{*}{ \shortstack{Discontinuous \\ Integration}} &
+    \begin{itemize}
+        \item Google Analytics\cite{google_analytics}
+    \end{itemize}
+    &
+    \begin{itemize}
+    \item Counts of page views and scrolls
+    \end{itemize} &
+    Pages with more views may identify widely used features or confusing aspects \\
+    \hline
+    \multirow{3}{*}{Development Activity}
+    & \raggedright{Providing something to cite (Software DOI or manuscript) and information on how to cite} & 
+    \begin{itemize}
+        \item To create DOIs for software and more: Zenodo \cite{zenodo}, Dryad \cite{datadryad}, and Figshare \cite{figshare} 
+        \item To track DOIs: Altmetric \cite{noauthor_altmetric_2015}
+        \item To track paper citations: Semantic Scholar \cite{noauthor_semantic_nodate}
+    \end{itemize} &
+     \begin{itemize}
+         \item total citation counts 
+         \item counts of citations in by journals of different fields
+     \end{itemize} & Semantic Scholar \cite{noauthor_semantic_nodate} provides reports that indicate where citations have occurred within scientific articles. \\
+        \hline
+    \multirow{3}{*}{Testing} &
+    \shortstack{Feedback \\Mechanisms} & 
+    \begin{itemize}
+    \item GitHub Issue Templates
+    \item Surveys
+    \end{itemize}
+    & 
+    \begin{itemize}
+    \item User feedback count
+    \item addressed user feedback count 
+    \end{itemize} &\\
+    \cline{2-5}
+    & \multirow{2}{*}{ \shortstack{Discussion \\ Forums}} &
+    \begin{itemize}
+        \item Discourse\cite{discourse}
+    \end{itemize} &
+    Metrics based on user engagements and answered questions & Forums save time for development as users help each other instead of developers answering individual emails for repeat problems. A code of conduct can help create a supportive community.\\
+    \cline{2-5}
+    & \multirow{2}{*}{ \shortstack{Newsletter\\Emails}} &
+    \begin{itemize}
+        \item Mailchimp \cite{mailchimp}
+        \item HubSpot \cite{hubspot} 
+    \end{itemize} & how often recipients open the news letter, click on links, or unsubscribe & \\
+    \hline
+    \multirow{3}{*}{Licensing}
+    & \raggedright{Observe a few people use the tool} & & &\\
+    \hline
+  \end{tabular}
+  \label{tab:soft_health_table}
+\end{table}
 
 \subsubsection{Version control mechanisms}
 Many bioinformatics software projects maintain their source code under public revision or version control, using a platform such as GitHub or GitLab. Provided that the platform is actually used for version control (as opposed to hosting one or two versions of the software), this is a useful indicator of project health. Users can be confident that changes to the code are tracked to some extent and can also observe how much activity and updates have occurred to the software -- this can indicate to the user and developers fo the project how recently maintenance has occurred. This can also help users identify the specific version or revision of the software they are using to record and report their methods, reproduce an analysis, or determine if they are impacted by a bug in the software. Furthermore, GitHub provides an insight tab with information about development metrics and its API allows for collection of these metrics in a systematic and reproducible way. 
 
-\subsection{Development activity}
-
+\subsubsection{Development activity}
 Finally project health can be assessed based on activity. By reviewing the frequency of commits and the date of the most recent commit in a revision control system, it is possible to assess whether the project is actively developed. Inactively developed projects project may not include fixes for recently discovered bugs, or improvements in methods to keep current with the field. Tracking who is making commits to the project can also provide details on whether the project is the work of one or a few developers, or of a large and active developer community. Neither a big or small developer community is necessarily better, though smaller developer communities can pose greater sustainability risk. If there is only one person who knows how to work on the code, and that person becomes unable or unwilling to continue working on the project, development or maintenance of the project may be discontinued. 
 
 
 
 \subsubsection{Automated test coverage and continuous integration testing}
-
 Bugs in scientific software can have far-reaching impacts. Automated software tests allow developers to confirm that their code is behaving as expected under a range of normal and abnormal conditions. Systematically developed tests that can be run by both developers and users with a single command, give confidence that the software is doing what it is supposed to be doing. Platforms such as GitHub allow developers to advertise their test code coverage (the fraction of lines of code in the project that are covered by automated tests) and current build status (including whether tests are currently passing or failing). The presence or absence of this information, as well as quantitative metrics like test code coverage, are useful indicators of project health. Similarly, the use of automated or continuous integration testing, which can be configured to run when a change is committed to a software repository, when software releases are created, or at any other point where quality assurance is necessary to provide early signals of errors, is also an indicator of project health. This can help ensure that bugs or other issues can be detected before software is deployed by users.
 
 The presence of different types of automated tests can be seen as an indicator of software maturity, and the care taken in the process of developing the software. Unit tests provide confidence in individual pieces of code; component and integration tests provide confidence that individual pieces of code behave correctly together; acceptance tests provide confidence that the overall software behaviors are correct. Achieving this in-depth test coverage requires careful software design upfront and throughout development. It is worth noting that, while useful, test coverage is not always a trustworthy representation of test quality. It is simply a measure of the proportion of code which is run by the test suite. It does not evaluate the quality of the test cases or assertions.
@@ -194,7 +329,7 @@ Careful consideration of the use case can provide a good starting point. In a si
 \section{Challenges and nuances}
 
 \subsection{Citation challenges}
-Measuring the number of citations of your tool is important, especially as a metric to report to funding agencies. First, it is important that your tool has a manuscript or other data object to cite \cite{chue_hong_software_2019}. While publishing a manuscript in a formal publication is often the ultimate goal for a tool, having a manuscript published as a preprint such as BioRxiv, or even in Figshare (see the example The graph-tool python library \cite{peixoto_graph-tool_2017}), can help a tool to have a citable presence. For data objects, Zenodo and Data Dryad can provide DOIs, which are citable. Note that having a pre-final published version of your tool may make it difficult to track citations in the future once a manuscript is formally published as tool developers will have to follow citations for both publications.
+Measuring the number of citations of your tool is important, especially as a metric to report to funding agencies. First, it is important that your tool has a manuscript or other data object to cite \cite{chue_hong_software_2019}. While publishing a manuscript in a formal publication is often the ultimate goal for a tool, having a manuscript published as a preprint such as BioRxiv, or even in Figshare (see the example The graph-tool python library \cite{peixoto_graph-tool_2017}), can help a tool to have a citable presence. For data objects, Zenodo \cite{zenodo}, Dryad \cite{datadryad}, and Figshare \cite{figshare} can provide DOIs, which are citable. Note that having a pre-final published version of your tool may make it difficult to track citations in the future once a manuscript is formally published as tool developers will have to follow citations for both publications.
 
 Once a tool is published, getting users to cite a tool or cite it correctly can be difficult. First, some tools are so common that users often don't think to cite them, similar to how a scientist would not cite Microsoft Word when writing a publication, despite the crucial role Microsoft Word played in the writing process. An example of a tool like this would be the UCSC Genome Browser. Second, some tools are used in the discovery phase of a project, and a user may not think of it when they are in the final stages of writing up findings. An example would be a tool used to find a discovery cohort of patients such as EMERSE (Electronic Medical Record Search Engine). Third, tools which provide system architecture for a other software may also not be typically cited. Some tools in this category include Bioconductor, Gene Pattern Notebook, and Galaxy. understanding citations may require looking at usage of other tools that are available on these platforms. Lastly, while users may recognize and acknowledge your tool, they may not cite the tool in the reference section of their paper and they may mention the tool without complete information, such as not including version information, parameter settings, URLs, or credit to those who made the software.  In fact, a study manually evaluating software citations of 4,971 academic biomedical and economics articles, found that the citations only included version information  28\% of the time \cite{howison_software_2016}.  Another study manually evaluating 90 biology articles, also finds a low rate of complete information with version information being included only 27\% of the time and URL information included only 17\% of the time \cite{du_softcite_2021}. People may  mentioning a tool in a figure legend, in the paper itself, in the acknowledgments, or even in the abstract, without a citation. These mentions of a tool are difficult to track. Furthermore, occasionally manuscripts simply acknowledge that a software tool exists, rather than indicating that it was actually used by the authors. In other cases a newer version of a tool is used, yet a previous publication for an earlier version of the tool may often be cited by these users. This typically requires manually reading articles. 
 
@@ -261,130 +396,95 @@ See Figure \ref{fig:altmetric}.
 
 \subsection{Tables}
 
-See awesome Table~\ref{tab:int_table} Table~\ref{tab:ext_table} and Table ~\ref{tab:opt_table}.
+See awesome Table~\ref{tab:benefit_table}  and Table ~\ref{tab:opt_table} and Table~\ref{tab:inf_table} .
 \renewcommand{\arraystretch}{1.1} %adding space between rows will influence the rest of the document
 
-\begin{table}
- \caption{Extrinsic Motivations}
-  \centering
-  \begin{tabular}{|l|c|p{0.3 \linewidth}|}
-    \hline
-    \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{General Goal}} 
-    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Specific Goal}}
-    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Benefit}}\\[1.1ex] % add some space after headers before horizontal line
-    \hline
-    \multirow{4}{*}{Gaining Support}              
-    & \multirow{4}{*}{Evidence of Impact} & 
-    Supporting future funding requests \\
-    & &
-    (to maintain or develop new tools) \\
-    & &
-    Requesting for resources  \\
-    & & 
-    (to maintain or develop new tools) \\[1.1ex]
-    \hline
-    \multirow{4}{*}{ Commitment of users} 
-    & \multirow{4}{*}{Evidence of tool acceptance} & 
-    Reassuring users about tool to:\\
-    &&
-    - Promote continued use\\
-    && 
-    - Promote usage of new tools by the same developers \\ 
-    &&
-    - Promote usage by more diverse users \\[1.1ex]
-    \hline
-    \multirow{1}{*}{Commitment of community developers} 
-    & \multirow{1}{*}{Evidence of co-development} & 
-    Encouraging contributions by other developers \\
-    \hline
-  \end{tabular}
-  \label{tab:ext_table}
-\end{table}
-
 
 \begin{table}
- \caption{\textbf{Software evaluation supports internal needs for tool optimization and development, as well as demonstration of the tools value to others.} Tool optimization can involve improving workflows, performance, usage, or usability. Evaluations can guide future work. For example, recognizing the types or volumes of data being used, as well as temporal trends of data usage, can highlight opportunities for new algorithm development. Similar analyses can help optimize resource allocation within and between projects. Evaluation can also aid in demonstrate tool value to gain external support, such as funding.  Evidence for impact is also often required to gain resources to develop or maintain semi- or un-related tools. Demonstration of past capability to develop impactful software supports requests to do so in the future.  Demonstrating that a tool is widely-used and widely-accepted can also encourage users to adopt a tool more readily, and be more invested in a tool community. Developers may be drawn to projects with impact to build upon an exiting tool. Finally, demonstration of impact can recruit new users which can diversify tool communities and bring new problems of interest that expand the utility of a tool.}
+ \caption{\textbf{Software evaluation supports internal needs for tool optimization and development, as well external needs to demonstrate tool value 
+ to others.} Tool optimization can involve improving workflows, performance, usage, or usability. Evaluations can guide future work. For example, recognizing the types or volumes of data being used, as well as temporal trends of data usage, can highlight opportunities for new algorithm development. Similar analyses can help optimize resource allocation within and between projects. Evaluation can also aid in demonstrate tool value to gain external support, such as funding.  Evidence for impact is also often required to gain resources to develop or maintain semi- or un-related tools. Demonstration of past capability to develop impactful software supports requests to do so in the future.  Demonstrating that a tool is widely-used and widely-accepted can also encourage users to adopt a tool more readily, and be more invested in a tool community. Developers may be drawn to projects with impact to build upon an exiting tool. Finally, demonstration of impact can recruit new users which can diversify tool communities and bring new problems of interest that expand the utility of a tool.}
   \centering
-  \begin{tabular}{|c|c|l|}
+  \begin{tabular} {|p{0.27\textwidth}|p{0.25\textwidth}|p{0.4\textwidth}|}
+  %{|c|c|l|}
     \hline
-    \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Internal Goal}} 
+    \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Internal Need}} 
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Specific Goal}}
-    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Benefit}}\\
+    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Benefit}}\\[1.1ex]
     \hline
     \multirow{17}{*}{Tool Optimization}               
     & \multirow{3}{*}{Improving Workflows} & 
-    Identifying unexpected usage \\
+    Identify unexpected usage \\
     & &
-    Identifying inefficiencies \\
+    Identify inefficiencies \\
     & &
-    Identifying inadequate documentation\\ \cline{2-3}
+    Identify inadequate documentation\\ \cline{2-3}
     &   \multirow{4}{*}{  }
     & 
-     Identifying mismatches with defaults and use \\
-     &  Improving Performance  &
-     Identifying errors \\
+     Identify mismatches with defaults and use \\
+     &  Improve Performance  &
+     Identify errors \\
     &  &
-    Assessing run-time \\
+    Assess run-time \\
     &  & 
-     Measuring data volume \\  \cline{2-3}
-    & \multirow{5}{*}{ Improving Usage} & 
-    Identifying who the user-base is \\
+     Measure data volume \\  \cline{2-3}
+    & \multirow{5}{*}{ Improve Usage} & 
+    Identify who the user-base is \\
     & &
-    Determining user-base diversity \\
+    Determine user-base diversity \\
     & &
-    Identifying sources of other possible users \\
+    Identify sources of other possible users \\
     & &
-    Determining what users expectations are \\
+    Determine what users expectations are \\
     & &
-    Determining if user expectations are appropriate \\
+    Determine if user expectations are appropriate \\
     & &
-    Evaluating success of outreach approaches\\  \cline{2-3}
-    & \multirow{2}{*}{ Improving Implementation} & 
-    Identifying barriers for adaption \\
+    Evaluate success of outreach approaches\\  \cline{2-3}
+    & \multirow{2}{*}{ Improve Implementation} & 
+    Identify barriers for adaption \\
     &   &
-    Identifying methods to support adaption \\
+    Identify methods to support adaption \\
     &  & 
-    Identifying use of out-dated versions\\\cline{2-3}
-    & \multirow{2}{*}{ Improving Usability} & 
-    Identifying what features are used \\
+    Identify use of out-dated versions\\\cline{2-3}
+    & \multirow{2}{*}{ Improve Usability} & 
+    Identify what features are used \\
     & & 
-    Identifying which users use which features \\
+    Identify which users use which features \\
     &  &
-    Identifying what features are not being used \\
+    Identify what features are not being used \\
     & &
     Identify if and how users are struggling \\ 
     \hline
     \multirow{6}{*}{\shortstack{Tool Development \\ \& Maintenance}}
-    & \multirow{6}{*}{\shortstack{ Guiding Future Work\\  Motivating Continued Support}} &
-    Enumerating data types being used \\
+    & \multirow{6}{*}{\shortstack{ Guide Future Work\\  Motivate Continued Support}} &
+    Enumerate data types being used \\
     & &
-    Measuring volume of data use \\
+    Measure volume of data use \\
     & &
-    Discovering opportunities for new features \\
+    Discover opportunities for new features \\
     && 
-    Discovering data needed to address user goals  \\
+    Discover data needed to address user goals  \\
     & & 
-    Identifying more appropriate resource allocation \\
+    Identify more appropriate resource allocation \\
     & & 
-    Identifying strategies to reduce barriers \\
+    Identify strategies to reduce barriers \\
     \hline
-    \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{External Goal}} 
+    \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{External Need}} 
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Specific Goal}}
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Benefit}}\\[1.1ex] % add some space after headers before horizontal line
     \hline
     \multirow{4}{*}{Gain Support}              
-    & \multirow{4}{*}{Evidence of Impact} & 
-    Supporting future funding requests \\
+    & \multirow{4}{*}{Show Evidence of Impact} & 
+    Support future funding requests \\
     & &
     (to maintain or develop new tools) \\
     & &
-    Requesting for resources  \\
+    Request for resources  \\
     & & 
     (to maintain or develop new tools) \\[1.1ex]
     \hline
-    \multirow{4}{*}{Gain Commitment of users} 
+    \multirow{4}{*}{Gain User Commitment} 
     & \multirow{4}{*}{Evidence of tool acceptance} & 
-    Reassuring users about tool to:\\
+    Reassure users about tool to:\\
     &&
     - Promote continued use\\
     && 
@@ -392,12 +492,12 @@ See awesome Table~\ref{tab:int_table} Table~\ref{tab:ext_table} and Table ~\ref{
     &&
     - Promote usage by more diverse users \\[1.1ex]
     \hline
-    \multirow{1}{*}{Gain Commitment of community developers} 
+    \multirow{1}{*}{Gain Community Development} 
     & \multirow{1}{*}{Evidence of co-development} & 
-    Encouraging contributions by other developers \\
+    Encourage contributions  \\
     \hline
   \end{tabular}
-  \label{tab:int_table}
+  \label{tab:benefit_table}
 \end{table}
 
 
@@ -448,6 +548,10 @@ See awesome Table~\ref{tab:int_table} Table~\ref{tab:ext_table} and Table ~\ref{
 \bibliographystyle{unsrt} 
 
 \bibliography{references}
+
+
+
+
 
 
 \end{document}
