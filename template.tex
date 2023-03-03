@@ -30,7 +30,7 @@
                            }% end of AtBeginEnvironment
                            
 
-\title{Impact of software designed for biomedical research: Are we measuring what we think we are?}
+\title{Impact of software designed for biomedical research: Are we measuring what's important?}
 
 
 \author{
@@ -65,7 +65,7 @@ Carrie Wright \\
 \begin{document}
 \maketitle
 \begin{abstract}
-Software has become vital in the advancement of biology and medicine. Analysis of usage and impact metrics of such software can be very beneficial to determining user and community contributor engagement. Such knowledge can be useful in justifying additional funding, encouraging additional use, and identifying unexpected usage. Furthermore, it can help define improvement areas and assist with managing project resources. However, there are several challenges associated with assessing usage and impact, many of which vary widely depending on the type of software being evaluated. These challenges involve issues of distorted, exaggerated, understated, or misleading metrics, as well as ethical and security concerns.  More attention to the nuances, challenges, and considerations involved in capturing impact across the diverse spectrum of biological software is needed. Although there are principles that can be generally applicable, there is not a single metric or approach to effectively evaluate a software tool’s impact, as this depends on aspects of the tool, how it is used, and how one wishes to evaluate engagement. We propose generalizable guidelines, as well as strategies for various types of software and resources. We also highlight outstanding issues in the field regarding how we measure or evaluate software impact. To gain an understanding of the issues hindering such evaluations, as well as to determine what appears to be helpful, we performed a survey of participants involved with scientific software projects for the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI). We also performed investigations of software among this scientific community and others to determine how often infrastructure that supports such evaluations is implemented.  Our findings can help scientific software developers make the most out of the evaluations of their software so that they can more fully reap the benefits of such assessments.
+Software has become vital for the advancement of biology and medicine. Analysis of usage and impact metrics of such software can help determine user and community contributor engagement. These can be used to justify additional funding, encourage additional use, and identify unanticipated use cases. Furthermore, it can help define improvement areas and assist with managing project resources. However, there are challenges associated with assessing usage and impact, many of which vary widely depending on the type of software being evaluated. These challenges involve issues of distorted, exaggerated, understated, or misleading metrics, as well as ethical and security concerns.  More attention to the nuances, challenges, and considerations involved in capturing impact across the diverse spectrum of biological software is needed. Although some principles are generally applicable, there is not a single perfect metric or approach to effectively evaluate a software tool’s impact, as this depends on aspects unique to each tool, how it is used, and how one wishes to evaluate engagement. We propose generalizable guidelines, as well as strategies for various types of software and resources. We also highlight outstanding issues in the field regarding how communities measure or evaluate software impact. To gain a deeper understanding of the issues hindering software evaluations, as well as to determine what appears to be helpful, we performed a survey of participants involved with scientific software projects for the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI). We also performed investigations of software among this scientific community and others to determine how often infrastructure that supports such evaluations is implemented.  Our findings can help scientific software developers make the most out of the evaluations of their software so that they can more fully benefit from such assessments.
 \end{abstract}
 
 
@@ -73,9 +73,9 @@ Software has become vital in the advancement of biology and medicine. Analysis o
 %\keywords{First keyword \and Second keyword \and More}
 
 
-\section{Introduction} Biomedical software is critical to the advancement of biomedical research. The field has embraced and continues to embrace more open science practices, including the encouragement for sharing and harmonizing data and creating open source (publicly accessible and often freely available) software \cite{green_strategic_2020, levet_developing_2021, itcr_open-source_2021}. Often such open source software is initially developed so that the developers can use it themselves to reach a research goal \cite{bitzer_intrinsic_2007}. The software is then shared with the hopes that the use of the software by others will also contribute to the advancement of science or healthcare. Once shared, evaluations of the software is necessary to achieve two major benefits: 1) inform developers about how to improve the use and ultimately impact of the tool and 2) demonstrate the value of the tool to support the developers to obtain funding to continue to support existing software and to create new software. Common metrics include number of new users, returning users, and total usage of the software, but the type of metrics possible vary based on the type of tool and the context. These and other metrics, allow a project to gauge the rate of uptake of a project as well as how established it has become. However, developers often lack knowledge about the infrastructure or tools that can aid in the effective collection of usage and impact metrics. Proper metrics should not only examine the software's performance but assess whether motivations and goals of the researchers who are using the software are being met.
+\section{Introduction} Biomedical software has become a critical component of nearly all biomedical research. The field has embraced more open science practices, including sharing and harmonizing data and creating open source (publicly accessible and often freely available) software \cite{green_strategic_2020, levet_developing_2021, itcr_open-source_2021}. Often such open source software is initially developed so that the developers can use it themselves to reach a research goal \cite{bitzer_intrinsic_2007}. The software is then shared with the hopes that the use of the software by others will also contribute to the advancement of science or healthcare. Once shared, evaluations of the software is necessary to achieve two major benefits: 1) inform developers about how to improve the use and ultimately impact of the tool and 2) demonstrate the value of the tool to support the developers to obtain funding to continue supporting existing software and creating new software. Common metrics include number of new users, returning users, and total downloads of the software, but the type of metrics possible vary based on the type of tool and the context. These and other metrics, allow a project to gauge the rate of uptake of a project as well as how established it has become. However, developers often lack knowledge about the infrastructure or tools that can aid in the effective collection of usage and impact metrics. Proper metrics should not only examine the software's performance but assess whether motivations and goals of the researchers who are using the software are being met.
 
-We aim to provide guidance for evaluations of software impact and engagement so that software developers can build tools that better meet researchers' needs to catalyze the progress of biomedical research. We will also discuss ethical considerations and challenges of such evaluations that still require solutions. The guidance presented here for software assessments holds the potential for developers to improve the use and utility of their tools, improve their chances of funding for future development, and ultimately lead to the development of even more useful software to advance science and medicine \cite{wratten_reproducible_2021}. 
+We aim to provide guidance for evaluations of software impact and engagement so that software developers can build tools that better meet researchers' needs to catalyze the progress of biomedical research. We also discuss ethical considerations and challenges of such evaluations that still require solutions. The guidance presented here for software assessments holds the potential for developers to improve the use and utility of their tools, improve their chances of funding for future development, and ultimately lead to the development of even more useful software to advance science and medicine \cite{wratten_reproducible_2021}. 
 
 
 \section{Overall guidance}
@@ -108,16 +108,16 @@ It is also worthwhile to consider which presentations of software metrics will b
 
 \subsection{No single evaluation method works for every type of software}
 \label{sec:no_one_way}
-No individual scheme for collecting metrics fits every type of research software tool.  The meaning of a set of metrics may differ across different contexts. The location of a tool: whether it is on the web or locally downloaded can affect metric collection and influence user access to software versions. For example, for a web-based application, it may be feasible to collect user metrics on a per-account basis and to collect information about the type of data or software features users tend to work with. With this type of tool, users will rarely have access to older versions of the software. Thus developers can add version updates and collect metrics with clarity about how usage changed with updates. On the other hand, for tools that must be run (and possibly installed)  locally, users may be using older versions of the software that they previously downloaded.  Here, metrics on a per-version basis provide a much better representation of usage, rather than simply the overall number of unique downloads. Collection of version usage is important, as developers may want to pair this with citation data to know if users are using out-of-date aspects of previous versions of the software.
+No individual scheme for collecting metrics fits every type of research software tool.  The meaning of a set of metrics may differ across contexts. The location of a tool (e.g., whether it is on the web or downloaded) can affect metric collection and influence user access to software versions. For example, for a web-based application, it may be feasible to collect user metrics on a per-account basis and to collect information about the type of data or software features users tend to work with. With web-based tools, users will rarely have access to older versions of the software. Thus developers can add version updates and collect metrics with clarity about how usage changed with updates. On the other hand, for tools that must be run (and possibly installed)  locally, users may be using older versions of the software that they previously downloaded.  Here, metrics on a per-version basis provide a much better representation of usage, rather than simply the overall number of unique downloads. Collection of version usage is important, as developers may want to pair this with citation data to know if users are using out-of-date aspects of previous versions of the software.
 
 
-NOT SURE WHERE TO PUT THIS:
-For example, you may find that your software is used widely in a country outside of the country in which you originally obtained funding to create that tool. Knowing this information, you could consider requesting funding for collaborators in that country to support that particular community.
 
  \subsection{Usage metrics assessments}
-Once a project is generating sufficient user metrics, the next step is to interpret them to determine how they should inform the project's feature roadmap, development priorities, and outreach initiatives. This information can be used to estimate the level of "market penetration" that a tool has achieved. Although market share is difficult to estimate, it is important to have an expected community size and a measure of where a tool stands in comparison to its total potential use. It is also important to avoid comparisons between the community size and usage of tools with different approaches, i.e., between a desktop-based genome browser and a web-based repository of cancer data, given the different modes of use. 
+Metrics should be used to identify how well a software projects is meeting its goal. How well is it meeting the needs of its users? Once a project is generating sufficient user metrics, the next step is to interpret them to determine how they should inform the project's feature roadmap, development priorities, and outreach initiatives. Interpretation of user metrics can be tricky since any given metric may have many obvious and not so obvious causes. 
 
-When software has sufficient use, observed spikes in usage, both up and down, provide important feedback. A spike may correspond to a class or workshop that is given using the tool, a recent publication that cites the tool, or the unauthorized use of a resource. Negative trends in usage may indicate a break in the academic calendar, down time of a host server, or, for tools based on Amazon Web Services, the additional compute resources required by Amazon during holiday cycles may preempt software running on spot instances.
+The first question a developer may have is how many people are using the tool to begin with? Metrics can be used to estimate the level of "market penetration" that a tool has achieved. Although market share is difficult to estimate, it is important to have an expected community size and a measure of where a tool stands in comparison to its total potential use. It is also important to avoid comparisons between the community size and usage of tools with different approaches, i.e., between a desktop-based genome browser and a web-based repository of cancer data, given the different modes of use. 
+
+When software has sufficient use, observed spikes in usage, both up and down, provide important feedback. A spike may correspond to a class or workshop using the tool or a recent publication that cites the tool. Negative trends in usage may indicate a break in the academic calendar, down time of a host server, or, for tools based on Amazon Web Services, the additional compute resources required by Amazon during holiday cycles may preempt software running on spot instances.
 
 
 \subsection{Software infrastructure enables impact evaluation}
@@ -125,24 +125,24 @@ There are several components of a software tool that can assist with the assessm
 See Table~\ref{tab:inf_table} and supplementary note 1 for suggestions.
 
 \begin{table}
- \caption{\textbf{Software infrastructure enables the capture of valuable metrics for evaluating engagement and impact.} More fine-grained tracking of how users are interacting with web-based tools or websites and can be helpful for later assessments, in addition to improving access, as one can also perform search engine optimization (SEO) to further encourage the visibility. Tools like Altmetric can indicate where  digital object identifiers(DOIs) are cited in multiple sources besides scientific articles, such as blogs, news articles, Wikipedia, social media, and more. }
+ \caption{\textbf{Software infrastructure enables the capture of valuable metrics for evaluating engagement and impact.} Note that there are other helpful tools to enable metric collection. Those listed are simply examples. }
   \centering
-  \begin{tabular} {|p{0.1\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.23\textwidth}|p{0.24\textwidth}|}
+  \begin{tabular} {|p{0.03\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|p{0.23\textwidth}|p{0.24\textwidth}|}
     \hline
-    \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Infrastructure}} 
+    \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Elements}} 
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Options}}
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{\shortstack{\\Tools to Enable \\Metric Collection}}}
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{\shortstack{\\Possible\\ Enabled Metrics}}}
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Considerations}}\\[1.1ex]
     \hline
-    \multirow{17}{*}{Web Presence}               
-    & Readme on Code Repository &  &
-    Identify page visits overtime & \\
- \cline{2-5}
-    &   \multirow{3}{*}[-3em]{ Web-based tool} & \begin{itemize}
+    \multirow{8}{*}{\shortstack{Web \\ Presence}}               
+    &   \multirow{2}{*}[-2em]{ Web-based tool} & 
+    \raggedright{
+    \begin{itemize}
         \item Cronitor \cite{cronitor} for tools using cron job scheduling \cite{cron_2009})
         \item Google Analytics\cite{google_analytics}
     \end{itemize}
+    }
     & 
     \begin{itemize}
     \item Identify details about usage
@@ -150,7 +150,7 @@ See Table~\ref{tab:inf_table} and supplementary note 1 for suggestions.
     \item Possibly identify what data is being used
     \end{itemize} &  May need to consider privacy restrictions for tracking IP addresses\\
     \cline{2-5}
-    & \multirow{5}{*}{ \shortstack{Documentation \\ Website}} &
+    & \multirow{2}{*}[-1em]{ \shortstack{Documentation \\ Website}} &
     \begin{itemize}
         \item Google Analytics\cite{google_analytics}
     \end{itemize}
@@ -160,20 +160,19 @@ See Table~\ref{tab:inf_table} and supplementary note 1 for suggestions.
     \end{itemize} &
     Pages with more views may identify widely used features or confusing aspects \\
     \hline
-    \multirow{3}{*}{Citability}
-    & \raggedright{Providing something to cite (Software DOI or manuscript) and information on how to cite} & 
+    \multirow{3}{*}[-2em]{Citability}
+    & \raggedright{Providing something to cite (Software DOI or manuscript) and information on how to cite} & \raggedright{
     \begin{itemize}
-        \item To create DOIs for software and more: Zenodo \cite{zenodo}, Dryad \cite{datadryad}, and Figshare \cite{figshare} 
+        \item To create DOIs: Zenodo \cite{zenodo}, Dryad \cite{datadryad}, and Figshare \cite{figshare} 
         \item To track DOIs: Altmetric \cite{noauthor_altmetric_2015}
-        \item To track paper citations: Semantic Scholar \cite{noauthor_semantic_nodate}
-    \end{itemize} &
+    \end{itemize}} &
      \begin{itemize}
          \item total citation counts 
          \item counts of citations in by journals of different fields
      \end{itemize} & Semantic Scholar \cite{noauthor_semantic_nodate} provides reports that indicate where citations have occurred within scientific articles. \\
         \hline
-    \multirow{3}{*}{Communications} &
-    \shortstack{Feedback \\Mechanisms} & 
+    \multirow{3}{*}[-5em]{Contact} &
+    \multirow{3}{*}{\shortstack{\\Feedback \\Mechanisms}} & 
     \begin{itemize}
     \item GitHub Issue Templates
     \item Surveys
@@ -182,7 +181,7 @@ See Table~\ref{tab:inf_table} and supplementary note 1 for suggestions.
     \begin{itemize}
     \item User feedback count
     \item addressed user feedback count 
-    \end{itemize} &\\
+    \end{itemize} & Often users will only provide feedback if something is broken. Depending on the tool, many users may not be comfortable with GitHub Issues\\
     \cline{2-5}
     & \multirow{2}{*}{ \shortstack{Discussion \\ Forums}} &
     \begin{itemize}
@@ -194,24 +193,41 @@ See Table~\ref{tab:inf_table} and supplementary note 1 for suggestions.
     \begin{itemize}
         \item Mailchimp \cite{mailchimp}
         \item HubSpot \cite{hubspot} 
-    \end{itemize} & how often recipients open the news letter, click on links, or unsubscribe & \\
+    \end{itemize} & 
+    \begin{itemize}
+        \item count of newsletter openings
+        \item count of link clicks
+        \item count of unsubscribers
+    \end{itemize} & Newsletters can help inform users about new features \\
     \hline
-    \multirow{3}{*}{Usability Testing}
-    & \raggedright{Observe a few people use the tool} & & &\\
+    \multirow{3}{*}{\shortstack{Usability\\Testing}}
+    & \raggedright{Observe a few people use the tool} & 
+    \begin{itemize}
+        \item Zoom screen sharing and recording
+    \end{itemize} & Qualitative information about how users interact with your software& Even low numbers of usability interviews (~3) can yield fruitful lessons that can be paired with other metrics to guide development\\
     \hline
     \multirow{3}{*}{Workshops}
-    & \raggedright{ Online or in-person, Basics for new users or New features for existing users} & Attendees can participate in surveys &  Quantity, duration, and attendance at workshops are metrics that can be reported to funding agencies & Recordings of instructors can  be posted on Social Media (for additional metrics)\\
+    & \raggedright{ Online or in-person, Basics for new users or new features for existing users} & Attendees can participate in surveys &  Quantity, duration, and attendance at workshops are metrics that can be reported to funding agencies & Recordings of instructors can  be posted on Social Media (for additional metrics)\\
     \hline
-    \multirow{3}{*}{Socail Media}
+    \multirow{3}{*}{\shortstack{Social\\ Media}}
     & \begin{itemize}
         \item YouTube Videos
-        \item twitter
-        \item instagram
-        \item linkedin 
-    \end{itemize} & &  Pairing engagement metrics (video watch counts, likes, etc) with software engagement metrics can determine if outreach strategies are successful & \\
+        \item Twitter/mastodon
+        \item Instagram
+        \item LinkedIn 
+    \end{itemize} & 
+    \begin{itemize}
+        \item Hootsuite \cite{hootsuite} - social media management
+    \end{itemize} &   Engagement metrics (video watch counts, likes, etc)  & Pairing Social media  metrics with software engagement metrics can determine if outreach strategies are successful \\
     \hline
        \multirow{3}{*}{Reviews}
-    & Review Forum & SourceForge &  Stars and review metrics can be directly used to reasure users and funders & \\ 
+    & Review Forum & 
+    \begin{itemize}
+        \item SourceForge
+    \end{itemize} &  \begin{itemize}
+        \item Stars
+        \item number of reviews
+    \end{itemize} & Positive revies can reasure new users and funders\\ 
     \hline
   \end{tabular}
   \label{tab:inf_table}
@@ -224,7 +240,7 @@ Tracking adherence to standards of software engineering can be a useful way to a
 
 
 \begin{table}
- \caption{\textbf{Software health infrastructure enables collecting metrics that can reassure users and funders.} More fine-grained tracking of how users are interacting with web-based tools or websites and can be helpful for later assessments, in addition to improving access, as one can also perform search engine optimization (SEO) to further encourage the visibility. Tools like Altmetric can indicate where  digital object identifiers(DOIs) are cited in multiple sources besides scientific articles, such as blogs, news articles, Wikipedia, social media, and more. }
+ \caption{\textbf{Software health infrastructure enables collecting metrics that can reassure users and funders.}  }
   \centering
   \begin{tabular} {|p{0.1\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.23\textwidth}|p{0.24\textwidth}|}
     \hline
@@ -234,90 +250,49 @@ Tracking adherence to standards of software engineering can be a useful way to a
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{\shortstack{\\Possible\\ Enabled Metrics}}}
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Considerations}}\\[1.1ex]
     \hline
-    \multirow{17}{*}{Version Control}               
-    &   \multirow{3}{*}[-3em]{\shortstack{Continuous \\ Integration}} & \begin{itemize}
+    \multirow{6}{*}{Version Control}               
+    &   \multirow{3}{*}[-3em]{\shortstack{Without\\ automation}} & \begin{itemize}
         \item Git/GitHub \cite{GitHub} 
         \item Git/GitLab\cite{GitLab})
         \item BitBucket\cite{bitbucket}
     \end{itemize}
     & 
     \begin{itemize}
-    \item Identify details about usage
-    \item Identify where your tool is being used
-    \item Possibly identify what data is being used
-    \end{itemize} &  May need to consider privacy restrictions for tracking IP addresses\\
+    \item blah
+    \item blah
+    \end{itemize} &  blah\\
     \cline{2-5}
-    & \multirow{5}{*}{ \shortstack{Discontinuous \\ Integration}} &
+    & \multirow{5}{*}{ \shortstack{With\\ Automations}} &
     \begin{itemize}
-        \item Google Analytics\cite{google_analytics}
+        \item GitHub Actions\cite{github_actions}
     \end{itemize}
     &
     \begin{itemize}
-    \item Counts of page views and scrolls
+    \item blah blah blah blah blah blah blah blah blah blah blah
     \end{itemize} &
-    Pages with more views may identify widely used features or confusing aspects \\
+    Continuous Integration \& Continuous Deployment/Delivery are terms to described a situation where when new code  is added, the full code product that it is a part of is automatically rebuilt or compiled  and often tested (to ensure that new changes to not cause issues) and then Continuous Deployment/Delivery describes the automatic release of this new code to users. Delivery in this case describes situations where the software requires more manual releases while deployment is seamless. \\
     \hline
-    \multirow{3}{*}{Development Activity}
-    & \raggedright{Providing something to cite (Software DOI or manuscript) and information on how to cite} & 
-    \begin{itemize}
-        \item To create DOIs for software and more: Zenodo \cite{zenodo}, Dryad \cite{datadryad}, and Figshare \cite{figshare} 
-        \item To track DOIs: Altmetric \cite{noauthor_altmetric_2015}
-        \item To track paper citations: Semantic Scholar \cite{noauthor_semantic_nodate}
-    \end{itemize} &
-     \begin{itemize}
-         \item total citation counts 
-         \item counts of citations in by journals of different fields
-     \end{itemize} & Semantic Scholar \cite{noauthor_semantic_nodate} provides reports that indicate where citations have occurred within scientific articles. \\
+    \multirow{2}{*}{ \shortstack{Development \\ Activity}}
+    & \raggedright{blah} & blah blah blah blah blah blah blah  & blah
+ &blah \\
         \hline
     \multirow{3}{*}{Testing} &
-    \shortstack{Feedback \\Mechanisms} & 
-    \begin{itemize}
-    \item GitHub Issue Templates
-    \item Surveys
-    \end{itemize}
-    & 
-    \begin{itemize}
-    \item User feedback count
-    \item addressed user feedback count 
-    \end{itemize} &\\
+ Manual & autmotated & blah blah
+ &blah blah\\
     \cline{2-5}
-    & \multirow{2}{*}{ \shortstack{Discussion \\ Forums}} &
+    & \multirow{2}{*}{ \shortstack{Automated \\ Testing}} &
     \begin{itemize}
-        \item Discourse\cite{discourse}
+        \item blah blah
+        \item blah blah
     \end{itemize} &
-    Metrics based on user engagements and answered questions & Forums save time for development as users help each other instead of developers answering individual emails for repeat problems. A code of conduct can help create a supportive community.\\
-    \cline{2-5}
-    & \multirow{2}{*}{ \shortstack{Newsletter\\Emails}} &
-    \begin{itemize}
-        \item Mailchimp \cite{mailchimp}
-        \item HubSpot \cite{hubspot} 
-    \end{itemize} & how often recipients open the news letter, click on links, or unsubscribe & \\
+    blah blah & blah blah.\\
     \hline
     \multirow{3}{*}{Licensing}
-    & \raggedright{Observe a few people use the tool} & & &\\
+    & \raggedright{A Variety of licenses exist to allow or disallow reuse and to require attribution} & Creative Commons \cite{creative_commons} & Possible quantification of reuse of your software code & Clearly indicating if and how people can reuse your code will make them more comfortable to do so. Determining when this is done can be a challenge, but requiring attribution makes this more feasible\\
     \hline
   \end{tabular}
   \label{tab:soft_health_table}
 \end{table}
-
-\subsubsection{Version control mechanisms}
-Many bioinformatics software projects maintain their source code under public revision or version control, using a platform such as GitHub or GitLab. Provided that the platform is actually used for version control (as opposed to hosting one or two versions of the software), this is a useful indicator of project health. Users can be confident that changes to the code are tracked to some extent and can also observe how much activity and updates have occurred to the software -- this can indicate to the user and developers fo the project how recently maintenance has occurred. This can also help users identify the specific version or revision of the software they are using to record and report their methods, reproduce an analysis, or determine if they are impacted by a bug in the software. Furthermore, GitHub provides an insight tab with information about development metrics and its API allows for collection of these metrics in a systematic and reproducible way. 
-
-\subsubsection{Development activity}
-Finally project health can be assessed based on activity. By reviewing the frequency of commits and the date of the most recent commit in a revision control system, it is possible to assess whether the project is actively developed. Inactively developed projects project may not include fixes for recently discovered bugs, or improvements in methods to keep current with the field. Tracking who is making commits to the project can also provide details on whether the project is the work of one or a few developers, or of a large and active developer community. Neither a big or small developer community is necessarily better, though smaller developer communities can pose greater sustainability risk. If there is only one person who knows how to work on the code, and that person becomes unable or unwilling to continue working on the project, development or maintenance of the project may be discontinued. 
-
-
-
-\subsubsection{Automated test coverage and continuous integration testing}
-Bugs in scientific software can have far-reaching impacts. Automated software tests allow developers to confirm that their code is behaving as expected under a range of normal and abnormal conditions. Systematically developed tests that can be run by both developers and users with a single command, give confidence that the software is doing what it is supposed to be doing. Platforms such as GitHub allow developers to advertise their test code coverage (the fraction of lines of code in the project that are covered by automated tests) and current build status (including whether tests are currently passing or failing). The presence or absence of this information, as well as quantitative metrics like test code coverage, are useful indicators of project health. Similarly, the use of automated or continuous integration testing, which can be configured to run when a change is committed to a software repository, when software releases are created, or at any other point where quality assurance is necessary to provide early signals of errors, is also an indicator of project health. This can help ensure that bugs or other issues can be detected before software is deployed by users.
-
-The presence of different types of automated tests can be seen as an indicator of software maturity, and the care taken in the process of developing the software. Unit tests provide confidence in individual pieces of code; component and integration tests provide confidence that individual pieces of code behave correctly together; acceptance tests provide confidence that the overall software behaviors are correct. Achieving this in-depth test coverage requires careful software design upfront and throughout development. It is worth noting that, while useful, test coverage is not always a trustworthy representation of test quality. It is simply a measure of the proportion of code which is run by the test suite. It does not evaluate the quality of the test cases or assertions.
-
-Other related static code analysis metrics can be used in conjunction with test coverage to build a more well-rounded picture of code quality. For example, cyclomatic complexity measures the logical complexity of a function. Code with high cyclomatic complexity contains numerous branching paths with variations in execution, and therefore should be avoided. It’s clear that a complex function can have 100\% test coverage without coming close to testing all possible outcomes. In fact, writing tests for highly complex code is often a lost cause. By considering cyclomatic complexity alongside test coverage, programmers can target specific areas of a codebase that need more tests. However, they can also see where they should instead prioritize refactoring, reducing complexity and improving testability first.
-
-\subsubsection{Licensing}
-In general, a software project should have a discoverable license that allows users to understand how they are and are not allowed to use the software. Licenses differ in how permissive they are, but the lack of a license defaults to highly restrictive terms and is an indicator that use of the software by others hasn’t been adequately considered. Similarly, the choice of license can be another indicator of inadequate usage consideration due to the restrictive and binding nature of some software licenses. 
-
 
 
 \section{Operationalization}
@@ -329,51 +304,48 @@ Careful consideration of the use case can provide a good starting point. In a si
 \section{Challenges and nuances}
 
 \subsection{Citation challenges}
-Measuring the number of citations of your tool is important, especially as a metric to report to funding agencies. First, it is important that your tool has a manuscript or other data object to cite \cite{chue_hong_software_2019}. While publishing a manuscript in a formal publication is often the ultimate goal for a tool, having a manuscript published as a preprint such as BioRxiv, or even in Figshare (see the example The graph-tool python library \cite{peixoto_graph-tool_2017}), can help a tool to have a citable presence. For data objects, Zenodo \cite{zenodo}, Dryad \cite{datadryad}, and Figshare \cite{figshare} can provide DOIs, which are citable. Note that having a pre-final published version of your tool may make it difficult to track citations in the future once a manuscript is formally published as tool developers will have to follow citations for both publications.
+Measuring the number of citations of your tool is important, especially as a metric to report to funding agencies. First, it is important that your tool has a manuscript or other data object to cite \cite{chue_hong_software_2019}. While publishing a manuscript in a formal publication is often the ultimate goal for a tool, having a manuscript published as a preprint such as BioRxiv, or even in Figshare (see 'The graph-tool python library' \cite{peixoto_graph-tool_2017}), can help a tool to have a citable presence. For data objects, Zenodo \cite{zenodo}, Dryad \cite{datadryad}, and Figshare \cite{figshare} can provide DOIs, which are citable. Note that having a pre-final published version of your tool may make it difficult to track citations in the future once a manuscript is formally published as tool developers will have to follow citations for both publications.
 
-Once a tool is published, getting users to cite a tool or cite it correctly can be difficult. First, some tools are so common that users often don't think to cite them, similar to how a scientist would not cite Microsoft Word when writing a publication, despite the crucial role Microsoft Word played in the writing process. An example of a tool like this would be the UCSC Genome Browser. Second, some tools are used in the discovery phase of a project, and a user may not think of it when they are in the final stages of writing up findings. An example would be a tool used to find a discovery cohort of patients such as EMERSE (Electronic Medical Record Search Engine). Third, tools which provide system architecture for a other software may also not be typically cited. Some tools in this category include Bioconductor, Gene Pattern Notebook, and Galaxy. understanding citations may require looking at usage of other tools that are available on these platforms. Lastly, while users may recognize and acknowledge your tool, they may not cite the tool in the reference section of their paper and they may mention the tool without complete information, such as not including version information, parameter settings, URLs, or credit to those who made the software.  In fact, a study manually evaluating software citations of 4,971 academic biomedical and economics articles, found that the citations only included version information  28\% of the time \cite{howison_software_2016}.  Another study manually evaluating 90 biology articles, also finds a low rate of complete information with version information being included only 27\% of the time and URL information included only 17\% of the time \cite{du_softcite_2021}. People may  mentioning a tool in a figure legend, in the paper itself, in the acknowledgments, or even in the abstract, without a citation. These mentions of a tool are difficult to track. Furthermore, occasionally manuscripts simply acknowledge that a software tool exists, rather than indicating that it was actually used by the authors. In other cases a newer version of a tool is used, yet a previous publication for an earlier version of the tool may often be cited by these users. This typically requires manually reading articles. 
+Once a tool is published, getting users to cite a tool or cite it correctly can be difficult. First, some tools are so common that users often don't think to cite them, similar to how a scientist would not cite Microsoft Word when writing a publication, despite the crucial role Microsoft Word played in the writing process. An example of a tool like this would be the UCSC Genome Browser \cite{ucsc, kent_human_2002}. Second, some tools are used in the discovery phase of a project, and a user may not think of it when they are in the final stages of writing up findings. An example would be a tool used to find a discovery cohort of patients such as EMERSE (Electronic Medical Record Search Engine) \cite{hanauer_supporting_2015}. Third, tools which provide system architecture for a other software may also not be typically cited. Some tools in this category include Bioconductor \cite{bioconductor}, Gene Pattern Notebook \cite{reich_genepattern_2017}, and Galaxy \cite{the_galaxy_community_galaxy_2022}. Understanding citations may require looking at usage of other tools that are available on these platforms.
 
-Fortunately, there are a number of tools that can help you measure citations. These include Google Scholar, Web of Science, PubMed, and ResearchGate. Additionally, some tools are being developed to help track software mentions, such as the tool CORD-19 Software Mentions \cite{wade_cord-19_2021}. Each of these citation measuring tools also have options to help overcome the difficulties mentioned above. For instance, Google Scholar and PubMed will allow you to search for the name of a tool anywhere in a paper. In addition Semantic Scholar allows for reports of where citations are located across papers. Note that tools names that alias with other terms, such as Galaxy, can make it more difficult to use these options to find additional citations. A couple of recent papers \cite{istrate_large_2022, schindler_role_2022} have also developed automated extraction methods to overcome additional challenges, such as disambiguating multiple synonyms for the same software, typos or misspelling, the use of acronyms vs full names, and deeper capture of version information. 
+Lastly, while users may recognize and acknowledge your tool, they may not cite the tool in the reference section of their paper and they may mention the tool without complete information, such as not including version information, parameter settings, URLs, or credit to those who made the software.  In fact, a study manually evaluating software citations of 4,971 academic biomedical and economics articles, found that the citations only included version information  28\% of the time \cite{howison_software_2016}.  Another study manually evaluating 90 biology articles, also finds a low rate of complete information with version information being included only 27\% of the time and URL information included only 17\% of the time \cite{du_softcite_2021}. People may mention a tool in a figure legend, in the paper itself, in the acknowledgments, or even in the abstract, without a citation. These mentions of a tool are difficult to track. Furthermore, occasionally manuscripts simply acknowledge that a software tool exists, rather than indicating that it was actually used by the authors. In other cases a newer version of a tool is used, yet a previous publication for an earlier version of the tool may often be cited by these users. This typically requires manually reading articles to discover the use of the software. 
+
+Fortunately, there are a number of tools that can help measure citations. These include Google Scholar, Web of Science, PubMed, and ResearchGate. Additionally, some tools are being developed to help track software mentions, such as the tool "CORD-19 Software Mentions" \cite{wade_cord-19_2021}. Each of these citation measuring tools also have options to help overcome the difficulties mentioned above. For instance, Google Scholar and PubMed will allow you to search for the name of a tool anywhere in a paper. In addition Semantic Scholar allows for reports of where citations are located across papers. Note that tools names that have more than one meaning depending on context, such as Galaxy, can make it more difficult to use keywords to find additional citations. A couple of recent papers \cite{istrate_large_2022, schindler_role_2022} have developed automated extraction methods to overcome additional challenges, such as disambiguating multiple synonyms for the same software, typographic errors or misspellings, the use of acronyms vs full names, and deeper capture of version information. 
 
 It is also important to note that if other software relies on your software, it is likely useful to evaluate the citations of other such software in your analysis of the impact of your software. However, it can be difficult to know if this software exists if the developers do not adequately describe dependencies in a manuscript or documentation.
 
 \subsection{Limitations of tracking systems}
-One other difficulty with the implementation analytics platforms such as Google Analytics. Due to security and privacy concerns, we note that some academic institutions are blocking connections to these services outright. Other, unknown or custom-built tracking may be flagged by security software or otherwise generically blocked. Hence, reliance on this data may not paint the full picture of industrial or academic usage, especially if interest is concentrated in one of these institutions.
+One other difficulty with the implementation of analytics platforms such as Google Analytics is that due to security and privacy concerns, some academic institutions are blocking connections to these services outright. Other, unknown or custom-built tracking may be flagged by security software or otherwise generically blocked. Hence, reliance on these data may not adequately capture industry or academic usage, especially if interest is concentrated in one of these institutions.
 
 \subsection{Distorted metrics}
 
-Projects like Bioconductor, which have a large number of different software packages, can get a greater sense of how different packages compare and are used over time. This can reveal important nuances. One interesting finding is that occasionally scripts used on servers may download a package repeatedly and rapidly on accident hundreds to thousands of times. Since this does not indicate real usage likely beyond one user, this can result in distorted download metrics. Therefore, unique IP download information, is useful to determine if usage represents one user many times versus many users a few times. Given privacy concerns, a alternative solution could be tracking the timing and general location of downloads with a threshold for what might be more than a group of people following a tutorial to identify such scripts. It was also found that there is a baseline background level of downloads across all packages (including those that are no longer supported). Thus a new package may have 250 downloads in the first year year. While out of context this may seem like a successful number, looking at other packages, it can be determined that this is more similar to background levels. Another example, is the S4Vectors package which is an infrastructure package used by many other packages mostly for technical and non-biological reasons and is therefore not often directly downloaded by end-users. This package is also used for automated checks for bioconductor packages more generally using GitHub actions, therefore, it can be difficult to discern if the usage of a package is for scientific research itself or supporting the development of other software. While both are arguably very valuable, distinguishing between these motivations can help us understand a particular software's impact in a field.  Another interesting example is the affy package \cite{affy} , which was one of the early Bioconductor packages for microarray analysis, a technology that has largely been replaced by newer technologies. However, despite a clear transition by the field away from microarray \cite{mantione_comparing_2014}, The affy package was downloaded in 2021 at rates that doubled the rates on 2011. It is believed that this is due to people historically requesting that it be installed on servers and that this is just persisting. Another situation in which metrics such as "registered" users may be distorted, is when a single instance of software is registered for an institution and then a provisioning system allows use for multiple users through for example virtual machines. 
+Projects like Bioconductor, which have a large number of different software packages, can get a greater sense of how different packages compare and are used over time. This can reveal important nuances. One interesting finding is that occasionally scripts used on servers may inadvertently download a package repeatedly and rapidly hundreds to thousands of times. Since this does not indicate real usage likely beyond one user, this can result in distorted download metrics. Therefore, unique IP download information, is useful to determine if usage represents one user many times versus many users a few times. Given privacy concerns, a alternative solution could be tracking the timing and general location of downloads with a threshold for what might be more than a group of people following a tutorial to identify such scripts. It was also found that there is a baseline background level of downloads across all packages (including those that are no longer supported). Thus a new package may have 250 downloads in the first year year. While out of context this may seem like a successful number, looking at other packages, it can be determined that this is more similar to background levels.
+
+Another example, is the S4Vectors package which is an infrastructure package used by many other packages mostly for technical and non-biological reasons and is therefore not often directly downloaded by end-users. This package is also used for automated checks for bioconductor packages more generally using GitHub actions; therefore, it can be difficult to discern if the usage of a package is for scientific research itself or supporting the development of other software. While both are arguably valuable, distinguishing between these motivations can help us understand a particular software's impact in a field.  Another interesting example is the affy package \cite{affy} , which was one of the early Bioconductor packages for microarray analysis, a technology that has largely been replaced by newer technologies. However, despite a clear transition by the field away from microarray \cite{mantione_comparing_2014}, The affy package was downloaded in 2021 at rates that doubled the rates on 2011. It is believed that this is due to people historically requesting that it be installed on servers and that this is just persisting. Another situation in which metrics such as "registered" users may be distorted, is when a single instance of software is registered for an institution and then a provisioning system allows use for multiple users through for example virtual machines. 
 
 
 background IP downloads, automated checks, infrastructure package used by other packages, older packages will have more downloads, 
 
 
 
-Usage as an (imperfect) proxy for maturity
 
-\subsection{Tracking with cloud environments}
-Tracking usage in a cloud-driven vs. other more conventional environment (ie. users are running software on dnanexus, terra, etc.)
 
 
 
 \subsection{Clinical data challenges}
 
-Systems that contain clinical data have unique challenges.  Clinical data (generally defined as those data extracted from electronic health record systems) are often comprised of highly sensitive protected health information (PHI), which means that the scope of users with access is quite limited. Thus, while the clinical details can be vital for research, the number of individuals that have access to the data is generally much smaller than tools designed to work with non-clinical data. Clinical research teams can be constrained by their health system on what type of computer systems software can be installed on. Many tools containing clinical data are also run at an enterprise level, meaning that they are installed only one time, centrally, by system administrators with accounts provisioned to users. This affords sites greater control over the access to restricted PHI and the necessary auditing functions needed to record viewing patient information, and helps prevent the egress of PHI by reducing the number of copies of the data distributed to end users.  However, such a scenario means that counting installations does not represent the overall use of the system, and it is not common for system administrators to send usage reports externally to software development teams interested in tracking usage.  Further, the firewalls protecting these systems, as well as the built in security, precludes developers from accessing the installed systems themselves. Other approaches, such as software “phoning home” could raise flags by security teams looking for unusual behavior, especially malicious software that could be trying to send clinical data outside of the covered entity. Our experience within the EMERSE team is that even the GitHub page for our open source software is now in a private repository. This was done for two reasons: (1) we can better understand who are interested implementers are by inviting them to the repository and developing a relationship with them and (2) our health system security team preferred this approach to let only known entities access the software in order to prevent those with malicious intentions from looking for vulnerabilities that may have been missed despite rigorous, continuous security reviews.  It is worth noting that because our software is open source others could post copies of the code in other open repositories that we do not control.  However, since we all share a common goal of heightened security, no group has yet done this to the best of our knowledge. Ultimately due to downloads typically being at an institutional level for clinical tools, metrics around software downloads, would underestimate the potential impact of clinical tools. Funding agencies need to consider how each type of tool is context dependent and that impact should be measured and compared between tools with this in mind.  
+Systems that contain clinical data have unique challenges.  Clinical data (generally defined as those data extracted from electronic health record systems) are often comprised of highly sensitive protected health information (PHI), which means that the scope of users with access is quite limited. Thus, while the clinical details can be vital for research, the number of individuals that have access to the data is generally much smaller than tools designed to work with non-clinical data. It would not be realistic to compare usage metrics to more widely available and accessible tools. Clinical research teams can be constrained by their health system on what type of computer systems software can be installed on. Many tools containing clinical data are also run at an enterprise level, meaning that they are installed only one time, centrally, by system administrators with accounts provisioned to users. This affords sites greater control over the access to restricted PHI and the necessary auditing functions needed to record viewing patient information, and helps prevent the egress of PHI by reducing the number of copies of the data distributed to end users.  However, such a scenario means that counting installations does not represent the overall use of the system, and it is not common for system administrators to send usage reports externally to software development teams interested in tracking usage.  Further, the firewalls protecting these systems, as well as the built in security, precludes developers from accessing the installed systems themselves. Other approaches, such as software “phoning home” could raise flags by security teams looking for unusual behavior, especially for malicious software that could be trying to send clinical data outside of the covered entity. Our experience within the EMERSE team is that even the GitHub page for our open source software is now in a private repository. This was done for two reasons: (1) we can better understand who are interested implementers are by inviting them to the repository and developing a relationship with them and (2) our health system security team preferred this approach to let only known entities access the software in order to prevent those with malicious intentions from looking for vulnerabilities that may have been missed despite rigorous, continuous security reviews.  It is worth noting that because our software is open source others could post copies of the code in other open repositories that we do not control.  However, since we all share a common goal of heightened security, no group has yet done this to the best of our knowledge. Ultimately due to downloads typically being at an institutional level for clinical tools, metrics around software downloads, would underestimate the potential impact of clinical tools. Funding agencies need to consider how each type of tool is context dependent and that impact should be measured and compared between tools with this in mind.  
 
 \section{Software fairness evaluation}
 
 
 
 \section{Goodhart’s law}
-An important consideration for any metrics that are used to assess a tool is Goodhart’s Law, which states that “every measure which becomes a target becomes a bad measure\cite{hoskin_awful_1996}”. As an example, h-indices are often used to assess the quality of an author’s impact. However, as the h-index (i.e., the number of papers an author has with that many or more citations) grew in popularity, the number of researchers included as co-authors, the number of citations per paper, and the fraction of self-citations increased. Each of these would lead to an increased h-index. At the same time, these behaviors would also increase a journal’s impact factor \cite{fire_over-optimization_2019}. Altmetric, which we described earlier may help in providing more information about more diverse engagements with articles (social media, news), however it does less to aid in evaluating author contribution. It is not a stretch to imagine that as metrics are developed and codified for tools would lead to developers attempts to improve the metric for their tool. Although Goodhart’s Law could be used to bring about best practices for binary outcomes (i.e., compliance with codes of conduct, public deposition of code), for more quantitative metrics (e.g., number of downloads, citations) the results would easily render the metrics meaningless. One way to avoid this, is to continue to evaluate our metrics overtime, consider if our metrics are truly measuring what we think they are, consider if our metrics are actually fair to a diverse range of people, and consider newer more nuanced metrics \cite{fire_over-optimization_2019}. One example of such unfairness would be evaluations of metrics for clinical data resources that are inherently limited in terms of who can be allowed to access the resource. Such caveats need to be accounted for when evaluating and comparing tools and resources.
+An important consideration for any metrics that are used to assess a tool is Goodhart’s Law, which states that “every measure which becomes a target becomes a bad measure\cite{hoskin_awful_1996}”. As an example, h-indices are often used to assess the quality of an author’s impact. However, as the h-index (i.e., the number of papers an author has with that many or more citations) grew in popularity, the number of researchers included as co-authors, the number of citations per paper, and the fraction of self-citations increased. Each of these would lead to an increased h-index. At the same time, these behaviors would also increase a journal’s impact factor \cite{fire_over-optimization_2019}. Altmetric, described earlier, may help in providing information about more diverse engagements with articles (social media, news), however it does less to aid in evaluating author contribution. It is not a stretch to imagine that as metrics are developed and codified for tools, this would lead developers to attempt to improve the metric for their tool. Although Goodhart’s Law could be used to bring about best practices for binary outcomes (i.e., compliance with codes of conduct, public deposition of code), for more quantitative metrics (e.g., number of downloads, citations) the results would easily render the metrics meaningless. One way to avoid this, is to continue to evaluate our metrics overtime, consider if our metrics are truly measuring what we think they are, consider if our metrics are actually fair to a diverse range of project teams, and consider newer more nuanced metrics \cite{fire_over-optimization_2019}. One example of such unfairness would be evaluations of metrics for clinical data resources that are inherently limited in terms of who can be allowed to access the resource. Such caveats need to be accounted for when evaluating and comparing tools and resources.
 
-\section{Security, legal, and ethical considerations}
 
-\subsection{Security}
-In any repository that contains source code, it is of vital importance that authentication secrets, such as API keys or cryptographic secrets be managed properly \cite{merkel_docker_nodate}. It becomes even more important in the case of code that deals with healthcare data, where even the slightest mishap in this regard could potentially expose protected health information (PHI) data and/or information to the public. During the continuous integration (CI) step of any project, incorporation of reputed static code analysis tools \cite{louridas_static_2006, ludwig_compiling_2017} (which are often available to open-source projects at no cost) ensures that tracking of the perpetually evolving landscape of security threats is offloaded to an entity that is specialized for its detection. It also allows the code to scale at a quick pace while ensuring bugs can be identified early in the development process, and finally allows software architects to define security guidelines to assist developers without impeding on their development process.
-It is understood and accepted that open-source code is built “on the shoulders of others”, and regular analysis of the underlying dependencies (such as using the “Dependabot” product from GitHub \cite{noauthor_dependabot_nodate}) allows the automatic detection of security vulnerabilities (and potential mitigation strategies presented) to the development team in question \cite{alfadel_use_2021}. Products such as Dependabot maintain a frequently updated collection of packages with version/commit identifiers that contain security vulnerabilities with their fixes as defined by the broader community, and as such should be incorporated into all open-source repositories. Another set of security considerations come when packaging and deploying code in the form of containers, and more specifically using Dockers \cite{merkel_docker_nodate}. Depending on the veracity of the adversary in question, attacks on Docker containers can range from targeting the container itself, the host system, any collocated containers, the container management system or the source code itself\cite{combe_docker_2016}. One of the most common security threats from Docker containers come in the form of elevated user access \cite{combe_docker_2016, bui_analysis_2015}, which can be a critical flaw when running containers in an High Performance Computing (HPC) environment \cite{sparks_enabling_2019, bacis_dockerpolicymodules_2015}. This is specifically addressed using other containerization protocols such Singularity \cite{kurtzer_singularity_2017} and Podman \cite{gantikow_rootless_2020}. Though a single solution might not work for all cases, when deploying open-source software using the Docker containerization protocol, specific security mitigation strategies should be considered \cite{yasrab_mitigating_2021}.
 
-\subsection{Legal and ethical considerations}\label{sec:legal_ethics}
+\subsection{Security, Legal and ethical considerations}\label{sec:legal_ethics}
 Often with the use of phone home or web-based analytics, users are tracked for not only downloads, but often for specific elements of usage, such as the number of times users open a desktop application that relies on an external server, the number of times a user runs a particular kind of analysis, etc. Occasionally software developers will notify users that they are being tracked, however this is often not a requirement. The General Data Protection Regulation (GDPR) which became implemented in 2018, requires that organizations anywhere in the world respect certain data collection obligations regarding people in the European Union. It is intended to protect the data privacy of individuals and mostly guards against the collection of identifiable personal information. Thus data collection of software usage, needs to be mindful of the GDPR and any other international regulations that may impact data collection of users.  As science is particularly an international pursuit, often a majority of the users may reside outside the country where the tool was developed.
 
 One option is to let users determine if they wish to be tracked by letting them know during certain stages of use depending on the type of software, such as when users download, register, or use certain features 
@@ -390,7 +362,7 @@ See Figure \ref{fig:altmetric}.
 \begin{figure} % picture
     \centering
     \includegraphics{altmetric.png}
-    \caption{Example of an Altmetric Summary from \url{https://www.altmetric.com/top100/2016/}}
+    \caption{Example of a figure}
     \label{fig:altmetric}
 \end{figure}
 
@@ -422,7 +394,7 @@ See awesome Table~\ref{tab:benefit_table}  and Table ~\ref{tab:opt_table} and Ta
     & 
      Identify mismatches with defaults and use \\
      &  Improve Performance  &
-     Identify errors \\
+     Identify user errors \\
     &  &
     Assess run-time \\
     &  & 
@@ -440,7 +412,7 @@ See awesome Table~\ref{tab:benefit_table}  and Table ~\ref{tab:opt_table} and Ta
     & &
     Evaluate success of outreach approaches\\  \cline{2-3}
     & \multirow{2}{*}{ Improve Implementation} & 
-    Identify barriers for adaption \\
+    Identify barriers for adoption \\
     &   &
     Identify methods to support adaption \\
     &  & 
@@ -458,15 +430,12 @@ See awesome Table~\ref{tab:benefit_table}  and Table ~\ref{tab:opt_table} and Ta
     & \multirow{6}{*}{\shortstack{ Guide Future Work\\  Motivate Continued Support}} &
     Enumerate data types being used \\
     & &
-    Measure volume of data use \\
-    & &
     Discover opportunities for new features \\
     && 
     Discover data needed to address user goals  \\
     & & 
     Identify more appropriate resource allocation \\
-    & & 
-    Identify strategies to reduce barriers \\
+
     \hline
     \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{External Need}} 
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Specific Goal}}
