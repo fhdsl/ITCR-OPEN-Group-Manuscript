@@ -49,6 +49,9 @@ Carrie Wright \\
     Fred Hutchinson Cancer Center
     Seattle, WA 98109 \\
     \texttt{cwright2@fredhutch.org}\\
+}
+
+
   %% \AND
   %% Coauthor \\
   %% Affiliation \\
@@ -59,11 +62,13 @@ Carrie Wright \\
   %% Affiliation \\
   %% Address \\
   %% \texttt{email} \\
-}
+
 
 
 \begin{document}
 \maketitle
+Author list (currently alphabetically still figuring out what it will be - but will try to be based on amount of contribution):
+Spyriodon Bakas, Paul Boutros, Greg Caporaso,  Guilherme Del Foil, James Eddy, Andrey Fedorov, Alex Getka, Mary Goldman, Brian Haas, David Hanauer, Harry Hochheiser, Aaron Holmes, Andrey Ivanov, Dan Knight, Martin Morgan, Sarthak Pati, Michael Reich, Pat Schloss, Levi Waldron, Jake Albrecht, (and members of ITN team)
 \begin{abstract}
 Software has become vital for the advancement of biology and medicine. Analysis of usage and impact metrics of such software can help determine user and community contributor engagement. These can be used to justify additional funding, encourage additional use, and identify unanticipated use cases. Furthermore, it can help define improvement areas and assist with managing project resources. However, there are challenges associated with assessing usage and impact, many of which vary widely depending on the type of software being evaluated. These challenges involve issues of distorted, exaggerated, understated, or misleading metrics, as well as ethical and security concerns.  More attention to the nuances, challenges, and considerations involved in capturing impact across the diverse spectrum of biological software is needed. Although some principles are generally applicable, there is not a single perfect metric or approach to effectively evaluate a software tool’s impact, as this depends on aspects unique to each tool, how it is used, and how one wishes to evaluate engagement. We propose generalizable guidelines, as well as strategies for various types of software and resources. We also highlight outstanding issues in the field regarding how communities measure or evaluate software impact. To gain a deeper understanding of the issues hindering software evaluations, as well as to determine what appears to be helpful, we performed a survey of participants involved with scientific software projects for the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI). We also performed investigations of software among this scientific community and others to determine how often infrastructure that supports such evaluations is implemented.  Our findings can help scientific software developers make the most out of the evaluations of their software so that they can more fully benefit from such assessments.
 \end{abstract}
@@ -163,7 +168,7 @@ See Table~\ref{tab:inf_table} and supplementary note 1 for suggestions.
     \multirow{3}{*}[-2em]{Citability}
     & \raggedright{Providing something to cite (Software DOI or manuscript) and information on how to cite} & \raggedright{
     \begin{itemize}
-        \item To create DOIs: Zenodo \cite{zenodo}, Dryad \cite{datadryad}, and Figshare \cite{figshare} 
+        \item To create DOIs: Zenodo \cite{zenodo}, Dryad \cite{datadryad}, Synapse \cite{synapse}, and Figshare \cite{figshare} 
         \item To track DOIs: Altmetric \cite{noauthor_altmetric_2015}
     \end{itemize}} &
      \begin{itemize}
@@ -185,7 +190,9 @@ See Table~\ref{tab:inf_table} and supplementary note 1 for suggestions.
     \cline{2-5}
     & \multirow{2}{*}{ \shortstack{Discussion \\ Forums}} &
     \begin{itemize}
-        \item Discourse\cite{discourse}
+        \item Discourse \cite{discourse}
+        \item Biostar \cite{biostars}
+        \item Bioinformatics Stack Exchange \cite{bioinformaticsstackexchange}
     \end{itemize} &
     Metrics based on user engagements and answered questions & Forums save time for development as users help each other instead of developers answering individual emails for repeat problems. A code of conduct can help create a supportive community.\\
     \cline{2-5}
@@ -224,10 +231,11 @@ See Table~\ref{tab:inf_table} and supplementary note 1 for suggestions.
     & Review Forum & 
     \begin{itemize}
         \item SourceForge
+        \item GitHub
     \end{itemize} &  \begin{itemize}
         \item Stars
         \item number of reviews
-    \end{itemize} & Positive revies can reasure new users and funders\\ 
+    \end{itemize} & Positive reviews can reassure new users and funders\\ 
     \hline
   \end{tabular}
   \label{tab:inf_table}
@@ -242,7 +250,7 @@ Tracking adherence to standards of software engineering can be a useful way to a
 \begin{table}
  \caption{\textbf{Software health infrastructure enables collecting metrics that can reassure users and funders.}  }
   \centering
-  \begin{tabular} {|p{0.1\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.23\textwidth}|p{0.24\textwidth}|}
+  \begin{tabular} {|p{0.1\textwidth}|p{0.13\textwidth}|p{0.15\textwidth}|p{0.23\textwidth}|p{0.24\textwidth}|}
     \hline
     \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Infrastructure}} 
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Options}}
@@ -251,44 +259,47 @@ Tracking adherence to standards of software engineering can be a useful way to a
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Considerations}}\\[1.1ex]
     \hline
     \multirow{6}{*}{Version Control}               
-    &   \multirow{3}{*}[-3em]{\shortstack{Without\\ automation}} & \begin{itemize}
-        \item Git/GitHub \cite{GitHub} 
-        \item Git/GitLab\cite{GitLab})
-        \item BitBucket\cite{bitbucket}
-    \end{itemize}
+    &   \multirow{3}{*}[-3em]{\shortstack{Without\\ automation}} & \raggedright{\begin{itemize}
+        \item Git/GitHub \cite{GitHub} (The insight tab and API allow for systematic metric collection)
+        \item Git/GitLab \cite{GitLab}
+        \item BitBucket \cite{bitbucket}
+    \end{itemize}}
     & 
     \begin{itemize}
-    \item blah
-    \item blah
-    \end{itemize} &  blah\\
+    \item Commit  frequency (how often code is updated)
+    \item Date of the most recent commit
+    \item Number of active contributors
+    \item Software versions updates
+    \end{itemize} &
+     Commit frequency allows assessment of how actively the software is being maintained. The number of contributors can indicate sustainability. One single contributor may pose a sustainability risk. Version information can enable users to determine if they are using the most up-to-date version. \\
     \cline{2-5}
-    & \multirow{5}{*}{ \shortstack{With\\ Automations}} &
+    & \multirow{5}{*}[-3em]{ \shortstack{With\\ Automations}} & \raggedright{
     \begin{itemize}
-        \item GitHub Actions\cite{github_actions}
+        \item GitHub Actions \cite{github_actions}
     \end{itemize}
+    }
     &
     \begin{itemize}
-    \item blah blah blah blah blah blah blah blah blah blah blah
+    \item  current build status (if the software built without errors) 
     \end{itemize} &
-    Continuous Integration \& Continuous Deployment/Delivery are terms to described a situation where when new code  is added, the full code product that it is a part of is automatically rebuilt or compiled  and often tested (to ensure that new changes to not cause issues) and then Continuous Deployment/Delivery describes the automatic release of this new code to users. Delivery in this case describes situations where the software requires more manual releases while deployment is seamless. \\
+    Continuous Integration \& Continuous Deployment/Delivery are terms to describe every time code is modified, the full code product is automatically rebuilt or compiled. Continuous Deployment/Delivery describes the automatic release of this new code to users. Delivery in this case describes situations where the software requires more manual releases while deployment is seamless. GitHub Actions can also help with metric collection from the GitHub API. \\
     \hline
-    \multirow{2}{*}{ \shortstack{Development \\ Activity}}
-    & \raggedright{blah} & blah blah blah blah blah blah blah  & blah
- &blah \\
-        \hline
-    \multirow{3}{*}{Testing} &
- Manual & autmotated & blah blah
- &blah blah\\
-    \cline{2-5}
-    & \multirow{2}{*}{ \shortstack{Automated \\ Testing}} &
+    \multirow{3}{*}[-2em]{Testing} 
+    & \multirow{2}{*}[-3em]{ \shortstack{Automated \\ Testing}} & \raggedright{
     \begin{itemize}
-        \item blah blah
-        \item blah blah
-    \end{itemize} &
-    blah blah & blah blah.\\
+        \item GitHub Actions \cite{github_actions}
+    \end{itemize}
+    } &
+    \begin{itemize} 
+    \item test code coverage (the fraction of lines of code in the project that are covered by tests)
+    \end{itemize} & Unit tests check individual pieces of code; component and integration tests check that pieces of code behave correctly together; acceptance tests check the overall software behavior. Achieving in-depth test coverage requires careful software design. Test coverage does not evaluate the quality of the test cases or assertions.\\
     \hline
-    \multirow{3}{*}{Licensing}
-    & \raggedright{A Variety of licenses exist to allow or disallow reuse and to require attribution} & Creative Commons \cite{creative_commons} & Possible quantification of reuse of your software code & Clearly indicating if and how people can reuse your code will make them more comfortable to do so. Determining when this is done can be a challenge, but requiring attribution makes this more feasible\\
+    \multirow{3}{*}[-2em]{Licensing}
+    & \raggedright{A variety of licenses exist to allow or disallow reuse and to require attribution} & \raggedright{
+    \begin{itemize}
+        \item Creative Commons \cite{creative_commons}
+    \end{itemize}
+    } & Possible quantification of reuse of your software code & Clearly indicating if and how people can reuse your code will make them more comfortable to do so. Determining when this is done can be a challenge, but requiring attribution makes this more feasible\\
     \hline
   \end{tabular}
   \label{tab:soft_health_table}
@@ -304,9 +315,9 @@ Careful consideration of the use case can provide a good starting point. In a si
 \section{Challenges and nuances}
 
 \subsection{Citation challenges}
-Measuring the number of citations of your tool is important, especially as a metric to report to funding agencies. First, it is important that your tool has a manuscript or other data object to cite \cite{chue_hong_software_2019}. While publishing a manuscript in a formal publication is often the ultimate goal for a tool, having a manuscript published as a preprint such as BioRxiv, or even in Figshare (see 'The graph-tool python library' \cite{peixoto_graph-tool_2017}), can help a tool to have a citable presence. For data objects, Zenodo \cite{zenodo}, Dryad \cite{datadryad}, and Figshare \cite{figshare} can provide DOIs, which are citable. Note that having a pre-final published version of your tool may make it difficult to track citations in the future once a manuscript is formally published as tool developers will have to follow citations for both publications.
+Measuring the number of citations of your tool is important, especially as a metric to report to funding agencies. First, it is important that your tool has a manuscript or other data object to cite \cite{chue_hong_software_2019}. While publishing a manuscript in a formal publication is often the ultimate goal for a tool, having a manuscript published as a preprint such as BioRxiv, or even in Figshare (see 'The graph-tool python library' \cite{peixoto_graph-tool_2017}), can help a tool to have a citable presence. For data objects, Zenodo \cite{zenodo}, Dryad \cite{datadryad}, Synapse \cite{synapse}, and Figshare \cite{figshare} can provide DOIs, which are citable. Note that having a pre-final published version of your tool may make it difficult to track citations in the future once a manuscript is formally published as tool developers will have to follow citations for both publications.
 
-Once a tool is published, getting users to cite a tool or cite it correctly can be difficult. First, some tools are so common that users often don't think to cite them, similar to how a scientist would not cite Microsoft Word when writing a publication, despite the crucial role Microsoft Word played in the writing process. An example of a tool like this would be the UCSC Genome Browser \cite{ucsc, kent_human_2002}. Second, some tools are used in the discovery phase of a project, and a user may not think of it when they are in the final stages of writing up findings. An example would be a tool used to find a discovery cohort of patients such as EMERSE (Electronic Medical Record Search Engine) \cite{hanauer_supporting_2015}. Third, tools which provide system architecture for a other software may also not be typically cited. Some tools in this category include Bioconductor \cite{bioconductor}, Gene Pattern Notebook \cite{reich_genepattern_2017}, and Galaxy \cite{the_galaxy_community_galaxy_2022}. Understanding citations may require looking at usage of other tools that are available on these platforms.
+Once a tool is published, getting users to cite a tool or cite it correctly can be difficult. First, some tools are so common or fundamental that users often don't think to cite them, similar to how a scientist would not cite an operating system or word processing software when writing a publication, despite the crucial role it played in the writing process. An example of a tool like this would be the UCSC Genome Browser \cite{ucsc, kent_human_2002}. Second, some tools are used in the discovery phase of a project, and a user may not think of it when they are in the final stages of writing up findings. An example would be a tool used to find a discovery cohort of patients such as EMERSE (Electronic Medical Record Search Engine) \cite{hanauer_supporting_2015}. Third, tools which provide system architecture for a other software may also not be typically cited. Some tools in this category include Bioconductor \cite{bioconductor}, Gene Pattern Notebook \cite{reich_genepattern_2017}, and Galaxy \cite{the_galaxy_community_galaxy_2022}. Understanding citations may require looking at usage of other tools that are available on these platforms.
 
 Lastly, while users may recognize and acknowledge your tool, they may not cite the tool in the reference section of their paper and they may mention the tool without complete information, such as not including version information, parameter settings, URLs, or credit to those who made the software.  In fact, a study manually evaluating software citations of 4,971 academic biomedical and economics articles, found that the citations only included version information  28\% of the time \cite{howison_software_2016}.  Another study manually evaluating 90 biology articles, also finds a low rate of complete information with version information being included only 27\% of the time and URL information included only 17\% of the time \cite{du_softcite_2021}. People may mention a tool in a figure legend, in the paper itself, in the acknowledgments, or even in the abstract, without a citation. These mentions of a tool are difficult to track. Furthermore, occasionally manuscripts simply acknowledge that a software tool exists, rather than indicating that it was actually used by the authors. In other cases a newer version of a tool is used, yet a previous publication for an earlier version of the tool may often be cited by these users. This typically requires manually reading articles to discover the use of the software. 
 
@@ -341,7 +352,7 @@ Systems that contain clinical data have unique challenges.  Clinical data (gener
 
 
 \section{Goodhart’s law}
-An important consideration for any metrics that are used to assess a tool is Goodhart’s Law, which states that “every measure which becomes a target becomes a bad measure\cite{hoskin_awful_1996}”. As an example, h-indices are often used to assess the quality of an author’s impact. However, as the h-index (i.e., the number of papers an author has with that many or more citations) grew in popularity, the number of researchers included as co-authors, the number of citations per paper, and the fraction of self-citations increased. Each of these would lead to an increased h-index. At the same time, these behaviors would also increase a journal’s impact factor \cite{fire_over-optimization_2019}. Altmetric, described earlier, may help in providing information about more diverse engagements with articles (social media, news), however it does less to aid in evaluating author contribution. It is not a stretch to imagine that as metrics are developed and codified for tools, this would lead developers to attempt to improve the metric for their tool. Although Goodhart’s Law could be used to bring about best practices for binary outcomes (i.e., compliance with codes of conduct, public deposition of code), for more quantitative metrics (e.g., number of downloads, citations) the results would easily render the metrics meaningless. One way to avoid this, is to continue to evaluate our metrics overtime, consider if our metrics are truly measuring what we think they are, consider if our metrics are actually fair to a diverse range of project teams, and consider newer more nuanced metrics \cite{fire_over-optimization_2019}. One example of such unfairness would be evaluations of metrics for clinical data resources that are inherently limited in terms of who can be allowed to access the resource. Such caveats need to be accounted for when evaluating and comparing tools and resources.
+An important consideration for any metrics that are used to assess a tool is Goodhart’s Law, which states that “every measure which becomes a target becomes a bad measure\cite{hoskin_awful_1996}”. As an example, h-indices are often used to assess the quality of an author’s impact. However, as the h-index (i.e., the number of papers an author has with that many or more citations) grew in popularity, the number of researchers included as co-authors, the number of citations per paper, and the fraction of self-citations increased. Each of these would lead to an increased h-index. At the same time, these behaviors would also increase a journal’s impact factor \cite{fire_over-optimization_2019}. Altmetric, described earlier, may help in providing information about more diverse engagements with articles (social media, news), however it does less to aid in evaluating author contribution. It is not a stretch to imagine that as metrics are developed and codified for tools, this would lead developers to attempt to improve the metric for their tool. Although Goodhart’s Law could be used to bring about best practices for binary outcomes (i.e., compliance with codes of conduct, public deposition of code), for more quantitative metrics (e.g., number of downloads, citations) the results would easily render the metrics meaningless. One way to avoid this, is to continue to evaluate our metrics over time, consider if our metrics are truly measuring what we think they are, consider if our metrics are actually fair to a diverse range of project teams, and consider newer more nuanced metrics \cite{fire_over-optimization_2019}. One example of such unfairness would be evaluations of metrics for clinical data resources that are inherently limited in terms of who can be allowed to access the resource. Such caveats need to be accounted for when evaluating and comparing tools and resources.
 
 
 
