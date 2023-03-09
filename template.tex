@@ -86,9 +86,18 @@ We aim to provide guidance for evaluations of software impact and engagement so 
 
 We performed two analyses to better understand how developers think about software evaluation and to determine what infrastructure is often implemented to support such evaluation, as well as how this is associated with citation levels among those of the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI). 
 
-To perform the first analysis we surveyed 48 ITCR participants. The survey asked a variety of questions about attitudes and practices of those involved with software development, maintenance, or outreach of the ITCR (in which respondents could often select more than one response). It was determined that limited time (68.1\% of respondents) and funding (57.4\% respondents) were the major barriers for performing software impact evaluations. Followed by privacy concerns (38.3\% of respondents), technical issues (31.9\% of respondents), and not knowing what methods to use for such evaluations (27.2\% of respondents). This is despite the fact that 72.9\% of respondents state that such evaluations informed new development ideas, 60.4\% stated that it informed documentation, and 54.2\% stated that it helped justify funding.
+To perform the first analysis we surveyed 48 ITCR participants. The survey asked a variety of questions about attitudes and practices of those involved with software development, maintenance, or outreach of the ITCR (in which respondents could often select more than one response). It was determined that limited time (68.1\% of respondents) and funding (57.4\% respondents) were the major barriers for performing software impact evaluations. Followed by privacy concerns (38.3\% of respondents), technical issues (31.9\% of respondents), and not knowing what methods to use for such evaluations (27.2\% of respondents). This is despite the fact that 72.9\% of respondents state that such evaluations informed new development ideas, 60.4\% stated that it informed documentation, and 54.2\% stated that it helped justify funding. Aspects that respondents had difficulty measuring were:
+\begin{itemize}
+    \item Collaborations that the tool supported
+    \item Number of commercial applications using the tool
+    \item Fraction of assumed user base that actually uses the tool
+    \item Downstream activity - what do users do with the results
+    \item User Frustration
+\end{itemize}
 
-We also manually inspected 44 tools (33 funded by ITCR alone and 7 funded by the Cancer Target Discovery and Development (CTD²) Network, as well as 4 tools funded by both) for various aspects and investigated if there were any associations with these aspects and funding. A variety of tools were inspected - See Figure \ref{fig:tool_eval}.. 
+We also manually inspected 44 tools (33 funded by ITCR alone and 7 funded by the Cancer Target Discovery and Development (CTD²) Network, as well as 4 tools funded by both) for various aspects and investigated if there were any associations with these aspects and funding. A variety of tools were inspected - See Figure \ref{fig:tool_eval}. Most notable was a finding that although time since tool release is the largest contributor to variation of citations that report actual usage, various aspects of infrastructure that could help users know about a tool (social media on twitter), have confidence in the tool (badges about software builds or tests on code repositories), or learn more about how to use the tool (extensive documentation and feedback mechanisms), all seem to increase the rate of manuscripts that describe using the tool and officially cite the tool.See Figure \ref{fig:inf_cit}
+
+
 
 
 
@@ -388,6 +397,13 @@ One option is to let users determine if they wish to be tracked by letting them 
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/tool_diversity.png}
     \caption{Variety of the 44 ITCR and CTD² tools evaluated for various characteristics with manual inspection}
     \label{fig:tool_eval}
+\end{figure}
+
+\begin{figure} % picture
+    \centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/inf_cit.png}
+    \caption{Various aspects of software infrastructure appear to be associated with a larger number of published manuscripts from users officially citing usage of the software.}
+    \label{fig:inf_cit}
 \end{figure}
 
 \subsection{Tables}
