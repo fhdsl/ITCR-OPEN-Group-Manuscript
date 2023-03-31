@@ -20,6 +20,8 @@
 \usepackage{enumitem}
 \usepackage{tabularx}
 \usepackage{etoolbox}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 \AtBeginEnvironment{table}{%
     \setlist[itemize]{nosep,     % <-- table's list setup
                       leftmargin = *         ,
@@ -29,8 +31,11 @@
                         }
                            }% end of AtBeginEnvironment
                            
+\renewcommand{\arraystretch}{1.1} %adding space between rows will influence the rest of the document
 
 \title{Impact of software designed for biomedical research: Are we measuring what's important?}
+
+
 
 
 \author{
@@ -66,11 +71,49 @@ Carrie Wright \\
 
 
 \begin{document}
+
+ STILL WORKING OUT THE ORDER OF AUTHORS
+ 
+
 \maketitle
 Author list (currently alphabetically still figuring out what it will be - but will try to be based on amount of contribution):
 Spyriodon Bakas, Paul Boutros, Greg Caporaso,  Guilherme Del Foil, James Eddy, Andrey Fedorov, Alex Getka, Mary Goldman, Brian Haas, David Hanauer, Harry Hochheiser, Aaron Holmes, Andrey Ivanov, Dan Knight, Martin Morgan, Sarthak Pati, Michael Reich, Pat Schloss, Levi Waldron, Jake Albrecht, (and members of ITN team)
+
+% Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
+
+
+
+%\author[4, \Letter]{A. Afiaz}
+%\author[4, \Letter]{Andrey Ivanov}
+%\author[1,\Letter]{Savonen, C. L.}
+%\author[2,\Letter]{Hanauer, D.}
+%\author[3,\Letter]{Spyridon, B.}
+%\author[4, \Letter]{Harry Hochheiser}
+%\author[4, \Letter]{Greg Caporaso}
+%\author[4, \Letter]{Guilherme Del Fiol}
+%\author[4, \Letter]{James Eddy}
+%\author[4, \Letter]{Paul Boutros}
+%\author[4, \Letter]{Alex Getka}
+%\author[4, \Letter]{Mary Goldman}
+%\author[4, \Letter]{Martin Morgan}
+%\author[4, \Letter]{Michael Reich}
+%\author[4, \Letter]{Brian Haas}
+%\author[4, \Letter]{Aaron Holmes}
+%\author[4, \Letter]{Dan Knight}
+%\author[4, \Letter]{Sarthak Pati}
+%\author[4, \Letter]{Andrey Fedorov}
+%\author[4, \Letter]{Pat Schloss}
+%\author[4, \Letter]{Levi Waldron}
+%\author[4, \Letter]{Jake Albrecht}
+%\author[1,\Letter]{Leek, J. T.}
+%\author[1,\Letter]{Wright, C.}
+%\affil[1]{Fred Hutchinson Cancer Center}
+%\affil[2]{University of Michigan Medical School\\ University of Michigan School of Information\\}
+%\affil[3]{University of Pennsylvania}
+%\affil[4]{Placeholder}
+
 \begin{abstract}
-Software has become vital for the advancement of biology and medicine. Analysis of usage and impact metrics of such software can help determine user and community contributor engagement. These can be used to justify additional funding, encourage additional use, and identify unanticipated use cases. Furthermore, it can help define improvement areas and assist with managing project resources. However, there are challenges associated with assessing usage and impact, many of which vary widely depending on the type of software being evaluated. These challenges involve issues of distorted, exaggerated, understated, or misleading metrics, as well as ethical and security concerns.  More attention to the nuances, challenges, and considerations involved in capturing impact across the diverse spectrum of biological software is needed. Although some principles are generally applicable, there is not a single perfect metric or approach to effectively evaluate a software tool’s impact, as this depends on aspects unique to each tool, how it is used, and how one wishes to evaluate engagement. We propose generalizable guidelines, as well as strategies for various types of software and resources. We also highlight outstanding issues in the field regarding how communities measure or evaluate software impact. To gain a deeper understanding of the issues hindering software evaluations, as well as to determine what appears to be helpful, we performed a survey of participants involved with scientific software projects for the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI). We also performed investigations of software among this scientific community and others to determine how often infrastructure that supports such evaluations is implemented and how this impacts citation rates.  Our findings can help scientific software developers make the most out of the evaluations of their software so that they can more fully benefit from such assessments.
+Software has become vital for the advancement of biology and medicine. Analysis of usage and impact metrics of such software can help determine user and community engagement. These can be used to justify additional funding, encourage additional use, and identify unanticipated use cases. Such analyses can help define improvement areas and assist with managing project resources. However, there are challenges associated with assessing usage and impact, many of which vary widely depending on the type of software being evaluated. These challenges involve issues of distorted, exaggerated, understated, or misleading metrics, as well as ethical and security concerns.  More attention to the nuances, challenges, and considerations involved in capturing impact across the diverse spectrum of biological software is needed. Although some principles are generally applicable, there is not a single perfect metric or approach to effectively evaluate a software tool’s impact, as this depends on aspects unique to each tool, how it is used, and how one wishes to evaluate engagement. We propose generalizable guidelines, as well as strategies for various types of software and resources. We also highlight outstanding issues in the field regarding how communities measure or evaluate software impact. To gain a deeper understanding of the issues hindering software evaluations, as well as to determine what appears to be helpful, we performed a survey of participants involved with scientific software projects for the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI). We also performed investigations of software among this scientific community and others to determine how often infrastructure that supports such evaluations is implemented and how this impacts citation rates. We  find that although developers recognize the utlility of analyzing the usage of their software, they struggle to find the time or funding to support such analyses. We also find that infrastructure such as social media presence, more in-depth documentation, the presence of software health metrics, and clear information on how to contact developers seem to be associated with increased citation rates.  Our findings can help scientific software developers make the most out of the evaluations of their software so that they can more fully benefit from such assessments.
 \end{abstract}
 
 
@@ -78,15 +121,93 @@ Software has become vital for the advancement of biology and medicine. Analysis 
 %\keywords{First keyword \and Second keyword \and More}
 
 
-\section{Introduction} Biomedical software has become a critical component of nearly all biomedical research. The field has embraced more open science practices, including sharing and harmonizing data and creating open source (publicly accessible and often freely available) software \cite{green_strategic_2020, levet_developing_2021, itcr_open-source_2021, merow_better_2023}. Often such open source software is initially developed so that the developers can use it themselves to reach a research goal \cite{bitzer_intrinsic_2007}. The software is then shared with the hopes that the use of the software by others will also contribute to the advancement of science or healthcare. Once shared, evaluations of the software is necessary to achieve two major benefits: 1) inform developers about how to improve the use and ultimately impact of the tool and 2) demonstrate the value of the tool to support the developers to obtain funding to continue supporting existing software and creating new software. Common metrics include number of new users, returning users, and total downloads of the software, but the type of metrics possible vary based on the type of tool and the context. These and other metrics, allow a assessment of the rate of uptake of a tool, as well as how established it has become. However, developers often lack knowledge about the infrastructure or tools that can aid in the effective collection of usage and impact metrics. Proper metrics should not only examine the software's performance but assess whether motivations and goals of the researchers who are using the software are being met.
+\section{Introduction} Biomedical software has become a critical component of nearly all biomedical research. The field has embraced more open science practices, including sharing and harmonizing data and creating open source (publicly accessible and often freely available) software \cite{green_strategic_2020, levet_developing_2021, itcr_open-source_2021, merow_better_2023}. Often such open source software is initially developed so that the developers can use it themselves to reach a research goal \cite{bitzer_intrinsic_2007}. The software is then shared with the hopes that the use of the software by others will also contribute to the advancement of science or healthcare. Once shared, evaluations of the software is necessary to achieve two major benefits: 1) inform developers about how to improve the use and ultimately impact of the tool and 2) demonstrate the value of the tool to support the developers to obtain funding to continue supporting existing software and creating new software. Common metrics include number of new users, returning users, and total downloads of the software, but the type of metrics possible vary based on the type of tool and the context. See Table ~\ref{tab:metrics_table}. These and other metrics, allow assessment of the rate of uptake of a tool, as well as how established it has become. However, developers often lack knowledge about the infrastructure or tools that can aid in the effective collection of usage and impact metrics. Proper metrics should not only examine the software's performance but assess whether motivations and goals of the researchers who are using the software are being met.
+
+\begin{table}[h!]
+ \caption{Common Metrics}
+  \centering
+  \begin{tabular}{|p{0.2\textwidth}|p{0.25\textwidth}|p{0.3\textwidth}|}
+    \hline
+    \multicolumn{1}{|c|} {\cellcolor[gray]{.9} \textbf{Measure}} 
+    & \multicolumn{1}{|c|} {\cellcolor[gray]{.9} \textbf{Example Metrics}}     
+    & \multicolumn{1}{|c|} {\cellcolor[gray]{.9} \textbf{Use}}  \\
+    \hline
+    \multirow{4}{*}{Tool Dissemination} 
+    & 
+     \begin{itemize}
+         \item Total unique downloads
+         \item New Users
+         \item Returning Users
+         \item Download count by version
+     \end{itemize} &
+    \begin{itemize}
+         \item Determining popularity of a given tool
+    \end{itemize}  \\ 
+           \cline{2-3}
+    &     
+    \begin{itemize}
+         \item Download count by version
+    \end{itemize}  &
+    \begin{itemize}
+         \item Assessing if users are keeping up-to-date
+ \end{itemize}  \\ 
+
+    \hline
+    Tool Usefulness & 
+    \begin{itemize}
+         \item Average run count, by user
+    \end{itemize}  &
+    \begin{itemize}
+         \item Determining prevalence of usage
+    \end{itemize} \\
+    \hline
+    Tool Reliability & 
+    \begin{itemize}
+         \item Proportion of runs without a crash or error
+    \end{itemize}  &
+    \begin{itemize}
+        \item Improving error handling, bug fixes 
+    \end{itemize} \\
+    \hline
+    Tool Versatility &
+        \begin{itemize}
+        \item Distribution of data types (inferred from metadata) 
+        \end{itemize} &
+        \begin{itemize}
+        \item Improving tool flexibility
+        \end{itemize}\\
+    \hline
+    Interface acceptability &
+    \begin{itemize}
+        \item Average user session length
+    \end{itemize} &
+    \begin{itemize}
+        \item Graphical tool and website acceptability
+        \end{itemize}\\
+    \hline
+    Performance &
+    \begin{itemize}
+        \item Maximum memory usage
+        \item Average time-to-complete of algorithmic steps 
+    \end{itemize} &
+    \begin{itemize}
+        \item{Requirements analysis}
+        \item{Tuning}
+    \end{itemize}\\
+    \hline
+  \end{tabular}
+  \label{tab:metrics_table}
+\end{table}
 
 We aim to provide guidance for evaluations of software impact and engagement so that software developers can build tools that better meet researchers' needs to catalyze the progress of biomedical research. We also discuss ethical considerations and challenges of such evaluations that still require solutions. The guidance presented here for software assessments holds the potential for developers to improve the use and utility of their tools, improve their chances of funding for future development, and ultimately lead to the development of even more useful software to advance science and medicine \cite{wratten_reproducible_2021}. 
 
-\section{Assessment of tools}
+
+
+\section{Assessment of attitudes and practices for software impact evaluations}
 
 We performed two analyses to better understand how developers think about software evaluation and to determine what infrastructure is often implemented to support such evaluation, as well as how this is associated with citation levels among those of the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI). 
 
-To perform the first analysis we surveyed 48 ITCR participants. The survey asked a variety of questions about attitudes and practices of those involved with software development, maintenance, or outreach of the ITCR (in which respondents could often select more than one response). It was determined that limited time (68.1\% of respondents) and funding (57.4\% respondents) were the major barriers for performing software impact evaluations. Followed by privacy concerns (38.3\% of respondents), technical issues (31.9\% of respondents), and not knowing what methods to use for such evaluations (27.2\% of respondents). This is despite the fact that 72.9\% of respondents state that such evaluations informed new development ideas, 60.4\% stated that it informed documentation, and 54.2\% stated that it helped justify funding. Aspects that respondents had difficulty measuring were:
+To perform the first analysis we surveyed 48 ITCR participants. The survey asked a variety of questions about attitudes and practices of those involved with software development, maintenance, or outreach of the ITCR (in which respondents could often select more than one response). It was determined that limited time (68.1\% of respondents) and funding (57.4\% respondents) were the major barriers for performing software impact evaluations. Indeed although there are a few funding mechanisms that support the maintenance and analysis of software (as opposed to creation of new software), such as the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI) sustainment awards \cite{kibbe_cancer_2017, warner_informatics_2020} or the Essential Open Source Software for Science program of the Chan Zuckerberg Initiative \cite{CZ_essential_2019}, there appears to be a need for greater support. The next major barriers were privacy concerns (38.3\% of respondents), technical issues (31.9\% of respondents), and not knowing what methods to use for such evaluations (27.2\% of respondents). Despite these apparent challenges,  72.9\% of respondents state that such evaluations have informed new development ideas, 60.4\% stated that it informed documentation, and 54.2\% stated that it helped justify funding.  Thus additional support, could really benefit the continued development of software. Aspects that respondents had difficulty measuring were:
 \begin{itemize}
     \item Collaborations that the tool supported
     \item Number of commercial applications using the tool
@@ -95,10 +216,23 @@ To perform the first analysis we surveyed 48 ITCR participants. The survey asked
     \item User Frustration
 \end{itemize}
 
-We also manually inspected 44 tools (33 funded by ITCR alone and 7 funded by the Cancer Target Discovery and Development (CTD²) Network, as well as 4 tools funded by both) for various aspects and investigated if there were any associations with these aspects and funding. A variety of tools were inspected - See Figure \ref{fig:tool_eval}. Most notable was a finding that although time since tool release is the largest contributor to variation of citations that report actual usage, various aspects of infrastructure that could help users know about a tool (social media on twitter), have confidence in the tool (badges about software builds or tests on code repositories), or learn more about how to use the tool (extensive documentation and feedback mechanisms), all seem to increase the rate of manuscripts that describe using the tool and officially cite the tool.See Figure \ref{fig:inf_cit}
+We also manually inspected 44 tools (33 funded by ITCR alone and 7 funded by the Cancer Target Discovery and Development (CTD²) Network \cite{aksoy_ctd2_2017}, as well as 4 tools funded by both) for various aspects and investigated if there were any associations with these aspects and funding. A variety of tools were inspected - See Figure \ref{fig:tool_eval}. Most notable was a finding that although time since tool release is the largest contributor to variation of citations that report actual usage, various aspects of infrastructure that could help users know about a tool (social media on twitter), have confidence in the tool (badges about software builds or tests on code repositories), or learn more about how to use the tool (extensive documentation and feedback mechanisms), all seem to increase the rate of manuscripts that describe using the tool and officially cite the tool.See Figure \ref{fig:inf_cit}
+
+\begin{figure}[!ht] 
+    \centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/tool_diversity.png}
+    \caption{Variety of the 44 ITCR and CTD² tools evaluated for various characteristics with manual inspection}
+    \label{fig:tool_eval}
+\end{figure}
 
 
 
+\begin{figure}[!ht]
+    \centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/inf_cit.png}
+    \caption{Various aspects of software infrastructure appear to be associated with a larger number of published manuscripts from users officially citing usage of the software.}
+    \label{fig:inf_cit}
+\end{figure}
 
 
 
@@ -128,7 +262,102 @@ Clear understanding of which use cases, personas, and audience(s) are of interes
 
 It is also worthwhile to consider which presentations of software metrics will be most compelling to the intended audience. For example, detailed metrics on the inner workings of a software tool might be highly-informative to developers, but such metrics would be far too granular to be of interest to funding agencies.  See \ref{tab:benefit_table} for more details.
  
+\begin{table}[ht!]
+ \caption{\textbf{Software evaluation supports internal needs for tool optimization and development, as well external needs to demonstrate tool value 
+ to others.} Tool optimization can involve improving workflows, performance, usage, or usability. Evaluations can guide future work. For example, recognizing the types or volumes of data being used, as well as temporal trends of data usage, can highlight opportunities for new algorithm development. Similar analyses can help optimize resource allocation within and between projects. Evaluation can also aid in demonstrate tool value to gain external support, such as funding.  Evidence for impact is also often required to gain resources to develop or maintain semi- or un-related tools. Demonstration of past capability to develop impactful software supports requests to do so in the future.  Demonstrating that a tool is widely-used and widely-accepted can also encourage users to adopt a tool more readily, and be more invested in a tool community. Developers may be drawn to projects with impact to build upon an exiting tool. Finally, demonstration of impact can recruit new users which can diversify tool communities and bring new problems of interest that expand the utility of a tool.}
+  \centering
+  \begin{tabular} {|p{0.27\textwidth}|p{0.25\textwidth}|p{0.4\textwidth}|}
+  %{|c|c|l|}
+    \hline
+    \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Internal Need}} 
+    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Specific Goal}}
+    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Benefit}}\\[1.1ex]
+    \hline
+    \multirow{17}{*}{Tool Optimization}               
+    & \multirow{3}{*}{Improving Workflows} & 
+    Identify unexpected usage \\
+    & &
+    Identify code inefficiencies \\
+    & &
+    Identify resource usage inefficiencies \\
+    &&
+    Identify inadequate documentation\\ \cline{2-3}
+    &   \multirow{4}{*}{  }
+    & 
+     Identify mismatches with defaults and use \\
+     &  Improve Performance  &
+    Assess user wait times \\
+    &  & 
+     Measure data volume \\  \cline{2-3}
+    & \multirow{5}{*}{ Improve Usage} & 
+    Identify software errors \\
+    &&
+    Identify what features are used and not used \\
+    &&
+    Identify who the user-base is \\
+    & &
+    Determine user-base diversity \\
+    & &
+    Identify sources of other possible users \\
+    & &
+    Determine what users expectations are \\
+    & &
+    Determine if user expectations are appropriate \\
+    & &
+    Evaluate success of outreach approaches\\  \cline{2-3}
+    & \multirow{2}{*}{ Improve Implementation} & 
+    Identify barriers for adoption \\
+    &   &
+    Identify methods to support adaption \\
+    &  & 
+    Identify use of out-dated versions\\\cline{2-3}
+    & \multirow{2}{*}{ Improve Usability} & 
+    Identify user errors \\
+    & & 
+    Identify if and how users are struggling \\ 
+    \hline
+    \multirow{6}{*}{\shortstack{Tool Development \\ \& Maintenance}}
+    & \multirow{6}{*}{\shortstack{ Guide Future Work\\  Motivate Continued Support}} &
+    Enumerate data types being used \\
+    & &
+    Discover opportunities for new features \\
+    && 
+    Discover data needed to address user goals  \\
+    & & 
+    Identify more appropriate resource allocation \\
 
+    \hline
+    \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{External Need}} 
+    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Specific Goal}}
+    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Benefit}}\\[1.1ex] % add some space after headers before horizontal line
+    \hline
+    \multirow{4}{*}{Gain Support}              
+    & \multirow{4}{*}{Show Evidence of Impact} & 
+    Support future funding requests \\
+    & &
+    (to maintain or develop new tools) \\
+    & &
+    Request for resources  \\
+    & & 
+    (to maintain or develop new tools) \\[1.1ex]
+    \hline
+    \multirow{4}{*}{Gain User Commitment} 
+    & \multirow{4}{*}{Evidence of tool acceptance} & 
+    Reassure users about tool to:\\
+    &&
+    - Promote continued use\\
+    && 
+    - Promote usage of new tools by the same developers \\ 
+    &&
+    - Promote usage by more diverse users \\[1.1ex]
+    \hline
+    \multirow{1}{*}{Gain Community Development} 
+    & \multirow{1}{*}{Evidence of co-development} & 
+    Encourage contributions  \\
+    \hline
+  \end{tabular}
+  \label{tab:benefit_table}
+\end{table}
 
 \subsection{No single evaluation method works for every type of software}
 \label{sec:no_one_way}
@@ -136,19 +365,18 @@ No individual scheme for collecting metrics fits every type of research software
 
 
 
- \subsection{Usage metrics assessments}
-Metrics should be used to identify how well a software projects is meeting its goal. How well is it meeting the needs of its users? Once a project is generating sufficient user metrics, the next step is to interpret them to determine how they should inform the project's feature roadmap, development priorities, and outreach initiatives. Interpretation of user metrics can be tricky since any given metric may have many obvious and not so obvious causes. 
+ \subsection{Metrics should be interpreted}
+ 
+ Interpretation of user metrics can be tricky since any given metric may have many obvious and not so obvious causes. When software has sufficient use, observed spikes in usage, both up and down, provide important feedback. A spike may correspond to a class or workshop using the tool or a recent publication that cites the tool. Negative trends in usage may indicate a break in the academic calendar, down time of a host server, or, for tools based on Amazon Web Services, the additional compute resources required by Amazon during holiday cycles may preempt software running on spot instances. It is also important to avoid comparisons between metrics for tools with different users. For example, clinical tools that require institutional will have lower installation rates than other software tools. Tools that are very useful to a small number of users may still have important impact on the field.
 
-The first question a developer may have is how many people are using the tool to begin with? Metrics can be used to estimate the level of "market penetration" that a tool has achieved. Although market share is difficult to estimate, it is important to have an expected community size and a measure of where a tool stands in comparison to its total potential use. It is also important to avoid comparisons between the community size and usage of tools with different approaches, i.e., between a desktop-based genome browser and a web-based repository of cancer data, given the different modes of use. 
-
-When software has sufficient use, observed spikes in usage, both up and down, provide important feedback. A spike may correspond to a class or workshop using the tool or a recent publication that cites the tool. Negative trends in usage may indicate a break in the academic calendar, down time of a host server, or, for tools based on Amazon Web Services, the additional compute resources required by Amazon during holiday cycles may preempt software running on spot instances.
+The total unique downloads might be useful as a metric of software popularity, but it only reflects how many people have tried to download it and not if users find it useful. Instead, one might consider measuring how often users use software, we might count the number of launches of the software which run over a certain predefined session time threshold,to better evaluate actual usage. Returned usage by the same users often suggests that the users may find the tool useful. One may want to parse this by data type used to evaluate how useful the tool appears to support different kinds of users.   Specific measures can provide common basis comparing versions and potentially against other similar software.
 
 
 \subsection{Software infrastructure enables impact evaluation}
 There are several components of a software tool that can assist with the assessments of the software impact and engagement. Once a developer team better understands their audience, use cases, personas, and assessment motivations, the following infrastructure could benefit or enable such evaluations, as well as improve user awareness and engagement. 
 See Table~\ref{tab:inf_table} and supplementary note 1 for suggestions.
 
-\begin{table}
+\begin{table}[ht!]
  \caption{\textbf{Software infrastructure enables the capture of valuable metrics for evaluating engagement and impact.} Note that there are other helpful tools to enable metric collection. Those listed are simply examples. }
   \centering
   \begin{tabular} {|p{0.03\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|p{0.23\textwidth}|p{0.24\textwidth}|}
@@ -263,10 +491,10 @@ See Table~\ref{tab:inf_table} and supplementary note 1 for suggestions.
 
 
 \subsection{Software project health metrics can reassure users and funders}
-Tracking adherence to standards of software engineering can be a useful way to assess software project health including the use of version control systems, high coverage of code with testing, and use of automated or continuous integration. None of these measures of project health are perfect but can be collectively assessed as indicators of whether a project is healthy. Like any tool, version control and testing can be used well or poorly, and the appropriate use of these tools truly indicates project health. A good resource for additional detail on these topics, can be found in The Pragmatic Programmer\cite{thomas_pragmatic_2019}. See Table~\ref{tab:soft_health_table} and supplementary note 2 for suggestions.
+Tracking adherence to standards of software engineering can be a useful way to assess software project health including the use of version control systems, high coverage of code with testing, and use of automated or continuous integration. None of these measures of project health are perfect (and they can be done poorly) but overall they can be collectively assessed as indicators of software health. Including badges for such indicators on code repositories and websites can give users and others confidence in your tools.  Additional detail on these topics, can be found in The Pragmatic Programmer\cite{thomas_pragmatic_2019}. See Table~\ref{tab:soft_health_table} and supplementary note 2 for suggestions.
 
 
-\begin{table}
+\begin{table}[ht!]
  \caption{\textbf{Software health infrastructure enables collecting metrics that can reassure users and funders.}  }
   \centering
   \begin{tabular} {|p{0.1\textwidth}|p{0.13\textwidth}|p{0.15\textwidth}|p{0.23\textwidth}|p{0.24\textwidth}|}
@@ -329,9 +557,7 @@ Tracking adherence to standards of software engineering can be a useful way to a
 
 \section{Challenges and nuances}
 
-\section{Identifying the proper metric}
-
- It can be challenging to determine what metric is actually right for the intended evaluation hypothesis. The total unique downloads might be useful as a metric of software popularity, but it only reflects how many people have tried to download it and not if users find it useful. Instead, one might consider measuring how often users use software, we might count the number of launches of the software which run over a certain predefined session time threshold,to better evaluate actual usage. Returned usage by the same users often suggests that the users may find the tool useful. One may want to parse this by data type used to evaluate how useful the tool appears to support different kinds of users.   Specific measures can provide common basis comparing versions and potentially against other similar software. 
+There are a number of challenges and nuances associated with evaluating metrics for software usage and impact. Here we outline some examples.
 
 \subsection{Citation challenges}
 Measuring the number of citations of your tool is especially useful as a metric to report to funding agencies. To enable this, it is necessary that your tool has a manuscript or other data object to cite \cite{chue_hong_software_2019}. Having a manuscript published as a preprint such as BioRxiv, or even in Figshare (see 'The graph-tool python library' \cite{peixoto_graph-tool_2017}), can help a tool to have a citable presence. For data or software objects, Zenodo \cite{zenodo}, Dryad \cite{datadryad}, Synapse \cite{synapse}, and Figshare \cite{figshare} can provide DOIs, which are citable. 
@@ -351,23 +577,33 @@ One other difficulty with the implementation of analytics platforms such as Goog
 
 \subsection{Distorted metrics}
 
-Projects like Bioconductor \cite{bioconductor}, with a large variety of software packages, can allow for evaluation of how packages compare and are used over time. This can reveal important nuances about software usage metrics. 
+Projects like Bioconductor \cite{bioconductor}, with a large variety of software packages, can allow for evaluation of how packages compare and are used over time. This can reveal important nuances about software usage metrics. See ~Table \ref{tab:dist_table}.
 
-\subsubsection{Accidental usage} 
-Occasionally scripts used on servers may inadvertently download a package repeatedly and rapidly hundreds to thousands of times, resulting in distorted download metrics that are not representative of real usage. Unique IP download information is useful to distinguish between one user downloading many times versus many users a few times. Given privacy concerns, an alternative solution could involve tracking the timing and general location of downloads with a threshold for what would be more than expected as maximum real usage, like a group of people following a tutorial.
-
-\subsubsection{Background usage}
-There is a baseline background level of downloads across all packages in Bioconductor (including those that are no longer supported). Thus if a new package has 250 downloads in the first year year this may seem like a successful number, but it can be determined that this is more similar to background levels.
-
-\subsubsection{Distinguishing technical vs research usage}
-
-The S4Vectors package is an infrastructure package used by many other packages for technical and non-biological reasons and is therefore not often directly downloaded by end-users. This package is also used for automated checks for other Bioconductor packages using GitHub actions. It can be difficult to discern if the usage of a package is for scientific research itself or supporting the development of other software. While both are arguably valuable, distinguishing between these motivations can help us understand a particular software's impact in a field.  
-
-\subsubsection{Historical usage persistence}
-
-The affy package \cite{affy}, was one of the early packages for microarray analysis, a technology that has largely been replaced by newer technologies. However, despite a clear transition by the field away from microarray \cite{mantione_comparing_2014}, the package was downloaded in 2021 at rates that doubled the rates in 2011. It is believed that this is due to people historically requesting that affy be installed on servers and that this is just persisting. 
-
-
+\begin{table}[h!]
+ \caption{Distorted Metrics}
+  \centering
+  \begin{tabular}{|P{0.2\textwidth}|p{0.65\textwidth}|}
+    \hline
+    \multicolumn{1}{|c|} {\cellcolor[gray]{.9} \textbf{Distortion}}     
+    & \multicolumn{1}{|c|} {\cellcolor[gray]{.9} \textbf{Example}}  \\
+    \hline
+    \multirow{4}{*}{Accidental Usage} 
+    & 
+Occasionally scripts used on servers may inadvertently download a package repeatedly and rapidly hundreds to thousands of times, resulting in distorted download metrics that are not representative of real usage. Unique IP download information is useful to distinguish between one user downloading many times versus many users a few times. Given privacy concerns, an alternative solution could involve tracking the timing and general location of downloads with a threshold for what would be more than expected as maximum real usage, like a group of people following a tutorial.  \\
+    
+    \hline
+\multirow{4}{*}{Background Usage} & 
+  There is a baseline background level of downloads across all packages in Bioconductor (including those that are no longer supported). Thus if a new package has 250 downloads in the first year year this may seem like a successful number, but it can be determined that this is more similar to background levels. \\ 
+    \hline
+\multirow{4}{*}{\shortstack{Technical \\ vs Research usage}} & 
+   The S4Vectors package is an infrastructure package used by many other packages for technical and non-biological reasons and is therefore not often directly downloaded by end-users. This package is also used for automated checks for other Bioconductor packages using GitHub actions. It can be difficult to discern if the usage of a package is for scientific research itself or supporting the development of other software. While both are arguably valuable, distinguishing between these motivations can help us understand a particular software's impact in a field.  \\ 
+    \hline
+\multirow{4}{*}{Usage Persistence} &
+    The affy package \cite{affy}, was one of the early packages for microarray analysis, a technology that has largely been replaced by newer technologies. However, despite a clear transition by the field away from microarray \cite{mantione_comparing_2014}, the package was downloaded in 2021 at rates that doubled the rates in 2011. This could be due to people historically requesting that affy be installed on servers and that this is just persisting. \\ 
+    \hline
+  \end{tabular}
+  \label{tab:dist_table}
+\end{table}
 
 
 \subsection{Clinical data challenges}
@@ -388,170 +624,19 @@ One option is to let users determine if they wish to be tracked by letting them 
 
 \section{Discussion and conclusion:}
  Ideas about improvements to encouraging more metric analysis, transparency, metric collection, overcoming challenges, and ethical considerations. Possible discussion of future outlook.
-\subsection{Figures}
 
 
 
-\begin{figure} % picture
-    \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/tool_diversity.png}
-    \caption{Variety of the 44 ITCR and CTD² tools evaluated for various characteristics with manual inspection}
-    \label{fig:tool_eval}
-\end{figure}
-
-\begin{figure} % picture
-    \centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/inf_cit.png}
-    \caption{Various aspects of software infrastructure appear to be associated with a larger number of published manuscripts from users officially citing usage of the software.}
-    \label{fig:inf_cit}
-\end{figure}
-
-\subsection{Tables}
-
-See awesome Table~\ref{tab:benefit_table}  and Table ~\ref{tab:opt_table} and Table~\ref{tab:inf_table} .
-\renewcommand{\arraystretch}{1.1} %adding space between rows will influence the rest of the document
 
 
-\begin{table}
- \caption{\textbf{Software evaluation supports internal needs for tool optimization and development, as well external needs to demonstrate tool value 
- to others.} Tool optimization can involve improving workflows, performance, usage, or usability. Evaluations can guide future work. For example, recognizing the types or volumes of data being used, as well as temporal trends of data usage, can highlight opportunities for new algorithm development. Similar analyses can help optimize resource allocation within and between projects. Evaluation can also aid in demonstrate tool value to gain external support, such as funding.  Evidence for impact is also often required to gain resources to develop or maintain semi- or un-related tools. Demonstration of past capability to develop impactful software supports requests to do so in the future.  Demonstrating that a tool is widely-used and widely-accepted can also encourage users to adopt a tool more readily, and be more invested in a tool community. Developers may be drawn to projects with impact to build upon an exiting tool. Finally, demonstration of impact can recruit new users which can diversify tool communities and bring new problems of interest that expand the utility of a tool.}
-  \centering
-  \begin{tabular} {|p{0.27\textwidth}|p{0.25\textwidth}|p{0.4\textwidth}|}
-  %{|c|c|l|}
-    \hline
-    \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Internal Need}} 
-    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Specific Goal}}
-    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Benefit}}\\[1.1ex]
-    \hline
-    \multirow{17}{*}{Tool Optimization}               
-    & \multirow{3}{*}{Improving Workflows} & 
-    Identify unexpected usage \\
-    & &
-    Identify inefficiencies \\
-    & &
-    Identify inadequate documentation\\ \cline{2-3}
-    &   \multirow{4}{*}{  }
-    & 
-     Identify mismatches with defaults and use \\
-     &  Improve Performance  &
-     Identify user errors \\
-    &  &
-    Assess run-time \\
-    &  & 
-     Measure data volume \\  \cline{2-3}
-    & \multirow{5}{*}{ Improve Usage} & 
-    Identify who the user-base is \\
-    & &
-    Determine user-base diversity \\
-    & &
-    Identify sources of other possible users \\
-    & &
-    Determine what users expectations are \\
-    & &
-    Determine if user expectations are appropriate \\
-    & &
-    Evaluate success of outreach approaches\\  \cline{2-3}
-    & \multirow{2}{*}{ Improve Implementation} & 
-    Identify barriers for adoption \\
-    &   &
-    Identify methods to support adaption \\
-    &  & 
-    Identify use of out-dated versions\\\cline{2-3}
-    & \multirow{2}{*}{ Improve Usability} & 
-    Identify what features are used \\
-    & & 
-    Identify which users use which features \\
-    &  &
-    Identify what features are not being used \\
-    & &
-    Identify if and how users are struggling \\ 
-    \hline
-    \multirow{6}{*}{\shortstack{Tool Development \\ \& Maintenance}}
-    & \multirow{6}{*}{\shortstack{ Guide Future Work\\  Motivate Continued Support}} &
-    Enumerate data types being used \\
-    & &
-    Discover opportunities for new features \\
-    && 
-    Discover data needed to address user goals  \\
-    & & 
-    Identify more appropriate resource allocation \\
-
-    \hline
-    \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{External Need}} 
-    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Specific Goal}}
-    & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Benefit}}\\[1.1ex] % add some space after headers before horizontal line
-    \hline
-    \multirow{4}{*}{Gain Support}              
-    & \multirow{4}{*}{Show Evidence of Impact} & 
-    Support future funding requests \\
-    & &
-    (to maintain or develop new tools) \\
-    & &
-    Request for resources  \\
-    & & 
-    (to maintain or develop new tools) \\[1.1ex]
-    \hline
-    \multirow{4}{*}{Gain User Commitment} 
-    & \multirow{4}{*}{Evidence of tool acceptance} & 
-    Reassure users about tool to:\\
-    &&
-    - Promote continued use\\
-    && 
-    - Promote usage of new tools by the same developers \\ 
-    &&
-    - Promote usage by more diverse users \\[1.1ex]
-    \hline
-    \multirow{1}{*}{Gain Community Development} 
-    & \multirow{1}{*}{Evidence of co-development} & 
-    Encourage contributions  \\
-    \hline
-  \end{tabular}
-  \label{tab:benefit_table}
-\end{table}
 
 
-\begin{table}
- \caption{Operationalization}
-  \centering
-  \begin{tabular}{|c|l|l|}
-    \hline
-    \multicolumn{1}{|c|} {\cellcolor[gray]{.9} \textbf{Measure}}   
-    & \multicolumn{1}{|c|} {\cellcolor[gray]{.9} \textbf{Example Metrics}}     
-    & \multicolumn{1}{|c|} {\cellcolor[gray]{.9} \textbf{Use}}  \\
-    \hline
-    Tool dissemination & 
-    Total unique downloads & 
-    Popularity of a given tool \\
-    & 
-    Download count by version &
-    Users keeping up-to-date\\
-    \hline
-    Tool usefulness & 
-    Average run count, by user & 
-    Determining prevalence of usage \\
-    \hline
-    Tool reliability & 
-    Proportion of runs without a crash or error &
-    Improving error handling, bug fixes\\
-    \hline
-    Tool versatility &
-    Distribution of data types (inferred from metadata)&
-    Improving tool flexibility\\
-    Interface acceptability &
-    Average user session length &
-    Graphical tool and website acceptability\\
-    \hline
-    Performance &
-    Maximum memory usage &
-    Tuning, requirements analysis\\
-    &
-    Average time-to-complete of algorithmic steps &
-    Tuning,
-    requirements analysis \\
-    \hline
-  \end{tabular}
-  \label{tab:opt_table}
-\end{table}
+
+
+
+
+
+
 
  
 \bibliographystyle{unsrt} 
