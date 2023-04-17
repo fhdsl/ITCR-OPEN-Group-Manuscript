@@ -1,6 +1,9 @@
 \section{Methods}
 
+Greater detail, as well as information about data access, and code access about the survey and the manual tool characteristics evaluation can be found at this website.
+
 \subsection{Survey}
+Forty eight participants in the ITCR program were asked a series of questions about their attitudes on evaluating the impact of scientific software. Some questions were more general, while others asked about practices for their most mature tool. These responses were collected anonymously, however respondents could include a link to their tool if they felt comfortable. The raw survey responses will not be made available to the public to protect the respondents. The survey questions can be found here: \url{https://forms.gle/9DA1pmkpWw4K9bhH8}.
 
 \subsection{Manual Tool Characteristic Evaluation}
 
@@ -12,17 +15,39 @@ Twitter Presence: The variable "Twitter Presence" indicates whether a tool has a
 
 Extensive Contact: The binary variable "Extensive Contact Ways" indicates whether a tool offers multiple ways for users to contact developers for support or other inquiries, such as email addresses, discussion boards, contact forms, and more. Tools with several contact options may be more user-friendly as they enable researchers to seek support or report issues with the tool more conveniently and effectively. In contrast, tools with inadequate or no contact methods may be less attractive to researchers, as they don't provide timely help for technical difficulties or other concerns.
 
+
+\subsection{Classification of software mention types}
+
+
+Software mentions in scholarly articles can be categorized into four types: allusion, usage, creation, and deposition. The distinction between these types can help researchers understand the role and availability of software in scholarly publications. We distinguish the aforementioned classifications of mention types as follows:
+ 
+Allusion: This type of mention simply refers to the name of the software and does not require any indication of its usage. Allusions are used to state a fact about the software or to compare multiple software options for a problem. These are similar to the typical scholarly citations used to refer to related work.
+ 
+Usage: A usage type mention occurs when software is used in an investigation and contributes to the study. This type of mention allows for conclusions about the study's origins and can be used to develop impact metrics. 
+ 
+Creation: When new software is introduced in a publication, it is a creation type mention. This type of mention can be used to provide scholarly credit to the software's authors, as well as map new creations and track down original software publications.
+ 
+Deposition: The publication of new software is regarded as a deposition mention. By including information about the publication, such as a license or URL, deposition expands on the creation type mention. When describing availability and licensing information for software, cross-references are used to annotate indirect statements about the software.
+ 
+In summary, allusion-type mentions provide a broad overview of the presence of software in the text, while usage mentions allow for conclusions regarding its actual contribution. Creation mentions are used to identify newly created software, and deposition mentions provide details on its publication and availability.
+
+Our analyses fully excluded the creation type mentions. We focused on the usage type mentions as this metric facilitates the evaluation of impact of the software tools better than the other mention types. 
+
+References: 
+
+Schindler, D., Bensmann, F., Dietze, S., & Krüger, F. (2021). Somesci-A 5 star open data gold standard knowledge graph of software mentions in scientific articles. arXiv preprint arXiv:2108.09070.
+
+D. Schindler, K. Yordanova and F. Krüger, "An annotation scheme for references to research artefacts in scientific publications," 2019 IEEE International Conference on Pervasive Computing and Communications Workshops (PerCom Workshops), Kyoto, Japan, 2019, pp. 52-57, doi: 10.1109/PERCOMW.2019.8730730.
+
+
 \subsection{Software Mention Analysis}
+
 
 SoftwareKG-PMC is a database of text-mined software mentions published by Schindler et al 2022(Krüger and Schindler 2020). In principle, this resource enables direct identification and analysis of the usage of ITCR tools in published literature present on PubMedCentral Open Access Subset as of January 2021. Access to this data requires setting up the database locally, as described by the developers at \url{https://urldefense.com/v3/__https://github.com/f-krueger/SoftwareKG-PMC-Analysis__;!!GuAItXPztq0!hBzPcpXZ3SCNtkVgVI9KgwxhTOgm6JY1gKzCzCFfer1uhtTUx-sWnQyzKdfDCT0yogPVN8-gs4KZy97R-JH4PN6VNw20GNQ$} . We downloaded the raw ntriple data from \url{https://urldefense.com/v3/__https://zenodo.org/record/7400022__;!!GuAItXPztq0!hBzPcpXZ3SCNtkVgVI9KgwxhTOgm6JY1gKzCzCFfer1uhtTUx-sWnQyzKdfDCT0yogPVN8-gs4KZy97R-JH4PN6VRftmtmY$}  and loaded these into a Virtuoso database using the tenforce/virtuoso docker image available at \url{https://urldefense.com/v3/__https://hub.docker.com/r/tenforce/virtuoso/__;!!GuAItXPztq0!hBzPcpXZ3SCNtkVgVI9KgwxhTOgm6JY1gKzCzCFfer1uhtTUx-sWnQyzKdfDCT0yogPVN8-gs4KZy97R-JH4PN6V0PP1Kqo$} . We adjusted the virtuoso configuration file for a machine with 64Gb of RAM. After the database is instantiated, the docker container can be closed and resumed on demand.
 
-“Usage” is usage
 
-“Allusion” is a simple mention, like ‘software xyz exists’
 
-“Deposition” indicate statements about the development or release of the software, like ‘we put xyz on github’
-
-We queried the database instance from R using code adapted from the SofwareKG-PMC-Analysis code notebook. The SPARQL library version 1.16 was installed manually from the CRAN archive at \url{https://urldefense.com/v3/__https://cran.r-project.org/src/contrib/Archive/SPARQL/__;!!GuAItXPztq0!hBzPcpXZ3SCNtkVgVI9KgwxhTOgm6JY1gKzCzCFfer1uhtTUx-sWnQyzKdfDCT0yogPVN8-gs4KZy97R-JH4PN6VyojsQgQ$}  as the package is no longer maintained. We constructed a query function which returns all articles which mention a given keyword (i.e., software name) in a particular mention category (allusion, usage, creation, or deposition). This yielded 73095 article-level mentions of any type, corresponding to 60970 unique articles for 36 ITCR tool name keywords. 8 tools were not identified, possibly due to recency of release, complexity of the tool name, or gaps in the accuracy or completeness of SoftwareKG and/or PubMedCentral. We further note that results are contaminated to a varying degree by software name homonyms. This type of collision is a chief limitation of SoftwareKG-PMC, especially for tools with simple or generic names. The query was performed in a case-insensitive manner due to the tendency for authors to adjust the capitalization of software names, such as JBrowse vs Jbrowse. SoftwareKG-PMC does not reliably aggregate these variations.
+We queried the database instance from R using code adapted from the SofwareKG-PMC-Analysis code notebook. The SPARQL library version 1.16 was installed manually from the CRAN archive at \url{https://urldefense.com/v3/__https://cran.r-project.org/src/contrib/Archive/SPARQL/__;!!GuAItXPztq0!hBzPcpXZ3SCNtkVgVI9KgwxhTOgm6JY1gKzCzCFfer1uhtTUx-sWnQyzKdfDCT0yogPVN8-gs4KZy97R-JH4PN6VyojsQgQ$} as the package is no longer maintained. We constructed a query function which returns all articles which mention a given keyword (i.e., software name) in a particular mention category (allusion, usage, creation, or deposition). Usage was used for most further analyses. This yielded 73095 article-level mentions of any type, corresponding to 60970 unique articles for 36 ITCR tool name keywords. 8 tools were not identified, possibly due to recency of release, complexity of the tool name, or gaps in the accuracy or completeness of SoftwareKG and/or PubMedCentral. We further note that results are contaminated to a varying degree by software name homonyms. This type of collision is a chief limitation of SoftwareKG-PMC, especially for tools with simple or generic names. The query was performed in a case-insensitive manner due to the tendency for authors to adjust the capitalization of software names, such as JBrowse vs Jbrowse. SoftwareKG-PMC does not reliably aggregate these variations.
 
 
 The SoftwareKG-PMC database is not retrieving citations to these tools, only plain-text mentions inferred by a text-mining algorithm. The database does not know anything about these tools per se, and not all of these mentions necessarily correspond to the same tool. For example, DANA is an ITCR tool for microRNA analysis but there are also other unrelated methods with the same name. On the other hand, tools with highly specific names like Bioconductor are unlikely to have the same issue.
