@@ -31,221 +31,68 @@
                            }% end of AtBeginEnvironment
                            
 \renewcommand{\arraystretch}{1.1} %adding space between rows will influence the rest of the document
-\usepackage{float}
+\usepackage{authblk}
 
 \title{ Evaluation of software impact designed for biomedical research: Are we measuring what's meaningful?}
 
 
 \pdfinfo{
-/Title (Input Your Paper Title Here)
+/Title (Evaluation of software impact designed for biomedical research: Are we measuring what's meaningful?)
 /Author (Awan Afiaz,  Andrey Ivanov, John Chamberlin, David Hanauer, Candace Savonen, Mary J Goldman, Martin Morgan, Michael Reich,  Alexander Getka, Aaron Holmes, Sarthak Pati, Dan Knight,  Paul C. Boutros, Spyriodon Bakas, J. Gregory Caporaso,  Guilherme Del Fiol, Harry Hochheiser, Brian Haas, Patrick D. Schloss, James Eddy, Jake Albrecht, Andrey Fedorov, Levi Waldron, Jeffrey T. Leek, Carrie Wright)
 /Keywords Scientific Software, Usage, Impact, Metrics
 }
 
-\author{
- Awan Afiaz \\
-  Department of Biostatistics \\
-  University of Washington \\
-  Seattle, WA 98195 \\
-  Fred Hutchinson Cancer Center \\
-  Seattle, WA 98109 \\
-  \texttt{aafiaz@uw.edu} \\
-  \And
- Andrey A. Ivanov \\
-  Department of Pharmacology and Chemical Biology\\
-  Emory University School of Medicine\\
-  Emory University\\
-  Atlanta, GA 30322 \\
-  \texttt{andrey.ivanov@emory.edu}\\
-  \And
- John Chamberlin \\
-  University of Utah \\
-  Department of Biomedical Informatics \\
-  Salt Lake City, UT 84108 \\
-  \texttt{john.chamberlin@utah.edu} \\
-  \And  
- David Hanauer \\
-  Department of Learning Health Sciences \\
-  University of Michigan Medical School\\
-  Ann Arbor, MI 48109\\
-  \texttt{hanauer@umich.edu}\\
-  \And
- Candace L Savonen \\
-  Fred Hutchinson Cancer Center
-  Seattle, WA 98109 \\
-  \texttt{csavonen@fredhutch.org}\\
-  \And
-Mary J Goldman \\
-  University of California Santa Cruz
-  Santa Cruz, CA 95064 \\
-  \texttt{mgoldman@ucsc.edu}\\
-   \And
- Martin Morgan \\
-  Roswell Park Comprehensive Cancer Center \\
-  Buffalo, NY, 14203 \\
-\texttt{Martin.Morgan@RoswellPark.org}\\
-  \And
- Michael Reich \\
-  University of California, San Diego \\
-  La Jolla, CA 92093\\
-  \texttt{mmeich@cloud.ucsd.edu} \\
-  \And 
- Alexander Getka \\
-  University of Pennsylvania \\
-  Philadelphia, PA 19104 \\
-  \texttt{agetka@upenn.edu} \\
-  \And 
- Aaron Holmes \\
-  University of California, Los Angeles \\
-  Jonsson Comprehensive Cancer Center \\
-  Institute for Precision Health \\
-  Department of Human Genetics \\
-  Department of Urology \\
-  Los Angeles, CA 90095 \\
-  \texttt{aholmes@mednet.ucla.edu} \\
-   \And 
- Sarthak Pati \\
-  University of Pennsylvania \\
-  Philadelphia, PA 19104 \\
-  \texttt{patis@upenn.edu} \\
-  \And
- Dan Knight \\
-  University of California, Los Angeles \\
-  Jonsson Comprehensive Cancer Center \\
-  Institute for Precision Health \\
-  Department of Human Genetics \\
-  Department of Urology \\
-  Los Angeles, CA 90095 \\
-  \texttt{danknight@mednet.ucla.edu} \\
-  \And 
-  Paul C. Boutros \\
-  University of California, Los Angeles \\
-  Jonsson Comprehensive Cancer Center \\
-  Institute for Precision Health \\
-  Department of Human Genetics \\
-  Department of Urology \\
-  Los Angeles, CA 90095 \\
-  \texttt{pboutros@mednet.ucla.edu} \\
-  \And 
- Spyridon Bakas \\
-  University of Pennsylvania \\
-  Philadelphia, PA 19104 \\
-  \texttt{sbakas@upenn.edu} \\
-  \And
- J. Gregory Caporaso \\
-  Pathogen and Microbiome Institute \\
-  Northern Arizona University \\
-  Flagstaff, AZ 86011\\
-  \texttt{greg.caporaso@nau.edu} \\
-  \And 
- Guilherme Del Fiol \\
-  Department of Biomedical Informatics \\
-  University of Utah \\
-  Salt Lake City, UT 84108 \\
-  \texttt{guilherme.delfiol@utah.edu} \\
-  \And
- Harry Hochheiser \\
-  Department of Biomedical Informatics \\
-  University of Pittsburgh \\
-  \texttt{harryh@pitt.edu} \\
-  \And
-  Brian Haas \\
-  Methods Development Laboratory \\
-  Broad Institute \\
-  Cambridge, MA 02142 \\
-  \texttt{bhaas@broadinstitute.org} \\
-  \And
-   Patrick D Schloss \\
-  Department of Microbiology and Immunology \\
-  University of Michigan \\
-  Ann Arbor, MI 48109 \\
-  \texttt{pschloss@umich.edu} \\
-  \And
-  Andrey Fedorov \\
-  Department of Radiology \\
-  Brigham and Women's Hospital\\
-  Harvard Medical School\\
-  Boston, MA 02115 \\
-  \texttt{fedorov@bwh.harvard.edu}\\
-  \And
- Levi Waldron \\
-  Department of Epidemiology and Biostatistics \\
-  City University of New York Graduate School of Public Health and Health Policy \\
-  New York, NY 10027 \\
-  \texttt{levi.waldron@sph.cuny.edu} \\
-  \And
-   Jeffrey T Leek\\
-   Biostatistics Program \\ 
-   Public Health Sciences Division \\
-  Fred Hutchinson Cancer Center \\
-  Seattle, WA 98109 \\
-  \texttt{jtleek@fredhutch.org} \\
-  \And
- Carrie Wright \\
-  Fred Hutchinson Cancer Center \\
-  Seattle, WA 98109 \\
-  \texttt{cwright2@fredhutch.org} \\
-}
   
-
-
-
 
 \begin{document}
 
 
+
+\author[1,2]{\bf Awan Afiaz} % aafiaz@uw.edu
+\author[3]{\bf Andrey A. Ivanov} % andrey.ivanov@emory.edu
+\author[2]{\bf Candace L Savonen} % csavonen@fredhutch.org
+\author[4]{\bf Mary J Goldman} % mgoldman@ucsc.edu
+\author[5]{\bf Martin Morgan} % Martin.Morgan@RoswellPark.org
+\author[6]{\bf Michael Reich} % mmeich@cloud.ucsd.edu
+\author[7]{\bf Alexander Getka} % agetka@upenn.edu
+\author[8,9,10,11]{\bf Aaron Holmes} % aholmes@mednet.ucla.edu
+\author[7]{\bf Sarthak Pati} % patis@upenn.edu
+\author[8,9,10,11]{\bf Dan Knight} % danknight@mednet.ucla.edu
+\author[8,9,10,11]{\bf Paul C. Boutros} % pboutros@mednet.ucla.edu
+\author[7]{\bf Spyridon Bakas} % sbakas@upenn.edu
+\author[12]{\bf J. Gregory Caporaso} % greg.caporaso@nau.edu
+\author[13]{\bf Guilherme Del Fiol} % guilherme.delfiol@utah.edu
+\author[14]{\bf Harry Hochheiser} % harryh@pitt.edu
+\author[15]{\bf Brian Haas} % bhaas@broadinstitute.org
+\author[16]{\bf Patrick D Schloss} % pschloss@umich.edu
+%\author[James Eddy]
+%\author[Jake Albrecht]
+\author[17]{\bf Andrey Fedorov} % fedorov@bwh.harvard.edu
+\author[18]{\bf Levi Waldron} % levi.waldron@sph.cuny.edu
+\author[2]{\bf Jeffrey T Leek} % jtleek@fredhutch.org
+\author[2,*]{\bf Carrie Wright} % cwright2@fredhutch.org, ORCID: 0000-0003-1325-6067
+\affil[1]{Department of Biostatistics, University of Washington,Seattle, WA}
+\affil[2]{Biostatistics Program, Public Health Sciences Division, Fred Hutchinson Cancer Center,Seattle, WA}
+\affil[3]{Department of Pharmacology and Chemical Biology, Emory University School of Medicine, Emory University, Atlanta, GA}
+\affil[4]{University of California Santa Cruz, Santa Cruz, CA}
+\affil[5]{Roswell Park Comprehensive Cancer Center, Buffalo, NY}
+\affil[6]{University of California, San Diego, La Jolla, CA}
+\affil[7]{University of Pennsylvania, Philadelphia, PA}
+\affil[8]{Jonsson Comprehensive Cancer Center, University of California, Los Angeles, CA}
+\affil[9]{Institute for Precision Health, University of California, Los Angeles, CA}
+\affil[10]{Department of Human Genetics, University of California, Los Angeles, CA}
+\affil[11]{Department of Urology, University of California, Los Angeles, CA}
+\affil[12]{Pathogen and Microbiome Institute, Northern Arizona University, Flagstaff, AZ}
+\affil[13]{Department of Biomedical Informatics, University of Utah, Salt Lake City, UT}
+\affil[14]{Department of Biomedical Informatics, University of Pittsburgh,Pittsburgh, Pennsylvania}
+\affil[15]{Methods Development Laboratory, Broad Institute, Cambridge, MA}
+\affil[16]{Department of Microbiology and Immunology, University of Michigan, Ann Arbor, MI}
+\affil[17]{Department of Radiology, Brigham and Women's Hospital, Harvard Medical School, Boston, MA}
+\affil[18]{Department of Epidemiology and Biostatistics, City University of New York Graduate School of Public Health and Health Policy, New York, NY}
+\affil[*]{Correspondence to \nolinkurl{cwright2@fredhutch.org}}
+
 \maketitle
 
-
-
-% Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
-
-
-
-\author[1,2]{A. Afiaz} % aafiaz@uw.edu
-%\author[4, \Letter]{Andrey Ivanov}
-%\author[1,\Letter]{Savonen, C. L.}
-%\author[2,\Letter]{Hanauer, D.}
-%\author[3,\Letter]{Spyridon, B.}
-%\author[4, \Letter]{Harry Hochheiser}
-%\author[4, \Letter]{Greg Caporaso}
-%\author[4, \Letter]{Guilherme Del Fiol}
-%\author[4, \Letter]{John Chamberlin}
-%\author[4, \Letter]{James Eddy}
-%\author[4, \Letter]{Paul C. Boutros}
-%\author[3, \Letter]{Alexander Getka}
-%\author[4, \Letter]{Mary Goldman}
-%\author[4, \Letter]{Martin Morgan}
-%\author[4, \Letter]{Michael Reich}
-%\author[4, \Letter]{Brian Haas}
-%\author[4, \Letter]{Aaron Holmes}
-%\author[4, \Letter]{Dan Knight}
-%\author[4, \Letter]{Sarthak Pati}
-%\author[4, \Letter]{Andrey Fedorov}
-%\author[4, \Letter]{Patrick D. Schloss}
-%\author[4, \Letter]{Levi Waldron}
-%\author[4, \Letter]{Jake Albrecht}
-%\author[2]{Leek, J. T.}
-%\author[2]{Wright, C.}%cwright2@fredhutch.org
-affil[1]{Department of Biostatistics, University of Washington,Seattle, WA}
-affil[2]{Fred Hutchinson Cancer Center,Seattle, WA}
-%\affil[2]{University of Michigan Medical School\\ University of Michigan School of Information\\}
-%\affil[3]{University of Pennsylvania}
-%\affil[4]{Placeholder}
-
-\author[1]{\bf Carrie Wright} % 0000-0003-1325-6067, email
-\author[1]{\bf Qier Meng} % add ORCID, qmeng11@jhmi.edu
-\author[2]{\bf Michael R. Breshock} % add ORCID, mbresho1@jhu.edu
-\author[2]{\bf Lyla Atta} % 0000-0002-6113-0082, lylaatta@jhmi.edu
-\author[1]{\bf Margaret A.\ Taub } % add ORCID, mtaub@jhsph.edu
-\author[1]{\bf Leah R. Jager } % 0000-0003-3362-2298, ljager2@jhu.edu
-\author[1,3]{\bf  John Muschelli } % add ORCID, jmusche1@jhu.edu
-\author[1,*]{\bf Stephanie C.\ Hicks} % 0000-0002-7858-0231, email
-
-\affil[1]{Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health}
-\affil[2]{Department of Biomedical Engineering, Johns Hopkins University}
-\affil[3]{Streamline Data Science}
-\affil[*]{Correspondence to \nolinkurl{shicks19@jhu.edu}}
 
 \begin{abstract}
 Software is vital for the advancement of biology and medicine. Analysis of usage and impact metrics of software can help determine user and community engagement. These can be used to justify additional funding, encourage additional use, and identify unanticipated use cases. Such analyses can help define improvement areas and assist with managing project resources. However, there are challenges associated with assessing usage and impact, many of which vary widely depending on the type of software being evaluated. These challenges involve issues of distorted, exaggerated, understated, or misleading metrics, as well as ethical and security concerns.  More attention to the nuances, challenges, and considerations involved in capturing impact across the diverse spectrum of biological software is needed. Furthermore, some tools may be especially beneficial to a small audience, yet may not have comparatively compelling metrics of high usage. Although some principles are generally applicable, there is not a single perfect metric or approach to effectively evaluate a software tool’s impact, as this depends on aspects unique to each tool, how it is used, and how one wishes to evaluate engagement. We propose generalizable guidelines (such as infrastructure that supports the usage of software and the collection of metrics about usage), as well as strategies for various types of software and resources. We also highlight outstanding issues in the field regarding how communities measure or evaluate software impact. To gain a deeper understanding of the issues hindering software evaluations, as well as to determine what appears to be helpful, we performed a survey of participants involved with scientific software projects for the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI). We also investigated software among this scientific community and others to assess how often infrastructure that supports such evaluations is implemented and how this impacts rates of papers describing usage of the software. We find that although developers recognize the utility of analyzing data related to the impact or usage of their software, they struggle to find the time or funding to support such analyses. We also find that infrastructure such as social media presence, more in-depth documentation, the presence of software health metrics, and clear information on how to contact developers seem to be associated with increased usage rates.  Our findings can help scientific software developers make the most out of the evaluations of their software so that they can more fully benefit from such assessments.
@@ -341,20 +188,13 @@ We aim to provide guidance for evaluations of software impact and engagement so 
 
 \section{Assessment of attitudes and practices for software impact evaluations}
 
-We performed two analyses to better understand how developers think about software evaluation and to determine what infrastructure is often implemented to support such evaluation, as well as how this is associated with levels of papers describing usage of tools. 
+We performed two analyses to better understand how developers think about software evaluation and to determine what infrastructure is often implemented to support such evaluation, as well as how this is associated with levels of papers describing usage of tools. See \ref{sec-supp-note-methods} for more information about the methods. 
 
-To perform the first analysis we surveyed 48 participants of the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI). The survey asked a variety of questions about attitudes and practices of those involved with software development, maintenance, or outreach of the ITCR (in which respondents could often select more than one response). It was determined that limited time (68\% of respondents) and funding (57\% respondents) were the major barriers for performing software impact evaluations. Indeed although there are a few funding mechanisms that support the maintenance and analysis of software (as opposed to creation of new software), such as the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI) sustainment awards \cite{kibbe_cancer_2017, warner_informatics_2020}, or the Essential Open Source Software for Science program of the Chan Zuckerberg Initiative \cite{CZ_essential_2019}, there is much more need for such funding for software sustainability compared to what is currently available. Indeed awareness of such a need was recently demonstrated by the Declaration on Funding Research Software Sustainability by the Research Software Alliance (ReSA) \cite{barker_amsterdam_2023}. The next major barriers were privacy concerns (38\% of respondents), technical issues (32\% of respondents), and not knowing what methods to use for such evaluations (27\% of respondents). Despite these apparent challenges,  73\% of respondents state that such evaluations have informed new development ideas, 60\% stated that it informed documentation, and 54\% stated that it helped justify funding.  Thus additional support for evaluations of software usage and impact could really benefit the continued development of software. Aspects that respondents had difficulty measuring were:
-\begin{itemize}
-    \item Collaborations that the tool supported
-    \item Number of commercial applications using the tool
-    \item Fraction of assumed user base that actually uses the tool
-    \item Downstream activity - what do users do with the results
-    \item User Frustration
-\end{itemize}
+To perform the first analysis we surveyed 48 participants of the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI). The survey asked a variety of questions about attitudes and practices of those involved with software development, maintenance, or outreach of the ITCR (in which respondents could often select more than one response). It was determined that limited time (68\% of respondents) and funding (57\% respondents) were the major barriers for performing software impact evaluations. Indeed although there are a few funding mechanisms that support the maintenance and analysis of software (as opposed to creation of new software), such as the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI) sustainment awards \cite{kibbe_cancer_2017, warner_informatics_2020}, or the Essential Open Source Software for Science program of the Chan Zuckerberg Initiative \cite{CZ_essential_2019}, there is much more need for such funding for software sustainability compared to what is currently available. Indeed awareness of such a need was recently demonstrated by the recent Declaration on Funding Research Software Sustainability by the Research Software Alliance (ReSA) \cite{barker_amsterdam_2023}. The next major barriers were privacy concerns (38\% of respondents), technical issues (32\% of respondents), and not knowing what methods to use for such evaluations (27\% of respondents). Despite these apparent challenges,  73\% of respondents state that such evaluations have informed new development ideas, 60\% stated that it informed documentation, and 54\% stated that it helped justify funding.  Thus additional support for evaluations of software usage and impact could really benefit the continued development of software. Responses to an open-ended question asking "Is there anything you would like to measure but have been unable to capture?" included (each of these examples were unique responses): collaborations that the tool supported, the number of commercial applications using the tool, the fraction of assumed user base that actually uses the tool, the downstream activity - what do users do with the results, and user frustration. These responses outline many of the challenges that developers often face in their tool evaluations.
 
-We also manually inspected 44 tools (33 funded by ITCR alone and 7 funded by the Cancer Target Discovery and Development (CTD²) Network \cite{aksoy_ctd2_2017}, as well as 4 tools funded by both) for aspects related to infrastructure that could help users know about a tool or how to use a tool, as well as infrastructure related to software health metrics, to indicate to users how recently the code was rebuilt or tested,  and investigated if there were any associations with these aspects and usage. To evaluate usage, we used he SoftwareKG-PMC database \cite{Usage}. It does not retrieve citations to these tools, only plain-text mentions inferred by a text-mining algorithm. The database does not know anything about these tools per se, and not all of these mentions necessarily correspond to the same tool. For example, DANA is an ITCR tool for microRNA analysis but there are also other unrelated methods with the same name. On the other hand, tools with highly specific names like Bioconductor are unlikely to have the same issue. A variety of tools were inspected - See Figure \ref{fig:tool_eval}. Most notable was a finding that although time since tool release is the largest contributor to variation in the number of papers describing usage, various aspects of infrastructure that could help users know about a tool (social media on twitter), have confidence in the tool (badges about software builds or tests on code repositories), or learn more about how to use the tool (extensive documentation and feedback mechanisms) all seem associated with an increased rate of manuscripts that describe using the tool. See Figure \ref{fig:inf_cit}
+We also manually inspected 44 tools (33 funded by ITCR alone and 7 funded by the Cancer Target Discovery and Development (CTD²) Network \cite{aksoy_ctd2_2017}, as well as 4 tools funded by both) for aspects related to infrastructure that could help users know about a tool or how to use a tool, as well as infrastructure related to software health metrics, to indicate to users how recently the code was rebuilt or tested,  and investigated if there were any associations with these aspects and usage. To evaluate usage, we used he SoftwareKG-PMC database \cite{Kruger_usage_20}. It does not retrieve citations to these tools, only plain-text mentions inferred by a text-mining algorithm. The database does not know anything about these tools per se, and not all of these mentions necessarily correspond to the same tool. For example, DANA is an ITCR tool for microRNA analysis but there are also other unrelated methods with the same name. On the other hand, tools with highly specific names like Bioconductor are unlikely to have the same issue. A variety of tools were inspected - See Figure \ref{fig:tool_eval}. Most notable was a finding that although time since tool release is the largest contributor to variation in the number of papers describing usage, various aspects of infrastructure that could help users know about a tool (social media on twitter), have confidence in the tool (badges about software builds or tests on code repositories), or learn more about how to use the tool (extensive documentation and feedback mechanisms) all seem associated with an increased rate of manuscripts that describe using the tool. See Figure \ref{fig:inf_cit}
 
-\begin{figure}[H] 
+\begin{figure}[ht] 
     \centering
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/software_tool_types.png}
     \caption{Variety of the 44 ITCR and CTD² tools evaluated for various characteristics with manual inspection}
@@ -363,7 +203,7 @@ We also manually inspected 44 tools (33 funded by ITCR alone and 7 funded by the
 
 
 
-\begin{figure}[H]
+\begin{figure}[ht]
     \centering
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/logUsage_stratified_2x2.png}
     \caption{Aspects of software infrastructure appear to be associated with a larger number of published manuscripts from users describing usage of the software in the SoftwareKG-PMC database. The X-axis indicates the age of the software by showing the year that it was released. They Y-axis indicates the log of the total number of papers that describe usage of the software in the SoftwareKG-PMC database. See the supplement for more information.}
@@ -800,10 +640,165 @@ We also describe challenges and nuances associated with the evaluation of softwa
  
 \bibliographystyle{unsrt} 
 
-\bibliography{references}
+\bibliography{software_impact.bib}
+
+
+\clearpage
+\onecolumn
+
+\rfoot{Wright et al.\hspace{7pt}$\mid$\hspace{7pt}2023\hspace{7pt}$\mid$\hspace{7pt}ar\textcolor{black}{X}$\chi$iv\hspace{7pt}$\mid$\hspace{7pt} Page S\thepage}
+
+
+{\huge Supplementary Materials}
+
+\hrule
+
+\vspace*{0.5cm}
+
+\begin{center}
+
+{\Large Evaluation of software impact designed for biomedical research: Are we measuring what's meaningful?}
+
+\vspace*{0.75cm}
+
+{\large Awan Afiaz, Andrey A. Ivanov, Candace L Savonen, Mary J Goldman, Martin Morgan, Michael Reich, Alexander Getka, Aaron Holmes, Sarthak Pati, Dan Knight, Paul C. Boutros, Spyridon
+Bakas, J. Gregory Caporaso, Guilherme Del Fiol, Harry Hochheiser, Brian Haas,  Patrick D Schloss, Andrey Fedorov, Levi Waldron, Jeffrey T Leek, and Carrie Wright$^*$}
+
+\vspace*{0.3cm}
+
+{\small $^*$Correspondence to \url{cwright2@fredhutch.org}}
+
+\end{center}
+
+\renewcommand{\figurename}{Supplementary Figure}
+\renewcommand{\tablename}{Supplementary Table}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{section}{0}
+\setcounter{page}{1}
+\makeatletter
+\renewcommand{\thesection}{Supplemental Note S\@arabic\c@section}
+
+\section{Methods}
+\label{sec-supp-note-methods}
+
+Greater detail, as well as information about data access, and code access about the survey and the manual tool characteristics evaluation can be found at this \href{https://hutchdatascience.org/ITCR_Metrics_manuscript_website/}{website}.
+
+\subsection{Survey}
+Forty eight participants in the ITCR program were asked a series of questions about their attitudes on evaluating the impact of scientific software. Some questions were more general, while others asked about practices for their most mature tool. These responses were collected anonymously, however respondents could include a link to their tool if they felt comfortable. The raw survey responses will not be made available to the public to protect the respondents. The survey questions can be found here: \url{https://forms.gle/9DA1pmkpWw4K9bhH8}.
+
+\subsection{Manual Tool Characteristic Evaluation}
+
+Documentation depth: The binary variable “Documentation depth” characterizes the degree of documentation for each tool as either “extensive” or “Webpage/PDF/ReadMe”. The term extensive documentation refers to comprehensive resources such as user guides, training, tutorials, code examples, and FAQs that allow users to better understand the functionality of the tools and interpret their outputs. The “Webpage/PDF/ReadMe” category, on the other hand, designates that the tool offers less information, possibly in the form of a website, PDF, or readme file. This "Webpage/PDF/ReadMe" category can be interpreted as having a lower level of documentation depth, as it typically provides users with a more basic level of information about the tool. This type of documentation may only include a brief description of the tool, its features, and how to install it without going into more detailed instructions or use cases. The "Webpage/PDF/ReadMe" category may be sufficient for users who are already familiar with similar tools or have prior experience in the field, but it may not provide enough guidance for beginners or users who need more detailed instructions to use the tool effectively. Therefore, having a higher level of documentation depth, such as "extensive,", can be beneficial for both novice and experienced users, as it provides more detailed information, tutorials, and use cases, making it easier for them to learn about the tool and utilize it to its full potential.
+
+Instruction on How to cite: The binary variable "Instruction on How to cite" specifies whether each tool provides instructions on how to properly cite it in a research publication or other work. These instructions typically include information such as the author(s) names, version number, publication date, and website or repository where the tool can be found. Tools that do not provide such instructions can make it difficult for researchers to correctly cite the tool, potentially leading to incomplete or inaccurate acknowledgements of its use in research.
+
+Twitter Presence: The variable "Twitter Presence" indicates whether a tool has a formal presence on Twitter. Only 3 tools had other forms of social media including youtube (two tools - one with twitter and one without) and gitter (one tool with twitter). Tools with a twitter presence have an active account that distributes news, updates, and information on the development, features, and usage of the tool. These accounts can allow communication between tool creators and users while facilitating the tool's exposure and accessibility.
+
+Extensive Contact: The binary variable "Extensive Contact Ways" indicates whether a tool offers multiple ways for users to contact developers for support or other inquiries, such as email addresses, discussion boards, contact forms, and more. Tools with several contact options may be more user-friendly as they enable researchers to seek support or report issues with the tool more conveniently and effectively. In contrast, tools with inadequate or no contact methods may be less attractive to researchers, as they don't provide timely help for technical difficulties or other concerns.
+
+
+\subsection{Classification of software mention types}
+
+
+Software mentions in scholarly articles can be categorized into four types \cite{schindler_annotation_2019, schindler_somesci-_2021}: allusion, usage, creation, and deposition. The distinction between these types can help researchers understand the role and availability of software in scholarly publications. We distinguish the aforementioned classifications of mention types as follows:
+ 
+Allusion: This type of mention simply refers to the name of the software and does not require any indication of its usage. Allusions are used to state a fact about the software or to compare multiple software options for a problem. These are similar to the typical scholarly citations used to refer to related work.
+ 
+Usage: A usage type mention occurs when software is used in an investigation and contributes to the study. This type of mention allows for conclusions about the study's origins and can be used to develop impact metrics. 
+ 
+Creation: When new software is introduced in a publication, it is a creation type mention. This type of mention can be used to provide scholarly credit to the software's authors, as well as map new creations and track down original software publications.
+ 
+Deposition: The publication of new software is regarded as a deposition mention. By including information about the publication, such as a license or URL, deposition expands on the creation type mention. When describing availability and licensing information for software, cross-references are used to annotate indirect statements about the software.
+ 
+In summary, allusion-type mentions provide a broad overview of the presence of software in the text, while usage mentions allow for conclusions regarding its actual contribution. Creation mentions are used to identify newly created software, and deposition mentions provide details on its publication and availability.
+
+Our analyses fully excluded the creation type mentions. We focused on the usage type mentions as this metric facilitates the evaluation of impact of the software tools better than the other mention types. 
+
+
+\subsection{Software Mention Analysis}
+
+
+SoftwareKG-PMC is a database of text-mined software mentions published by \cite{Kruger_usage_20}. In principle, this resource enables direct identification and analysis of the usage of ITCR tools in published literature present on PubMedCentral Open Access Subset as of January 2021. Access to this data requires setting up the database locally, as described by the developers at \url{https://urldefense.com/v3/__https://github.com/f-krueger/SoftwareKG-PMC-Analysis__;!!GuAItXPztq0!hBzPcpXZ3SCNtkVgVI9KgwxhTOgm6JY1gKzCzCFfer1uhtTUx-sWnQyzKdfDCT0yogPVN8-gs4KZy97R-JH4PN6VNw20GNQ$} . We downloaded the raw ntriple data from \url{https://urldefense.com/v3/__https://zenodo.org/record/7400022__;!!GuAItXPztq0!hBzPcpXZ3SCNtkVgVI9KgwxhTOgm6JY1gKzCzCFfer1uhtTUx-sWnQyzKdfDCT0yogPVN8-gs4KZy97R-JH4PN6VRftmtmY$}  and loaded these into a Virtuoso database using the tenforce/virtuoso docker image available at \url{https://urldefense.com/v3/__https://hub.docker.com/r/tenforce/virtuoso/__;!!GuAItXPztq0!hBzPcpXZ3SCNtkVgVI9KgwxhTOgm6JY1gKzCzCFfer1uhtTUx-sWnQyzKdfDCT0yogPVN8-gs4KZy97R-JH4PN6V0PP1Kqo$} . We adjusted the virtuoso configuration file for a machine with 64Gb of RAM. After the database is instantiated, the docker container can be closed and resumed on demand.
 
 
 
+We queried the database instance from R using code adapted from the SofwareKG-PMC-Analysis code notebook. The SPARQL library version 1.16 was installed manually from the CRAN archive at \url{https://urldefense.com/v3/__https://cran.r-project.org/src/contrib/Archive/SPARQL/__;!!GuAItXPztq0!hBzPcpXZ3SCNtkVgVI9KgwxhTOgm6JY1gKzCzCFfer1uhtTUx-sWnQyzKdfDCT0yogPVN8-gs4KZy97R-JH4PN6VyojsQgQ$} as the package is no longer maintained. We constructed a query function which returns all articles which mention a given keyword (i.e., software name) in a particular mention category (allusion, usage, creation, or deposition). Usage was used for most further analyses. This yielded 73095 article-level mentions of any type, corresponding to 60970 unique articles for 36 ITCR tool name keywords. 8 tools were not identified, possibly due to recency of release, complexity of the tool name, or gaps in the accuracy or completeness of SoftwareKG and/or PubMedCentral. We further note that results are contaminated to a varying degree by software name homonyms. This type of collision is a chief limitation of SoftwareKG-PMC, especially for tools with simple or generic names. The query was performed in a case-insensitive manner due to the tendency for authors to adjust the capitalization of software names, such as JBrowse vs Jbrowse. SoftwareKG-PMC does not reliably aggregate these variations.
+
+
+
+\section{Software Infrastructure to Enable Evaluation}
+
+\subsection{Web presence}
+Tools vary in terms of web presence. For example, some tools are web-based, some tools simply rely on a README file in a code repository, with simple installation information, while others provide extensive information and documentation on a separate website. Google Analytics can allow for more fine-grained tracking of how users are interacting with web-based tools or websites and can be helpful for later assessments, in addition to improving access, as one can also perform search engine optimization (SEO) to further encourage the visibility. For example, a developer could track what parts of the documentation users appear to read more frequently and pair this with information about common errors. For web-based tools, great detail can be determined about user interaction. Again Google Analytics can be helpful or for tools using a web-server manual log file inspection, or a service like Cronitor \cite{cronitor}  if the tool relies on a web-based server using cron \cite{cron_2009} job scheduling can also be informative.  It is however important to be mindful of user privacy regulations, see section \ref{sec:legal_ethics}.
+
+\subsection{Citability}
+Another component that can assist with evaluations is providing users with a method of citation, as well as information about how to cite the software, as some users may not be familiar with such practices. This is often done by publishing a manuscript about the software in a scientific journal and providing information about the publication on the software website and code repository. In addition, digital object identifiers (DOI), from publishing platforms like Zenodo \cite{zenodo}, can be used for other less conventionally cited materials, such as documentation, case studies, data, and the actual software itself.
+
+Services like Altmetric \cite{noauthor_altmetric_2015}, allow for deeper analysis of engagement for anything with a DOI. They provide reports and badges that can be added to websites or manuscripts (depending on where they are published) that indicate how often a DOI is cited in multiple sources besides scientific articles, such as blogs, news articles, Wikipedia, social media, and more.  Individuals or organizations can use Altmetric to get such reports by simply searching for the DOI. These reports also have links to individual social media posts, citing articles, and more. In addition, Semantic Scholar  \cite{noauthor_semantic_nodate} provides reports that indicate where citations have occurred within scientific articles. 
+
+
+\subsection{Documentation}
+Documenting software not only helps guide users but can also enable collection of useful metrics.  Documentation on websites can be tracked and provide detailed information about such usage. If a particular page has more traffic, it may indicate that the aspect of the tool discussed on that page is either particularly popular or particularly confusing. As with all metrics, pairing information together can aid interpretation. Providing different types of documentation is another step that assures confidence in software, and enables varying roles to succeed in using the software. For example, command-line usage is important for the users of software, while API documentation is important for developers who may want to extend the software.
+
+\subsection{Communications} 
+Providing mechanisms for users to communicate with one another and with the developers can provide another avenue for understanding usage and engagement.
+
+\subsubsection{Feedback mechanisms}
+One very helpful method of obtaining software usage metrics is to have users directly provide feedback. Providing such feedback mechanisms helps to identify software weaknesses. However, few users provide feedback and often feedback requires interpretation. Individuals are also unlikely to provide positive feedback. Nevertheless, user feedback mechanisms can be powerful for gaining insight from users. 
+Feedback mechanisms can be passive or active in nature. More passive mechanisms may involve providing an email address on a website or simply allowing users to post an issue on a GitHub repository. More active mechanisms may include usability testing interviews, Google forms or other surveys, or providing automated GitHub issue templates to encourage specific kinds of feedback.
+
+
+\subsubsection{Email and support forums}
+While it’s possible to collect user feedback and provide support through email,  if a public support forum is used instead, users can learn from answers to questions of other users, reducing the burden on developers, and provide another opportunity for easier tracking of software engagement. This also provides an opportunity to build a community around the software and to learn what is and isn’t working for users. Some forum platforms support upvoting (where other forum users can upvote questions or feature requests). Using an existing support forum platform such as Discourse (\url{https://www.discourse.org/}) provides many features that are convenient in forum moderation, such as user trust levels, categorization and tagging of topics, and detailed tracking of forum posts, forum post views, and user and moderator activity levels that serve as useful metrics about a software project and the community around it.
+
+Engaging with users about what new features they are excited about and acting on those discussions, is a great way to get informed feedback while rewarding user involvement. To further support community, developers could consider inviting user to attend workshops on new features or inviting them to help teach workshops on fundamentals.  Forum members who provide intellectual contributions to projects, including technical support, feature suggestions, highly referenced posts, etc, should be included as authors on relevant papers. And public facing activity summaries (e.g., \url{https://forum.qiime2.org/u/gregcaporaso/summary}) can also be useful for resume building for early career contributors.
+
+Emailing newsletters to registered users, can be a useful method for informing users about new features, updates or issues. Systems like Mailchimp \cite{mailchimp} or HubSpot \cite{hubspot} can allow analytics about how often recipients open the news letter, click on links, or unsubscribe.
+
+\subsection{Usability testing}
+
+Usability refers to the ease of use for an individual to use software. Usability testing is a method of purposefully investigating the usability of a software tool. Usability testing can be highly powerful for collecting valuable metrics and information regarding the usage. This involves applying the scientific method to investigating a user's experience with a software tool and asking users to use the software tool while the tester observes their interactions with the tool. 
+
+Often research institutions do not have these experts in user design and testing on staff. However, developers can and should utilize these techniques to conduct their own informal usability testing. Step-by-step guides of how to conduct usability testing have been published elsewhere \cite{savonen_2021}.  It should be noted that the benefits of usability testing are high even when only a few users are observed. 
+
+\subsection{Workshops}
+Hands-on workshops (online\cite{dillon_experiences_2021} or in-person) for your software are an excellent way to build a user community and get feedback. Workshops allow developers identify what confuses or challenges users. This can be illuminating as the challenges are often not what developers expect. Attendees can also be asked to participate in surveys about what they like and don't like to help guide future development. The quantity, duration, and attendance at your workshops are metrics that can be reported to funding agencies in grant proposals or reports. Posting recordings of events can be shared on YouTube or other platforms, which allows for other useful metrics. 
+
+\subsection{Code of conduct}
+Before engaging with user or developer communities, it is important to develop and publish a code of conduct for your project to outline expectations of behavior and how contributors can report violations. A code of conduct can be reassuring of community health and are required by some scientific software funders, such as the Chan Zuckerberg Initative’s Essential Open Source Software for Science program. Thus the presence of a Code of Conduct may be a measure that is assessed by potential funders. A good starting point for a code of conduct is the Contributor Covenant (https://www.contributor-covenant.org/), which can be adapted. Adopting and effectively managing\cite{aurora_how_2019} a  Code of Conduct can support the growth of your community by indicating a safe space, thereby encouraging engagement by individuals who might feel intimidated about getting publicly involved.
+
+\subsection{Social media}
+Having a social media presence through platforms such as twitter, instagram, and youtube, provides opportunities to track engagement with social media posts.  Pairing this with evaluations of engagement with the software itself, to determine if outreach strategies are successful. This can also be helpful to determine if documentation resources are useful. For example, the number of video views on a youtube documentation video can be informative to know what percentage of users may have actually seen the documentation. Videos with many views can also reassure others about using the software . 
+
+\subsection{Reviews}
+There are review mechanisms that can help reassure users about software. For example, SourceForge\cite{sourceforge} a platform for publishing and developing software allows users to rate software on the platform. Developers can integrate their GitHub repositories with SorceForge to take advantage of this review platform. Alternatively, GitHub also has a system of adding stars or followers to repositories, however, this appears to be somewhat inconsistently done in the community. 
+
+\subsection{Version control mechanisms}
+Many bioinformatics software projects maintain their source code under public revision or version control, using a platform such as GitHub or GitLab. Provided that the platform is actually used for version control (as opposed to hosting one or two versions of the software), this is a useful indicator of project health. Users can be confident that changes to the code are tracked to some extent and can also observe how much activity and updates have occurred to the software -- this can indicate to the user and developers fo the project how recently maintenance has occurred. This can also help users identify the specific version or revision of the software they are using to record and report their methods, reproduce an analysis, or determine if they are impacted by a bug in the software. Furthermore, GitHub provides an insight tab with information about development metrics and its API allows for collection of these metrics in a systematic and reproducible way. 
+
+\section{Software Health Infrastructure}
+
+\subsection{Development activity}
+Finally project health can be assessed based on activity. By reviewing the frequency of commits and the date of the most recent commit in a revision control system, it is possible to assess whether the project is actively developed. Inactively developed projects project may not include fixes for recently discovered bugs, or improvements in methods to keep current with the field. Tracking who is making commits to the project can also provide details on whether the project is the work of one or a few developers, or of a large and active developer community. Neither a big or small developer community is necessarily better, though smaller developer communities can pose greater sustainability risk. If there is only one person who knows how to work on the code, and that person becomes unable or unwilling to continue working on the project, development or maintenance of the project may be discontinued. 
+
+
+
+\subsection{Automated test coverage and continuous integration testing}
+Bugs in scientific software can have far-reaching impacts. Automated software tests allow developers to confirm that their code is behaving as expected under a range of normal and abnormal conditions. Systematically developed tests that can be run by both developers and users with a single command, give confidence that the software is doing what it is supposed to be doing. Platforms such as GitHub allow developers to advertise their test code coverage (the fraction of lines of code in the project that are covered by automated tests) and current build status (including whether tests are currently passing or failing). The presence or absence of this information, as well as quantitative metrics like test code coverage, are useful indicators of project health. Similarly, the use of automated or continuous integration testing, which can be configured to run when a change is committed to a software repository, when software releases are created, or at any other point where quality assurance is necessary to provide early signals of errors, is also an indicator of project health. This can help ensure that bugs or other issues can be detected before software is deployed by users.
+
+The presence of different types of automated tests can be seen as an indicator of software maturity, and the care taken in the process of developing the software. Unit tests provide confidence in individual pieces of code; component and integration tests provide confidence that individual pieces of code behave correctly together; acceptance tests provide confidence that the overall software behaviors are correct. Achieving this in-depth test coverage requires careful software design upfront and throughout development. It is worth noting that, while useful, test coverage is not always a trustworthy representation of test quality. It is simply a measure of the proportion of code which is run by the test suite. It does not evaluate the quality of the test cases or assertions.
+
+Other related static code analysis metrics can be used in conjunction with test coverage to build a more well-rounded picture of code quality. For example, cyclomatic complexity measures the logical complexity of a function. Code with high cyclomatic complexity contains numerous branching paths with variations in execution, and therefore should be avoided. A complex function can have 100\% test coverage without coming close to testing all possible outcomes. In fact, writing tests for highly complex code is often a lost cause. By considering cyclomatic complexity alongside test coverage, programmers can target specific areas of a codebase that need more tests. However, they can also see where they should instead prioritize refactoring, reducing complexity and improving testability first.
+
+\subsection{Licensing}
+In general, a software project should have a discoverable license that allows users to understand how they are and are not allowed to use the software. Licenses differ in how permissive they are, but the lack of a license defaults to highly restrictive terms and is an indicator that use of the software by others hasn’t been adequately considered. Similarly, the choice of license can be another indicator of inadequate usage consideration due to the restrictive and binding nature of some software licenses. 
+
+
+\section{Security}
+In any repository that contains source code, it is of vital importance that authentication secrets, such as API keys or cryptographic secrets be managed properly \cite{merkel_docker_nodate}. It becomes even more important in the case of code that deals with healthcare data, where even the slightest mishap in this regard could potentially expose protected health information (PHI) data and/or information to the public. During the continuous integration (CI) step of any project, incorporation of reputed static code analysis tools \cite{louridas_static_2006, ludwig_compiling_2017} (which are often available to open-source projects at no cost) ensures that tracking of the perpetually evolving landscape of security threats is offloaded to an entity that is specialized for its detection. It also allows the code to scale at a quick pace while ensuring bugs can be identified early in the development process, and finally allows software architects to define security guidelines to assist developers without impeding on their development process.
+It is understood and accepted that open-source code is built “on the shoulders of others”, and regular analysis of the underlying dependencies (such as using the “Dependabot” product from GitHub \cite{noauthor_dependabot_nodate}) allows the automatic detection of security vulnerabilities (and potential mitigation strategies presented) to the development team in question \cite{alfadel_use_2021}. Products such as Dependabot maintain a frequently updated collection of packages with version/commit identifiers that contain security vulnerabilities with their fixes as defined by the broader community, and as such should be incorporated into all open-source repositories. Another set of security considerations come when packaging and deploying code in the form of containers, and more specifically using Dockers \cite{merkel_docker_nodate}. Depending on the veracity of the adversary in question, attacks on Docker containers can range from targeting the container itself, the host system, any collocated containers, the container management system or the source code itself\cite{combe_docker_2016}. One of the most common security threats from Docker containers come in the form of elevated user access \cite{combe_docker_2016, bui_analysis_2015}, which can be a critical flaw when running containers in an High Performance Computing (HPC) environment \cite{sparks_enabling_2019, bacis_dockerpolicymodules_2015}. This is specifically addressed using other containerization protocols such Singularity \cite{kurtzer_singularity_2017} and Podman \cite{gantikow_rootless_2020}. Though a single solution might not work for all cases, when deploying open-source software using the Docker containerization protocol, specific security mitigation strategies should be considered \cite{yasrab_mitigating_2021}.
+\makeatother
 
 
 
