@@ -1,3 +1,5 @@
+The manuscript text (including the supplement) is within the software_impact.text file. The bibliography references are within the software_imact.bib file. The arxiv.sty file contains style code to make the manuscript styalized for arxiv. 
+
 
 ## Description:
 
