@@ -102,7 +102,7 @@
 
 
 \begin{abstract}
-Software is vital for the advancement of biology and medicine. Analysis of usage and impact metrics of software can help determine user and community engagement. These can be used to justify additional funding, encourage additional use, and identify unanticipated use cases. Such analyses can help define improvement areas and assist with managing project resources. However, there are challenges associated with assessing usage and impact, many of which vary widely depending on the type of software being evaluated. These challenges involve issues of distorted, exaggerated, understated, or misleading metrics, as well as ethical and security concerns.  More attention to the nuances, challenges, and considerations involved in capturing impact across the diverse spectrum of biological software is needed. Furthermore, some tools may be especially beneficial to a small audience, yet may not have comparatively compelling metrics of high usage. Although some principles are generally applicable, there is not a single perfect metric or approach to effectively evaluate a software tool’s impact, as this depends on aspects unique to each tool, how it is used, and how one wishes to evaluate engagement. We propose generalizable guidelines (such as infrastructure that supports the usage of software and the collection of metrics about usage), as well as strategies for various types of software and resources. We also highlight outstanding issues in the field regarding how communities measure or evaluate software impact. To gain a deeper understanding of the issues hindering software evaluations, as well as to determine what appears to be helpful, we performed a survey of participants involved with scientific software projects for the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI). We also investigated software among this scientific community and others to assess how often infrastructure that supports such evaluations is implemented and how this impacts rates of papers describing usage of the software. We find that although developers recognize the utility of analyzing data related to the impact or usage of their software, they struggle to find the time or funding to support such analyses. We also find that infrastructure such as social media presence, more in-depth documentation, the presence of software health metrics, and clear information on how to contact developers seem to be associated with increased usage rates.  Our findings can help scientific software developers make the most out of the evaluations of their software so that they can more fully benefit from such assessments.
+Software is vital for the advancement of biology and medicine. Through analysis of usage and impact metrics of software, developers can help determine user and community engagement. These metrics can be used to justify additional funding, encourage additional use, and identify unanticipated use cases. Such analyses can help define improvement areas and assist with managing project resources. However, there are challenges associated with assessing usage and impact, many of which vary widely depending on the type of software being evaluated. These challenges involve issues of distorted, exaggerated, understated, or misleading metrics, as well as ethical and security concerns.  More attention to the nuances, challenges, and considerations involved in capturing impact across the diverse spectrum of biological software is needed. Furthermore, some tools may be especially beneficial to a small audience, yet may not have comparatively compelling metrics of high usage. Although some principles are generally applicable, there is not a single perfect metric or approach to effectively evaluate a software tool’s impact, as this depends on aspects unique to each tool, how it is used, and how one wishes to evaluate engagement. We propose more broadly applicable guidelines (such as infrastructure that supports the usage of software and the collection of metrics about usage), as well as strategies for various types of software and resources. We also highlight outstanding issues in the field regarding how communities measure or evaluate software impact. To gain a deeper understanding of the issues hindering software evaluations, as well as to determine what appears to be helpful, we performed a survey of participants involved with scientific software projects for the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI). We also investigated software among this scientific community and others to assess how often infrastructure that supports such evaluations is implemented and how this impacts rates of papers describing usage of the software. We find that although developers recognize the utility of analyzing data related to the impact or usage of their software, they struggle to find the time or funding to support such analyses. We also find that infrastructure such as social media presence, more in-depth documentation, the presence of software health metrics, and clear information on how to contact developers seem to be associated with increased usage rates.  Our findings can help scientific software developers make the most out of the evaluations of their software so that they can more fully benefit from such assessments.
 \end{abstract}
 
 
@@ -110,12 +110,12 @@ Software is vital for the advancement of biology and medicine. Analysis of usage
 %\keywords{First keyword \and Second keyword \and More}
 
 
-\section{Introduction} Biomedical software has become a critical component of nearly all biomedical research.  The field has generally embraced open science practices, including sharing and harmonizing data and creating open source (publicly accessible and often freely available) software \cite{green_strategic_2020, levet_developing_2021, itcr_open-source_2021, merow_better_2023}. Often such open source software is initially developed so that the developers can use it themselves to reach a research goal \cite{bitzer_intrinsic_2007}. The software is then shared with the hopes that the use of the software by others will also contribute to the advancement of science or healthcare. Once shared, evaluation of the software is necessary to achieve two major benefits: 1) inform developers about how to improve the use and ultimately impact of the tool and 2) demonstrate the value of the tool to support the developers to obtain funding to continue supporting existing software and creating new software. Common metrics include number of new users, returning users, and total downloads of the software, but the types of possible metrics vary based on the type of tool and the context. See Table ~\ref{tab:metrics_table}. These and other metrics allow assessment of the rate of uptake of a tool, as well as how established it has become. However, developers often lack knowledge about the infrastructure or tools that can aid in the effective collection of usage and impact metrics. Proper metrics should not only examine the software's performance but assess whether motivations and goals of the researchers who are using the software are being met. Furthermore, metrics should also attempt to gather information about the downstream impact of the tool. 
+\section{Introduction} Biomedical software has become a critical component of nearly all biomedical research.  The field has generally embraced open science practices, including sharing and harmonizing data and creating open source (publicly accessible and often freely available) software \cite{green_strategic_2020, levet_developing_2021, itcr_open-source_2021, merow_better_2023}. Often such open source software is initially developed so that the developers can use it themselves to reach a research goal \cite{bitzer_intrinsic_2007}. The software is then shared with the hopes that the use of the software by others will also contribute to the advancement of science or healthcare. Once shared, evaluation of the software is necessary to achieve two major benefits: 1) inform developers about how to improve the use and ultimately impact of the tool and 2) demonstrate the value of the tool to support the developers to obtain funding to continue supporting existing software and creating new software. Common metrics include number of new users, returning users, and total downloads of the software, but the types of possible metrics vary based on the type of tool and the context. See Table ~\ref{tab:metrics_table}. These and other metrics can allow assessment of the rate of uptake and establishment within a community. However, developers often lack knowledge about the infrastructure or tools that can aid in the effective collection of usage and impact metrics. Proper metrics should not only examine the software's performance but assess whether motivations and goals of the researchers who are using the software are being met. Furthermore, metrics should also attempt to gather information about the downstream impact of the tool. 
 
 \begin{table}[!ht]
  \caption{Common Metrics}
   \centering
-  \begin{tabular}{|p{0.2\textwidth}|p{0.25\textwidth}|p{0.3\textwidth}|}
+  \begin{tabular}{|p{0.2\textwidth}|p{0.25\textwidth}|p{0.28\textwidth}|}
     \hline
     \multicolumn{1}{|c|} {\cellcolor[gray]{.9} \textbf{Measure}} 
     & \multicolumn{1}{|c|} {\cellcolor[gray]{.9} \textbf{Example Metrics}}     
@@ -128,7 +128,7 @@ Software is vital for the advancement of biology and medicine. Analysis of usage
          \item New users
          \item Returning users
          \item Download count by version
-     \end{itemize} &
+     \end{itemize} & 
     \begin{itemize}
          \item Determining popularity of a given tool
     \end{itemize}  \\ 
@@ -142,10 +142,11 @@ Software is vital for the advancement of biology and medicine. Analysis of usage
  \end{itemize}  \\ 
 
     \hline
-    Tool Usefulness & 
+    Tool Usefulness & \raggedright{
     \begin{itemize}
          \item Number of software engagements by user
-    \end{itemize}  &
+    \end{itemize} 
+    } &
     \begin{itemize}
          \item Determining prevalence of usage
     \end{itemize} \\
@@ -189,18 +190,17 @@ Software is vital for the advancement of biology and medicine. Analysis of usage
   \label{tab:metrics_table}
 \end{table}
 
-We aim to provide guidance for evaluations of software impact and engagement so that software developers can build tools that better meet researchers' needs to catalyze the progress of biomedical research. We also discuss ethical considerations and challenges of such evaluations that still require solutions. The guidance presented here for software assessments holds the potential for developers to improve the use and utility of their tools, improve their chances of funding for future development, and ultimately lead to the development of even more useful software to advance science and medicine \cite{wratten_reproducible_2021}. 
+We aim to provide guidance for evaluations of software impact and engagement so that software developers can build tools that better meet researchers' needs to catalyze the progress of biomedical research. We also discuss ethical considerations and challenges of such evaluations that still require solutions. The guidance presented here holds the potential for developers to improve the use and utility of their tools, improve their chances of funding for future development, and ultimately lead to the development of even more useful software to advance science and medicine \cite{wratten_reproducible_2021}. 
 
 
 
 \section{Assessment of attitudes and practices for software impact evaluations}
 
-We performed two analyses to better understand how developers think about software evaluation and to determine what infrastructure is often implemented to support such evaluation, as well as how this is associated with levels of papers describing usage of tools. See Supplemental Note \ref{sec-supp-note-methods} for more information about the methods. 
+We performed two analyses to get a better sense of the landscape of software evaluation within the community of developers of the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI). Our first analysis aimed to better understand how developers think about software evaluation by performing a survey. Our second analysis aimed to determine what infrastructure is often implemented to support software evaluation and if such implementation was associated with the frequency of papers describing usage of the software. See Supplemental Note \ref{sec-supp-note-methods} for more information about the methods. 
 
-To perform the first analysis we surveyed 48 participants of the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI). The survey asked a variety of questions about attitudes and practices of those involved with software development, maintenance, or outreach of the ITCR (in which respondents could often select more than one response). It was determined that limited time (68\% of respondents) and funding (57\% respondents) were the major barriers for performing software impact evaluations. Indeed although there are a few funding mechanisms that support the maintenance and analysis of software (as opposed to creation of new software), such as the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI) sustainment awards \cite{kibbe_cancer_2017, warner_informatics_2020}, or the Essential Open Source Software for Science program of the Chan Zuckerberg Initiative \cite{CZ_essential_2019}, there is much more need for such funding for software sustainability compared to what is currently available. Indeed awareness of such a need was recently demonstrated by the recent Declaration on Funding Research Software Sustainability by the Research Software Alliance (ReSA) \cite{barker_amsterdam_2023}. While scientific software has become critical to most researchers the funding to support 
- the sustainment of such scientific software is not reflective of the current level of usage \cite{siepel_challenges_2019}. The next major barriers were privacy concerns (38\% of respondents), technical issues (32\% of respondents), and not knowing what methods to use for such evaluations (27\% of respondents). Despite these apparent challenges,  73\% of respondents state that such evaluations have informed new development ideas, 60\% stated that it informed documentation, and 54\% stated that it helped justify funding.  Thus additional support for evaluations of software usage and impact could really benefit the continued development of software. Responses to an open-ended question asking "Is there anything you would like to measure but have been unable to capture?" included (each of these examples were unique responses): collaborations that the tool supported, the number of commercial applications using the tool, the fraction of assumed user base that actually uses the tool, the downstream activity - what do users do with the results, and user frustration. These responses outline many of the challenges that developers often face in their tool evaluations. See Supplemental Table ~\ref{tab:survey_table} for examples of the goals the respondents had in analyzing their software.
+To perform the first analysis we surveyed 48 participants of the ITCR community. The survey asked questions about attitudes and practices of those involved with software development, maintenance, or outreach (in which respondents could often select more than one response). It was determined that limited time (68\% of respondents) and funding (57\% respondents) were the major barriers for performing software impact evaluations. Indeed although there are a few funding mechanisms that support the maintenance and analysis of software (as opposed to creation of new software), such as the Informatics Technology for Cancer Research (ITCR) program funded by the National Cancer Institute (NCI) sustainment awards \cite{kibbe_cancer_2017, warner_informatics_2020}, or the Essential Open Source Software for Science program of the Chan Zuckerberg Initiative \cite{CZ_essential_2019}, there is much more need for such funding for software sustainability compared to what is currently available. Indeed awareness of such a need was recently demonstrated by the recent Declaration on Funding Research Software Sustainability by the Research Software Alliance (ReSA) \cite{barker_amsterdam_2023}. While scientific software has become critical to most researchers, the funding to support the maintanence of such scientific software is not reflective of the current level of usage \cite{siepel_challenges_2019}. The next major barriers were privacy concerns (38\% of respondents), technical issues (32\% of respondents), and not knowing what methods to use for such evaluations (27\% of respondents). Despite these apparent challenges,  73\% of respondents state that such evaluations have informed new development ideas, 60\% stated that it informed documentation, and 54\% stated that it helped justify funding.  Thus additional support for evaluations of software usage and impact could greatly benefit the continued development of software. Responses to an open-ended question asking "Is there anything you would like to measure but have been unable to capture?" included (each of these examples were unique responses): collaborations that the tool supported, the number of commercial applications using the tool, the fraction of assumed user base that actually uses the tool, the downstream activity - what do users do with the results, and user frustration. These responses outline many of the challenges that developers often face in their tool evaluations. See Supplemental Table ~\ref{tab:survey_table} for examples of the goals the respondents had in analyzing their software.
 
-We also manually inspected 44 tools (33 funded by ITCR alone and 7 funded by the Cancer Target Discovery and Development (CTD²) Network \cite{aksoy_ctd2_2017}, as well as 4 tools funded by both) for aspects related to infrastructure that could help users know about a tool or how to use a tool, as well as infrastructure related to software health metrics, to indicate to users how recently the code was rebuilt or tested, and investigated if there were any associations with these aspects and usage.  A variety of different types of research-related tools were inspected  (from R packages to platforms that allow users access to computing and data resources) - See Figure \ref{fig:tool_eval}. Each tool was manually briefly inspected (by someone not involved in developing these tools) to get the experience of a potential user briefly examining related websites to determine if the tool had: a DOI for the software itself, information on how to cite the software, information on how to contact the developers, documentation (and how much), a twitter presence, and badges about health metrics visible on a related website.
+We also manually inspected 44 software tools, 33 of which were funded by ITCR alone and 7 funded by the Cancer Target Discovery and Development (CTD²) Network \cite{aksoy_ctd2_2017}, as well as 4 tools funded by both.  Each were inspected for aspects related to infrastructure that could help users know about the software tool or how to use it, as well as infrastructure related to software health metrics, to indicate to users how recently the code was rebuilt or tested, and investigated if there were any associations with these aspects and usage.  A variety of different types of research-related software tools were inspected (from R packages to platforms that allow users access to computing and data resources) - See Figure \ref{fig:tool_eval}. Each tool was manually inspected (by someone not involved in developing these tools) to get the experience of a potential user briefly examining related websites to determine if the tool had: a DOI for the software itself, information on how to cite the software, information on how to contact the developers, documentation (and how much), a twitter presence, and badges about health metrics visible on a related website.
 
 To evaluate usage, we used the SoftwareKG-PMC database \cite{Kruger_usage_20}, which does not include citations to tools, only plain-text mentions inferred by a text-mining algorithm. The database does not know anything about these tools per se, and not all of these mentions necessarily correspond to the same tool. For example, DANA is an ITCR tool for microRNA analysis but there are also other unrelated methods with the same name. On the other hand, tools with highly specific names like Bioconductor are unlikely to have the same issue. Most notable was a finding that although time since the tool release is the largest contributor to variation in the number of papers describing usage, various aspects of infrastructure that could help users know about a tool (social media on twitter), have confidence in the tool (badges about software builds or tests on code repositories), or learn more about how to use the tool (extensive documentation and feedback mechanisms) all seem associated with an increased rate of manuscripts that describe using the tool. All show significant association (p<0.05) with usage when not accounting for tool age. Only having extensive feedback mechanisms was significantly associated when also accounting for tool age. See Figure \ref{fig:inf_cit}. For more information about this analysis, see this \href{https://hutchdatascience.org/ITCR_Metrics_manuscript_website/}{website}.
 
@@ -230,12 +230,12 @@ To evaluate usage, we used the SoftwareKG-PMC database \cite{Kruger_usage_20}, w
 
 \subsection{Successful evaluations are anchored by an understanding of the intended use of the software}
 \label{sec:use_understanding}
-The intended goal or purpose of the scientific software should be used to inform how the software is evaluated \cite{Basili94}. Computational tools are designed to support well-defined goals often called use cases \cite{gamma_design_1995} for specific sets of users called personas\cite{cooper_inmates_2004}. Efforts to evaluate the impact of tools should be guided by a clear understanding of these use cases and personas to assess how well the tools meet the intended goals.
+The intended goal or purpose of the scientific software should be used to inform how the software is evaluated \cite{Basili94}. Computational tools are designed to support well-defined goals often called use cases \cite{gamma_design_1995} for specific sets of users called personas\cite{cooper_inmates_2004}. Efforts to evaluate the impact of tools should be guided by a clear understanding of these use cases and personas to assess how well the tools meet the intended goals. 
 
-When the intended purpose of the software is to contribute to the treating, diagnosing, or prevention of a medical condition, it may qualify as a "Medical Device" that requires clinical validation. Clinical validation includes:
+As an example, when the intended purpose of the software is to contribute to the treating, diagnosing, or prevention of a medical condition, it may qualify as a "Medical Device" that requires clinical validation. Clinical validation includes:
 
 \begin{quote}
-\textit{... a systematic and planned process to continuously generate, collect, analyze, and assess the clinical data pertaining to a [the software] in order to generate clinical evidence verifying the clinical association and the performance metrics of a [the sofware] when used as intended by the manufacturer. The quality and breadth is determined by the role of [the software] for the target clinical condition, and assures that the output of [the software] is clinically valid and can be used reliably and predictably.}\cite{clinical_evaluation_2017}
+\textit{... a systematic and planned process to continuously generate, collect, analyze, and assess the clinical data pertaining to a [the software] in order to generate clinical evidence verifying the clinical association and the performance metrics of a [the software] when used as intended by the manufacturer. The quality and breadth is determined by the role of [the software] for the target clinical condition, and assures that the output of [the software] is clinically valid and can be used reliably and predictably.}\cite{clinical_evaluation_2017}
 \end{quote}
 
 \subsection{Metric selection should be hypothesis driven} 
@@ -243,8 +243,7 @@ When the intended purpose of the software is to contribute to the treating, diag
 Collecting an exhaustive amount of user data, and then selecting metrics, can add complexity and increase the risk that metrics are selected in a biased manner. To mitigate this, hypothesis-driven metrics can be selected ahead of time based on a specific hypothesis to ultimately evaluate how well the software supports its intended goals \cite{design_driven_dev_2020}. 
 
 
-\subsection{Intentions for evaluation can also inform design choice} Software can also be designed with future evaluations in mind. Once the intended use of the software is clearly defined, avenues for what to investigate in terms of usage will also become clear. For example, Xena \cite{xena_2020} is a tool intended to enable users to visualize various aspects of the genome. The developers collect metrics involving how often users use the tool to perform visualizations. However, consideration of privacy led the developers to not collect metrics about what part of the genome gets visualized. 
-
+\subsection{Intentions for evaluation can also inform design choice} Software can also be designed with future evaluations in mind. Once the intended use of the software is clearly defined, user interfaces can be iterated to effectively collect the right data. For example, Xena \cite{xena_2020} is a tool intended to enable users to visualize various aspects of the genome. The developers collect metrics involving how often users use the tool to perform visualizations. However, consideration of privacy led the developers to not collect metrics about what part of the genome gets visualized. 
 
 
 
@@ -252,7 +251,7 @@ Collecting an exhaustive amount of user data, and then selecting metrics, can ad
 
 Clear understanding of which use cases, personas, and audience(s) are of interest, as well as what motivations are of interest, can help guide what user metrics to collect to achieve project goals. For example, if the audience is the developers themselves, and the motivation is to learn how to retain new users, it may be helpful to understand how well new users are able to learn the basics of the tool. Thus focusing on metrics related to interactions with tutorials may be the most useful. It is also worthwhile to consider which presentations of software metrics will be most compelling to the intended audience. Detailed metrics on the inner workings of a software tool might be highly-informative to developers, but such metrics would be far too granular to be of interest to funding agencies.
 
-Developers might be interested in tool optimization, which can involve improving workflows, performance, usage, or usability. For example, recognizing the types or volumes of data being used, as well as temporal trends of data usage, can highlight opportunities for new algorithm development. Such evaluations can guide future work.
+Developers might be interested in tool optimization, which can involve improving workflows, performance, usage, or usability. For example, recognizing the types or volumes of data being used, as well as temporal trends of data usage, can highlight opportunities for new algorithm development. Such evaluations can guide future work \cite{fenton2014software}.
 
 External audiences might instead be more interested in evidence for impact. This is often required for developers to gain resources to develop or maintain semi- or un-related tools. Demonstration of past capability to develop impactful software supports requests to do so in the future. Demonstrating that a tool is widely-used and widely-accepted can also encourage users to adopt a tool more readily, and be more invested in a tool community. Developers may be drawn to projects with impact to build upon an exiting tool. Finally, demonstration of impact can recruit new users which can diversify tool communities and bring new problems of interest that expand the utility of a tool. See Table \ref{tab:benefit_table} for more details.
  
@@ -260,7 +259,7 @@ External audiences might instead be more interested in evidence for impact. This
  \caption{\textbf{Software evaluation supports internal needs for tool optimization and development, as well external needs to demonstrate tool value 
  to others.} }
   \centering
-  \begin{tabular} {|p{0.27\textwidth}|p{0.25\textwidth}|p{0.4\textwidth}|}
+  \begin{tabular} {|p{0.27\textwidth}|p{0.26\textwidth}|p{0.39\textwidth}|}
   %{|c|c|l|}
     \hline
     \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Internal Need}} 
@@ -355,15 +354,15 @@ External audiences might instead be more interested in evidence for impact. This
 
 \subsection{No single evaluation method works for every type of software}
 \label{sec:no_one_way}
-No individual scheme for collecting metrics fits every type of research software tool.  The meaning of a set of metrics may differ across contexts. The location of a tool (e.g., whether it is on the web or downloaded) can affect metric collection and influence user access to software versions. For example, for a web-based application, it may be feasible to collect user metrics on a per-account basis and to collect information about the type of data or software features users tend to work with. With web-based tools, users will rarely have access to older versions of the software. Thus developers can add version updates and collect metrics with clarity about how usage changed with updates. On the other hand, for tools that must be run (and possibly installed) locally, users may be using older versions of the software that they previously downloaded. Here, metrics on a per-version basis provide a much better representation of usage, rather than simply the overall number of unique downloads. Collection of version usage is important, as developers may want to pair this with citation data to know if users are using out-of-date aspects of previous versions of the software.
+No individual scheme for collecting metrics fits every type of research software tool.  The meaning of a set of metrics may differ across contexts. The location of a tool (e.g., whether it is on the web or downloaded) can affect metric collection and influence user access to software versions. For example, for a web-based application, it may be feasible to collect user metrics on a per-account basis and to collect information about the type of data or software features users tend to work with. With web-based tools, users will rarely have access to older versions of the software. Thus developers can add version updates and collect metrics with clarity about how usage changed with updates. On the other hand, for tools that must be run (and possibly installed) locally, users may be using older versions of the software that they previously downloaded. Here, metrics on a per-version basis provide a much better representation of usage, rather than simply the overall number of unique downloads. Collection of version usage is important, as developers may want to pair this with citation data to know if users are relying on out-of-date aspects of previous versions of the software.
 
 
 
  \subsection{Metrics should be interpreted}
  
- Interpretation of user metrics can be tricky since any given metric may have many obvious and not so obvious influences. When software has sufficient use, observed spikes in usage, both up and down, provide important feedback. A spike may correspond to a class or workshop using the tool or a recent publication that cites the tool. Negative trends in usage may indicate a break in the academic calendar, down time of a host server, or, for tools based on Amazon Web Services, the additional compute resources required by Amazon during holiday cycles may preempt software running on spot instances. It is also important to avoid comparisons between metrics for tools with different users. For example, clinical tools that require institutional approvals and support will have lower installation rates than other software tools. Tools that are very useful to a small number of users may still have important impact on the field.
-
-The total unique downloads might be useful as a metric of software popularity, but it only reflects how many people have tried to download it and not if users find it useful. Instead, one might consider measuring how often users use software or  counting the number of launches of the software which run over a certain predefined session time threshold to better evaluate actual usage. Returned usage by the same users often suggests that the users may find the tool useful. One may want to parse this by data type used to evaluate how useful the tool appears to support different kinds of users.   Specific measures can provide a common basis comparing versions and potentially against other similar software.
+ Interpretation of user metrics can be tricky since any given metric may have many obvious or subtle influences. When software has sufficient use, observed spikes in usage, both up and down, provide important feedback. A spike may correspond to a class or workshop using the tool or a recent publication that cites the tool. Negative trends in usage may indicate a break in the academic calendar, down time of a host server, software bugs or, for tools based on Amazon Web Services, the additional compute resources required by Amazon during holiday cycles may preempt software running on spot instances. It is also important to avoid comparisons between metrics for tools with different users. For example, clinical tools that require institutional approvals and support will have lower installation rates than other software tools. Tools that are very useful to a small number of users may still have important impact on the field. In such cases qualitative metrics may be useful or different quantitative metrics about usage among the smaller user base.  
+ 
+The total unique downloads might be useful as a metric of software popularity, but it only reflects how many people have tried to download it and not if users find it useful. Instead, one might consider measuring how often users interact with software or counting the number of launches of the software which run over a certain predefined session time threshold to better evaluate actual usage. Returned usage by the same users often suggests that the users may find the tool useful. For tools that offer access or analyses of different data types, one may want to parse usage by data types to evaluate how useful the tool appears to support different kinds of users.   Specific measures can provide a common basis comparing versions and potentially against other similar software.
 
 
 \subsection{Software infrastructure enables impact evaluation}
@@ -372,7 +371,7 @@ There are several components of a software tool that can assist with the assessm
 \begin{table}[!ht]
  \caption{\textbf{Software infrastructure enables the capture of valuable metrics for evaluating engagement and impact.} Note that there are other helpful tools to enable metric collection. These are simply examples.}
   \centering
-  \begin{tabular} {|p{0.03\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|p{0.23\textwidth}|p{0.24\textwidth}|}
+  \begin{tabular} {|p{0.1\textwidth}|p{0.16\textwidth}|p{0.17\textwidth}|p{0.19\textwidth}|p{0.24\textwidth}|}
     \hline
     \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Elements}} 
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Options}}
@@ -385,113 +384,136 @@ There are several components of a software tool that can assist with the assessm
     \raggedright{
     \begin{itemize}
         \item Cronitor \cite{cronitor} for tools using cron job scheduling \cite{cron_2009})
-        \item Google Analytics\cite{google_analytics}
+        \item Google Analytics \cite{google_analytics}
     \end{itemize}
     }
-    & 
+    &  \raggedright{ 
     \begin{itemize}
     \item Identify details about usage
     \item Identify where your tool is being used
     \item Possibly identify what data are being used
-    \end{itemize} &  May need to consider privacy restrictions for tracking IP addresses\\
+    \end{itemize}
+    } &  May need to consider privacy restrictions for tracking IP addresses. \\
     \cline{2-5}
     & \multirow{2}{*}[-1em]{ \shortstack{Documentation \\ Website}} &
     \begin{itemize}
-        \item Google Analytics\cite{google_analytics}
+        \item Google Analytics \cite{google_analytics}
     \end{itemize}
-    &
+    & \raggedright{ 
     \begin{itemize}
     \item Counts of page views and scrolls
-    \end{itemize} &
-    Pages with more views may identify widely used features or confusing aspects \\
+    \end{itemize}
+    } &
+    Pages with more views may identify widely used features or confusing aspects. \\
     \hline
     \multirow{3}{*}[-2em]{Citability}
     & \raggedright{Providing something to cite (Software DOI or manuscript) and information on how to cite} & \raggedright{
     \begin{itemize}
         \item To create DOIs: Zenodo \cite{zenodo}, Dryad \cite{datadryad}, Synapse \cite{synapse}, and Figshare \cite{figshare} 
         \item To track DOIs: Altmetric \cite{noauthor_altmetric_2015}
-    \end{itemize}} &
+    \end{itemize}} & \raggedright{ 
      \begin{itemize}
          \item Total citation counts 
          \item Counts of citations by journals of different fields
-     \end{itemize} & Semantic Scholar \cite{noauthor_semantic_nodate} provides reports that indicate where citations have occurred within scientific articles. \\
-        \hline
+     \end{itemize}
+     } & Semantic Scholar \cite{noauthor_semantic_nodate} provides reports that indicate where citations have occurred within scientific articles.\\
+    \hline
     \multirow{3}{*}[-5em]{Contact} &
     \multirow{3}{*}{\shortstack{\\Feedback \\Mechanisms}} & 
+    \raggedright{
     \begin{itemize}
     \item GitHub Issue Templates
     \item Surveys
     \end{itemize}
-    & 
+    }
+    & \raggedright{
     \begin{itemize}
     \item User feedback count
     \item Addressed user feedback count 
-    \end{itemize} & Often users will only provide feedback if something is broken. Depending on the tool, many users may not be comfortable with GitHub Issues\\
+    \end{itemize}
+    } & Often users will only provide feedback if something is broken. Depending on the tool, many users may not be comfortable with GitHub Issues.\\
     \cline{2-5}
-    & \multirow{2}{*}{ \shortstack{Discussion \\ Forums}} &
+    & \multirow{2}{*}{ \shortstack{Discussion \\ Forums}} & \raggedright{ 
     \begin{itemize}
         \item Discourse \cite{discourse}
         \item Biostar \cite{biostars}
         \item Bioinformatics Stack Exchange \cite{bioinformaticsstackexchange}
         \item Google Groups \cite{google_groups}
-    \end{itemize} &
+    \end{itemize}
+    } & \raggedright{
     \begin{itemize}
         \item Metrics based on user engagements and answered questions 
-    \end{itemize} &
+    \end{itemize}
+    } &
     Forums save time for development as users help each other instead of developers answering individual emails for repeat problems. A code of conduct can help create a supportive community.\\
     \cline{2-5}
     & \multirow{2}{*}{ \shortstack{Newsletter\\Emails}} &
     \begin{itemize}
         \item Mailchimp \cite{mailchimp}
         \item HubSpot \cite{hubspot} 
-    \end{itemize} & 
-    \begin{itemize}
+    \end{itemize} & \raggedright{ 
+    \begin{itemize} 
         \item Count of newsletter openings
         \item Count of link clicks
         \item Count of unsubscribers
-    \end{itemize} & Newsletters can help inform users about new features \\
+    \end{itemize}
+    } & Newsletters can help inform users about new features. \\
     \hline
     \multirow{3}{*}{\shortstack{Usability\\Testing}}
     & \raggedright{Observe a few people use the tool} & 
+    \raggedright{
     \begin{itemize}
         \item Zoom screen sharing and recording
-    \end{itemize} & 
-    \begin{itemize}
+    \end{itemize}
+    } & \raggedright{
+    \begin{itemize} 
         \item Qualitative information about how users interact with your software
-    \end{itemize} & Even low numbers of usability interviews (~3) can yield fruitful lessons that can be paired with other metrics to guide development\\
+    \end{itemize}
+    } & Even low numbers of usability interviews (~3) can yield fruitful lessons that can be paired with other metrics to guide development.\\
     \hline
     \multirow{3}{*}{Workshops}
-    & \raggedright{ Online or in-person, Basics for new users or new features for existing users} &
+    & \raggedright{ 
+    \begin{itemize}
+        \item Online or in-person
+        \item Basics or new features
+    \end{itemize}
+    } & \raggedright{ 
     \begin{itemize}
         \item Attendees can participate in surveys
-    \end{itemize} & 
-    \begin{itemize}
+    \end{itemize}
+    } & \raggedright{ 
+    \begin{itemize} 
         \item Quantity, duration, and attendance at workshops are metrics that can be reported to funding agencies
-    \end{itemize} & Recordings of instructors can  be posted on Social Media (for additional metrics)\\
+    \end{itemize}
+    } & Recordings can be posted on Social Media (for additional metrics).\\
     \hline
     \multirow{3}{*}{\shortstack{Social\\ Media}}
-    & \begin{itemize}
+    & \raggedright{ 
+    \begin{itemize}
         \item YouTube Videos
-        \item Twitter/Mastodon
+        \item Twitter/ Mastodon
         \item Instagram
         \item LinkedIn 
-    \end{itemize} & 
+    \end{itemize}
+    } & \raggedright{
     \begin{itemize}
         \item Hootsuite \cite{hootsuite} - social media management
-    \end{itemize} & 
-    \begin{itemize}
+    \end{itemize}
+    } & \raggedright{ 
+    \begin{itemize} 
         \item Engagement metrics (video watch counts, likes, etc) 
-    \end{itemize} & Pairing Social media  metrics with software engagement metrics can determine if outreach strategies are successful \\
+    \end{itemize}
+    } & Pairing Social media metrics with software engagement metrics can determine if outreach strategies are successful. \\
     \hline
-       \multirow{3}{*}{Reviews}
-    & Review Forum & 
+       \multirow{2}{*}{Reviews}
+    & \multirow{2}{*}{Review Forum} & 
     \begin{itemize}
         \item SourceForge
         \item GitHub
     \end{itemize} &  \begin{itemize}
         \item Stars
         \item Number of reviews
-    \end{itemize} & Positive reviews can reassure new users and funders\\ 
+    \end{itemize} & Positive reviews can reassure new users and funders.\\ 
     \hline
   \end{tabular}
   \label{tab:inf_table}
@@ -506,7 +528,7 @@ Tracking adherence to standards of software engineering can be a useful way to a
 \begin{table}[!ht]
  \caption{\textbf{Software health infrastructure enables collecting metrics that can reassure users and funders.}  }
   \centering
-  \begin{tabular} {|p{0.1\textwidth}|p{0.13\textwidth}|p{0.15\textwidth}|p{0.23\textwidth}|p{0.24\textwidth}|}
+  \begin{tabular} {|p{0.1\textwidth}|p{0.135\textwidth}|p{0.12\textwidth}|p{0.21\textwidth}|p{0.22\textwidth}|}
     \hline
     \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Infrastructure}} 
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Options}}
@@ -514,19 +536,20 @@ Tracking adherence to standards of software engineering can be a useful way to a
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{\shortstack{\\Possible\\ Enabled Metrics}}}
     & \multicolumn{1}{|c|}{\cellcolor[gray]{.9} \textbf{Considerations}}\\[1.1ex]
     \hline
-    \multirow{6}{*}{Version Control}               
-    &   \multirow{3}{*}[-3em]{\shortstack{Without\\ automation}} & \raggedright{\begin{itemize}
+    \multirow{6}{*}{\shortstack{Version\\ Control}}              
+    &   \multirow{3}{*}[-3em]{\shortstack{Without\\ Automation}} & \raggedright{\begin{itemize}
         \item Git/GitHub \cite{GitHub} (The insight tab and API allow for systematic metric collection)
         \item Git/GitLab \cite{GitLab}
         \item BitBucket \cite{bitbucket}
     \end{itemize}}
-    & 
+    & \raggedright{
     \begin{itemize}
-    \item Commit  frequency (how often code is updated)
+    \item Commit frequency (how often code is updated)
     \item Date of the most recent commit
     \item Number of active contributors
     \item Software versions updates
-    \end{itemize} &
+    \end{itemize}
+    } &
      Commit frequency allows assessment of how actively the software is being maintained. The number of contributors can indicate sustainability. One single contributor may pose a sustainability risk. Version information can enable users to determine if they are using the most up-to-date version. \\
     \cline{2-5}
     & \multirow{5}{*}[-3em]{ \shortstack{With\\ Automations}} & \raggedright{
@@ -540,17 +563,19 @@ Tracking adherence to standards of software engineering can be a useful way to a
     \begin{itemize}
     \item  Current build status (if the software built without errors) 
     \end{itemize} &
-    Continuous Integration \& Continuous Deployment/Delivery are terms to describe every time code is modified, the full code product is automatically rebuilt or compiled. Continuous Deployment/Delivery describes the automatic release of this new code to users. Delivery in this case describes situations where the software requires more manual releases while deployment is seamless. GitHub Actions can also help with metric collection from the GitHub API. \\
+    Continuous Integration and Continuous Deployment or Delivery are terms to describe 
+ a situation where every time code is modified, the full code product is automatically rebuilt or compiled. Continuous Deployment or Delivery describes the automatic release of this new code to users. Delivery in this case describes situations where the software requires more manual releases while deployment is seamless. GitHub Actions can also help with metric collection from the GitHub API. \\
     \hline
     \multirow{3}{*}[-2em]{Testing} 
     & \multirow{2}{*}[-3em]{ \shortstack{Automated \\ Testing}} & \raggedright{
     \begin{itemize}
         \item GitHub Actions \cite{github_actions}
     \end{itemize}
-    } &
+    } & \raggedright{
     \begin{itemize} 
     \item Test code coverage (the fraction of lines of code in the project that are covered by tests)
-    \end{itemize} & Unit tests check individual pieces of code; component and integration tests check that pieces of code behave correctly together; acceptance tests check the overall software behavior. Achieving in-depth test coverage requires careful software design. Test coverage does not evaluate the quality of the test cases or assertions.\\
+    \end{itemize}
+    } & Unit tests check individual pieces of code; component and integration tests check that pieces of code behave correctly together; acceptance tests check the overall software behavior. Achieving in-depth test coverage requires careful software design. Test coverage does not evaluate the quality of the test cases or assertions. \\
     \hline
     \multirow{3}{*}[-2em]{Licensing}
     & \raggedright{A variety of licenses exist to allow or disallow reuse and to require attribution} & \raggedright{
@@ -569,7 +594,7 @@ Tracking adherence to standards of software engineering can be a useful way to a
 
 \subsection{Metrics related to software quality and re-usibility could reassure users and funders}
 
- Software re-usability metrics have been suggested to enable better discernment of the capacity for code to be reused in other contexts. These metrics can also evaluate if code is written to be more resilient overtime to dependency changes and other maintenance challenges. One such example would be the degree to which aspects of the software are independent of one another \cite{mehboob_reusability_2021}. As research funders start to value software maintenance more, metrics related to resilience and re-usibility may become more valuable and could also encourage more resilient development practices. 
+ Software re-usability metrics have been suggested to enable better discernment of the capacity for code to be reused in other contexts. These metrics can also evaluate if code is written to be more resilient over time to dependency changes and other maintenance challenges. One such example would be the degree to which aspects of the software are independent of one another \cite{mehboob_reusability_2021}. As research funders start to value software maintenance more, metrics related to resilience and re-usibility may become more valuable and could also encourage more resilient development practices. 
 
 
 \section{Challenges and nuances}
@@ -583,7 +608,9 @@ Getting users to cite a tool or cite it correctly can be difficult. First, some 
 
 Lastly, while users may recognize and acknowledge your tool, they may not cite the tool in the reference section of their paper and they may mention the tool without complete information, such as not including version information, parameter settings, URLs, or credit to those who made the software. In fact, a study manually evaluating software citations of 4,971 academic biomedical and economics articles, found that the citations only included version information  28\% of the time \cite{howison_software_2016}.  Another study manually evaluating 90 biology articles, also finds a low rate of complete information with version information being included only 27\% of the time and URL information included only 17\% of the time \cite{du_softcite_2021}. People may mention a tool in a figure legend, in the paper itself, in the acknowledgments, or even in the abstract, without a citation. These mentions of a tool are difficult to track. Furthermore, occasionally manuscripts simply acknowledge that a software tool exists, rather than indicating that it was actually used by the authors. In other cases a newer version of a tool is used, yet a previous publication for an earlier version of the tool may often be cited by these users. This typically requires manually reading articles to discover the use of the software. 
 
-Fortunately, there are a number of tools that can help measure citations. These include Google Scholar, Web of Science, PubMed, and ResearchGate. Additionally, some tools are being developed to help track software mentions, such as the tool "CORD-19 Software Mentions" \cite{wade_cord-19_2021}. Each of these citation measuring tools has benefits to overcome the above challenges. For instance, Google Scholar will allow you to search for the name of a tool anywhere in a paper and Semantic Scholar allows for reports of where citations are located across papers. Some tools names have more than one meaning depending on context, such as Galaxy, which can make it more difficult to use keywords to find citations. A couple of recent papers \cite{istrate_large_2022, schindler_role_2022} have developed automated extraction methods to overcome additional challenges, such as disambiguating multiple synonyms for the same software, typographic errors or misspellings, the use of acronyms vs full names, and capture of version information. It is also important to note that if other software relies on your software, it is likely useful to evaluate the citations of other such software in your analysis of the impact of your software. However, it can be difficult to know if this software exists if the developers do not adequately describe dependencies in a manuscript or documentation.
+Fortunately, there are a number of tools that can help measure citations. These include Google Scholar, Web of Science, PubMed, and ResearchGate. Additionally, some tools are being developed to help track software mentions, such as the tool "CORD-19 Software Mentions" \cite{wade_cord-19_2021}. Each of these citation measuring tools has benefits to overcome the above challenges. For instance, Google Scholar will allow you to search for the name of a tool anywhere in a paper and Semantic Scholar allows for reports of where citations are located across papers. Some tools names have more than one meaning depending on context, such as Galaxy, which can make it more difficult to use keywords to find citations. 
+
+A couple of recent papers \cite{istrate_large_2022, schindler_role_2022} have developed automated extraction methods to overcome additional challenges, such as disambiguating multiple synonyms for the same software, typographic errors or misspellings, the use of acronyms vs full names, as well as capturing version information. It is also important to note that if other software relies on your software, it is likely useful to evaluate the citations of other such software in your analysis of the impact of your software. However, it can be difficult to know if this software exists if the developers do not adequately describe dependencies in a manuscript or documentation.
 
 Software requires extensive work to maintain the utility (and sometimes security) over time. Typically it is much easier to publish manuscripts for a new piece of software. A lack of maintenance can be quite detrimental for research. Researchers do not want to waste time learning how to use software that no longer works. It takes valuable time to find a new solution for their analysis. A new system to reward updates with a new type of manuscript for software updates has been proposed \cite{merow_better_2023}. This could reduce issues of users not providing version information, reward developers who start working on software after the initial publication, and provide new ways for funding agencies and others to better recognize and reward software maintenance. 
 
@@ -593,7 +620,7 @@ One other difficulty with the implementation of analytics platforms such as Goog
 
 \subsection{Distorted metrics}
 
-As metrics become more commonly used in broader applications than were originally intended, there is a risk that the meaning behind those metrics can become distorted. Projects like Bioconductor \cite{bioconductor}, with a large variety of software packages, offers an opportunity to assess the risk of this distortion by evaluating how packages are used over time. This can reveal important nuances about software usage metrics. See ~Table \ref{tab:dist_table}.
+As metrics become more commonly used in broader applications than were originally intended, there is a risk that the meaning behind those metrics can become distorted. Projects like Bioconductor \cite{bioconductor}, with a large variety of software packages, offer an opportunity to assess the risk of this distortion by evaluating how packages are used over time. This can reveal important nuances about software usage metrics. See ~Table \ref{tab:dist_table}.
 
 \begin{table}[!ht]
  \caption{Distorted Metrics}
@@ -605,7 +632,7 @@ As metrics become more commonly used in broader applications than were originall
     \hline
     \multirow{4}{*}{Accidental Usage} 
     & 
-Occasionally scripts used on servers may inadvertently download a package repeatedly and rapidly hundreds to thousands of times, resulting in distorted download metrics that are not representative of real usage. Unique IP download information is useful to distinguish between one user downloading many times versus many users a few times. Given privacy concerns, an alternative solution could involve tracking the timing and general location of downloads with a threshold for what would be more than expected as maximum real usage, like a group of people following a tutorial.  \\
+Occasionally scripts used on servers may inadvertently download a package repeatedly and rapidly hundreds to thousands of times, resulting in distorted download metrics that are not representative of real usage. Unique IP download information is useful to distinguish between one user downloading many times versus many users a few times. Given privacy concerns, an alternative solution could involve tracking the timing and approximate location of downloads with a threshold for what would be more than expected as maximum real usage, like a group of people following a tutorial.  \\
     
     \hline
 \multirow{4}{*}{Background Usage} & 
@@ -624,14 +651,14 @@ Occasionally scripts used on servers may inadvertently download a package repeat
 
 \subsection{Clinical data challenges}
 
-Systems that contain clinical data have unique challenges.  Clinical data (generally defined as data extracted from electronic health records) often contain highly sensitive protected health information (PHI). While clinical details can be vital for research, the number of individuals that have access to the data is generally much smaller than tools designed to work with non-clinical data. It would not be realistic to compare usage metrics to more widely available and accessible tools. Clinical research teams can be constrained by their healthcare organization on what type of computer systems software can be installed on. Many tools containing clinical data are also run at an enterprise level, meaning they are installed only one time by system administrators and accounts are provisioned to users. This affords greater control over the access to PHI and allows necessary auditing functions to record the viewing of patient information.  Thus, counting installations does not represent the overall use of the software. Unfortunately, it is not common for system administrators to send usage reports to software development teams interested in tracking usage.  Further, firewalls and built-in security mechanisms inhibit developers from accessing the installed systems themselves. Other approaches, such as software “phoning home” (the collection of information from the computers of users that downloaded or installed a particular software) could raise flags by security teams looking for unusual behavior, especially for malicious software that could be trying to send clinical data outside of the covered entity. The EMERSE \cite{hanauer_supporting_2015} GitHub repository, although open source, is now private for two reasons: (1) encourages  better understanding of who is interested in using EMERSE and development of relationships with such individuals and (2)  only known entities have access to the software to prevent those with malicious intentions from looking for vulnerabilities that may have been missed despite rigorous, continuous security reviews.  Ultimately, due to downloads typically being at an institutional level for clinical tools, metrics around software downloads would underestimate their potential impact.  
+Systems that contain clinical data have unique challenges.  Clinical data (generally defined as data extracted from electronic health records) often contain highly sensitive protected health information (PHI). While clinical details can be vital for research, the number of individuals that have access to the data is generally much smaller than tools designed to work with non-clinical data. It would not be realistic to compare usage metrics to more widely available and accessible tools. Many tools containing clinical data are also run at an enterprise level, meaning they are installed only one time by system administrators and accounts are provisioned to users. This affords greater control over the access to PHI and allows necessary auditing functions to record the viewing of patient information.  Thus, counting installations does not represent the overall use of the software. Unfortunately, it is not common for system administrators to send usage reports to software development teams interested in tracking usage.  Further, firewalls and built-in security mechanisms inhibit developers from accessing the installed systems themselves. Other approaches, such as software “phoning home” (the collection of information from the computers of users that downloaded or installed a particular software) could raise flags by security teams looking for unusual behavior, especially for malicious software that could be trying to send clinical data outside of the covered entity. The EMERSE \cite{hanauer_supporting_2015} GitHub repository, although open source, is now private for two reasons: (1) encourages  better understanding of who is interested in using EMERSE and development of relationships with such individuals and (2)  only known entities have access to the software to prevent those with malicious intentions from looking for vulnerabilities that may have been missed despite rigorous, continuous security reviews.  Ultimately, due to downloads typically being at an institutional level for clinical tools, metrics around software downloads would underestimate their potential impact.  
 
 \subsection{Goodhart's law}
 An important consideration for metrics for software assessments is Goodhart's Law, which states that “every measure which becomes a target becomes a bad measure\cite{hoskin_awful_1996}". As an example, h-indices (i.e., the number of papers an author has with that many or more citations) are often used to assess the quality of an author’s impact. However, as the h-index grew in popularity, the number of researchers included as co-authors, the number of citations per paper, and the fraction of self-citations increased. Each leading to an increased h-index. At the same time, these behaviors also increase a journal’s impact factor \cite{fire_over-optimization_2019}. Altmetric, described earlier, may help in providing information about more diverse engagements with articles (social media, news), however it does less to aid in evaluating author contribution. It is not a stretch to imagine that as metrics are developed and codified for tools, this would lead developers to attempt to improve the metric for their tool. Although Goodhart’s Law could be used to bring about best practices for binary outcomes (i.e., compliance with codes of conduct, public deposition of code), for more quantitative metrics (e.g., number of downloads, citations) the results would easily render the metrics meaningless. One way to avoid this dilemma is to continue to evaluate our metrics over time, consider if our metrics are truly measuring what we think they are, consider if our metrics are actually fair to a diverse range of project teams, and consider new metrics as needed \cite{fire_over-optimization_2019}. One example of such unfairness would be evaluations of metrics for clinical data resources that are inherently limited in terms of who can be allowed to access the resource. Such caveats need to be accounted for when evaluating and comparing tools and resources. Funding agencies need to consider how each type of tool is context-dependent, and that impact should be measured and compared between similar classes of tools with this in mind. 
 
 
-\subsection{Security, Legal and ethical considerations}\label{sec:legal_ethics}
-Often with the use of phone home or web-based analytics, users are tracked for not only downloads, but often for specific elements of usage, such as the number of times a user runs a particular kind of analysis, etc. Occasionally software developers will notify users that they are being tracked, however this is often not a requirement. The General Data Protection Regulation (GDPR), which became implemented in 2018, requires that organizations anywhere in the world respect certain data collection obligations regarding people in the European Union. It is intended to protect the data privacy of individuals and mostly guards against the collection of identifiable personal information. Thus, data collection of software usage needs to be mindful of the GDPR and any other international regulations that may impact data collection of users.  As science is particularly an international pursuit, often a majority of the users may reside outside the country where the tool was developed.
+\subsection{Security, legal and ethical considerations}\label{sec:legal_ethics}
+Often with the use of phone-home software or web-based analytics, users are tracked for not only downloads, but often for specific elements of usage, such as the number of times a user runs a particular kind of analysis, etc. Occasionally software developers will notify users that they are being tracked, however this is often not a requirement. The General Data Protection Regulation (GDPR), which became implemented in 2018, requires that organizations anywhere in the world respect certain data collection obligations regarding people in the European Union. It is intended to protect the data privacy of individuals and mostly guards against the collection of identifiable personal information. Thus, data collection of software usage needs to be mindful of the GDPR and any other international regulations that may impact data collection of users.  As science is particularly an international pursuit, often a majority of the users may reside outside the country where the tool was developed.
 
 One option is to let users determine if they wish to be tracked by letting them know during certain stages of use depending on the type of software, such as when users download, register, or use certain features of the software. It is also possible for software developers to design tracking to be more anonymous. For example, a genome visualization tool may track the number of unique uses, but it will not track what part of the genome was visualized. Google Analytics also provides support for how to comply with such restrictions, for example you can  mask unique IP addresses of visitors to a website that tracked by the system \cite{google_analytics_privacy}.  Ethical and legal consequences should be considered when designing or implementing tracking systems of scientific software. See Supplemental Note \ref{sec-supp-note-sec} for more information.
 
@@ -639,9 +666,9 @@ One option is to let users determine if they wish to be tracked by letting them 
 
 \section{Discussion and conclusion:}
 
-Overall our assessment indicate that cancer researchers of the ITCR find it difficult to find the time or funding to dedicate evaluating the impact and usage of their software, despite their awareness of the benefit of such evaluations. Many have found such evaluations useful for a number of reasons involving driving future development and with obtaining additional funding. We also find that a sizable portion (27\%) of researchers surveyed self-report as not knowing what methods to use for such evaluations. We hope that the guidance outlined here will be beneficial in informing software developers about such methods.  We also find that tools appear to be more widely used when software developers provide deeper documentation, badges about software health metrics on websites and repositories, and more in-depth contact information for users to reach the developers, as well as having a Twitter presence. It is not yet clear what is responsible for these findings. It may be that those who put more effort into their tools may create tools that are easier to use and therefore more widely used. However, it may also be that a Twitter presence brings new users to tools and that the other infrastructure (badges, deeper documentation, etc.) help new users to trust software, thus encouraging their usage. It would require more studies, perhaps from the user perspective, to further understand the patterns that we saw in our analyses. However, it does suggest that supporting software developers to spend more time on such elements could drive further usage of existing tools. We hope that funding agencies will value supporting developers to evaluate, promote, and maintain existing tools in addition to the current typical model for most agencies to prioritize the creation of new tools. A recent article \cite{merow_better_2023} suggested that a new type of manuscript for software updates may help the field to better reward development and maintenance of existing software. We argue that inclusion of evaluations of software impact and usage could also be incorporated into such a new model for software-related manuscripts. 
+Overall our assessments indicate that cancer researchers of the ITCR find it difficult to find the time or funding to dedicate evaluating the impact and usage of their software, despite their awareness of the benefit of such evaluations. Many have found such evaluations useful for a number of reasons involving driving future development and with obtaining additional funding. We also find that a sizable portion (27\%) of researchers surveyed self-report as not knowing what methods to use for such evaluations. We hope that the guidance outlined here will be beneficial in informing software developers about such methods.  We also find that tools appear to be more widely used when software developers provide deeper documentation, badges about software health metrics on websites and repositories, and more in-depth contact information for users to reach the developers, as well as having a Twitter presence. It is not yet clear what is responsible for these findings. It may be that those who put more effort into their tools may create tools that are easier to use and therefore more widely used. However, it may also be that a Twitter presence brings new users to tools and that the other infrastructure (badges, deeper documentation, etc.) help new users to trust software, thus encouraging their usage. It would require more studies, perhaps from the user perspective, to further understand the patterns that we saw in our analyses. However, it does suggest that supporting software developers to spend more time on such elements could drive further usage of existing tools. We hope that funding agencies will value supporting developers to evaluate, promote, and maintain existing tools in addition to the current typical model for most agencies to prioritize the creation of new tools. A recent article \cite{merow_better_2023} suggested that a new type of manuscript for software updates may help the field to better reward development and maintenance of existing software. We argue that inclusion of evaluations of software impact and usage could also be incorporated into such a new model for software-related manuscripts. 
 
-We also describe challenges and nuances associated with the evaluation of software usage and impact. We describe common distortions of metrics, ethical and security challenges in the collection of user data and the concept of Goodhart's law that metrics become a bad measure over time. We point out that citation rates maybe lower for certain tools, such as clinical tools that require institutional support to implement or tools that are designed for using data or methods that a small number of researchers would use. Typical methods of assessments based on common metrics such as citations or number of users may underestimate the value of these tools to the field. While these metrics may be valuable for comparisons of similar types of tools, it is advisable that we also consider other types of metrics that may give more insight about the downstream impact of a tool. For example, perhaps we should consider how much a software tool inspires the development of other tools, the value of the papers that cite a tool (perhaps by citation rate, measures of innovation, or measures of clinical impact). Certainly as scientific software continues to be critical for scientific and medical advancement, this topic will only be of greater importance as we determine how to support scientific software developers in the future. 
+We also describe challenges and nuances associated with the evaluation of software usage and impact. We describe common distortions of metrics, ethical and security challenges in the collection of user data and the concept of Goodhart's law that metrics become a bad measure over time. We point out that citation rates may be lower for certain tools, such as clinical tools that require institutional support to implement or tools that are designed for using data or methods that a small number of researchers would use. Typical methods of assessments based on common metrics such as citations or number of users may underestimate the value of these tools to the field. While these metrics may be valuable for comparisons of similar types of tools, it is advisable that we also consider other types of metrics that may give more insight about the downstream impact of a tool. For example, perhaps we should consider how much a software tool inspires the development of other tools, the value of the papers that cite a tool (perhaps by citation rate, measures of innovation, or measures of clinical impact). Certainly as scientific software continues to be critical for scientific and medical advancement, this topic will only be of greater importance as we determine how to support scientific software developers in the future. 
  
  
 \section{Author Contributions}
@@ -651,7 +678,7 @@ Awan Afiaz and Carrie Wright performed the analyses. Andrey Ivanov manually gath
 
 \section{Acknowledgements}
 
-This work was funded by the National Cancer Institute (NCI) of the National Institutes of Health (NIH), under award numbers UE5CA254170, U01CA242871, U24CA248265, and U54HG012517, as part of the Informatics Technology for Cancer Research (ITCR) program. The content of this publication is solely the responsibility of the authors and does not represent the official views of the NIH.
+This work was funded by the National Cancer Institute (NCI) of the National Institutes of Health (NIH), under award numbers UE5CA254170, U01CA242871, U24CA248265, and U54HG012517, as part of the Informatics Technology for Cancer Research (ITCR) program. The content of this publication is solely the responsibility of the authors and does not represent the official views of the NIH. We would also like to thank the survey participants who participated in our survey.
 
 
 
@@ -716,34 +743,47 @@ This work was funded by the National Cancer Institute (NCI) of the National Inst
 \noindent {\LARGE Supplemental Tables}
 
 \begin{table}[!ht]
- \caption{\textbf{Survey Responses.} A subset of responses to the question, "What would be your goals in evaluating the impact, engagement, or usage of a software tool?" }
+ \caption{\textbf{Survey Responses.} Responses to the question, "What would be your goals in evaluating the impact, engagement, or usage of a software tool?" Note that similar responses were considered under the same response category and individual pieces of responses were split to group similar elements of responses together.}
   \centering
-  \begin{tabular}{|p{0.6\textwidth}|}
+  \begin{tabular}{|p{0.7\textwidth}|c|}
     \hline
-    \multicolumn{1}{|c|} {\cellcolor[gray]{.9} \textbf{Goals of Software Evaluation}}   \\
+    \rowcolor[gray]{.9} \textbf{Answer} & \textbf{Frequency} \\
     \hline
-     Gather data to drive decisions around software practices \\ \hline
-    Maximize utility and impact \\
+    Understand the extent to which a software tool is being used & 11 \\
     \hline
-    Advance medical image computing and cancer research \\
+    Determining user needs and maximizing utility and impact for target users & 8 \\
     \hline
-    Prioritize efforts and direction \\
+    Accrue information, devise metrics, and measure milestones to support grant reporting and funding & 8 \\
     \hline
-    Understand if software is being used appropriately \\
+    Evaluate if the software tool satisfies user requirements & 7 \\
     \hline
-    To understand if the software is meeting the needs of end-users \\
+    Improve software and optimize development & 7 \\
     \hline
-    Optimize development, accrue information to support funding and/or publication \\
+    Understand ease of use for new users, improve usability & 5 \\
     \hline
-    Understand the value brought by the software and data. Understand the users' needs. Record integration needs and outcomes.\\
+    Inform efforts, direction of research & 4 \\
     \hline
-    Understanding user needs better. Determining if we are reaching the target research communities and level of adoption in each. \\
+    Identifying popular features & 3 \\
     \hline
-    Assess the adoption, use, and effect of software tools by/on healthcare professionals and patients. \\
+    Evaluating adaptability and integration with other tools & 3 \\
     \hline
-    Identify ways to engage a broader community and increase userbase\\
+    Improve community reach and engagement & 2 \\
     \hline
-    Adaptability and being shareable across health systems \\
+    Understand clinical significance, adoption by healthcare professionals, and effect on patient care & 2 \\
+    \hline
+    "Quantitative assessment and goal setting" and help decide where to focus resources & 2 \\
+    \hline
+    "Understand the value brought by the software and data." & 1 \\
+    \hline
+    "Identify ways to engage a broader community and increase userbase." & 1 \\
+    \hline
+    "Gather data to drive decisions around software practices." & 1 \\
+    \hline
+    "Measuring the usage of individual system components and understanding and planning for periodic fluctuations in demand." & 1 \\
+    \hline
+    Source of motivation to continue building the tool and improving the tool & 1 \\
+    \hline
+    Gather information to support publications & 1 \\
     \hline
   \end{tabular}
   \label{tab:survey_table}
@@ -760,7 +800,7 @@ Greater detail, as well as information about data access, and code access about 
 
 \subsection{Survey}
 \label{sec-supp-note-methods-survey}
-Forty eight participants in the ITCR program were asked a series of questions about their attitudes on evaluating the impact of scientific software. Some questions were more general, while others asked about practices for their most mature tool. These responses were collected anonymously, however respondents could include a link to their tool if they felt comfortable. The raw survey responses will not be made available to the public to protect the respondents. The survey questions can be found here: \url{https://forms.gle/9DA1pmkpWw4K9bhH8}.
+Forty eight participants in the ITCR program were asked a series of questions about their attitudes on evaluating the impact of scientific software. Some questions were more general, while others asked about practices for their most mature tool. These responses were collected anonymously, however respondents could include a link to their tool if they felt comfortable. The raw survey responses will not be made available to the public to protect the respondents. The survey questions can be found at this \href{https://hutchdatascience.org/ITCR_Metrics_manuscript_website/questionnaire.html}{webpage}.
 
 \subsection{Manual Tool Characteristic Evaluation}
 
@@ -768,7 +808,7 @@ Documentation depth: The binary variable “Documentation depth” characterizes
 
 Instruction on How to cite: The binary variable "Instruction on How to cite" specifies whether each tool provides instructions on how to properly cite it in a research publication or other work. These instructions typically include information such as the author(s) names, version number, publication date, and website or repository where the tool can be found. Tools that do not provide such instructions can make it difficult for researchers to correctly cite the tool, potentially leading to incomplete or inaccurate acknowledgements of its use in research.
 
-Twitter Presence: The variable "Twitter Presence" indicates whether a tool has a formal presence on Twitter. Only 3 tools had other forms of social media including youtube (two tools - one with twitter and one without) and gitter (one tool with twitter). Tools with a twitter presence have an active account that distributes news, updates, and information on the development, features, and usage of the tool. These accounts can allow communication between tool creators and users while facilitating the tool's exposure and accessibility.
+Twitter Presence: The variable "Twitter Presence" indicates whether a tool has a formal presence on Twitter. Only 3 tools had other forms of social media including YouTube (two tools - one with twitter and one without) and gitter (one tool with twitter). Tools with a twitter presence have an active account that distributes news, updates, and information on the development, features, and usage of the tool. These accounts can allow communication between tool creators and users while facilitating the tool's exposure and accessibility.
 
 Extensive Contact: The binary variable "Extensive Contact Ways" indicates whether a tool offers multiple ways for users to contact developers for support or other inquiries, such as email addresses, discussion boards, contact forms, and more. Tools with several contact options may be more user-friendly as they enable researchers to seek support or report issues with the tool more conveniently and effectively. In contrast, tools with inadequate or no contact methods may be less attractive to researchers, as they don't provide timely help for technical difficulties or other concerns.
 
@@ -778,13 +818,13 @@ Extensive Contact: The binary variable "Extensive Contact Ways" indicates whethe
 
 Software mentions in scholarly articles can be categorized into four types \cite{schindler_annotation_2019, schindler_somesci-_2021}: allusion, usage, creation, and deposition. The distinction between these types can help researchers understand the role and availability of software in scholarly publications. We distinguish the aforementioned classifications of mention types as follows:
  
-Allusion: This type of mention simply refers to the name of the software and does not require any indication of its usage. Allusions are used to state a fact about the software or to compare multiple software options for a problem. These are similar to the typical scholarly citations used to refer to related work.
+\textbf{Allusion:} This type of mention simply refers to the name of the software and does not require any indication of its usage. Allusions are used to state a fact about the software or to compare multiple software options for a problem. These are similar to the typical scholarly citations used to refer to related work.
  
-Usage: A usage type mention occurs when software is used in an investigation and contributes to the study. This type of mention allows for conclusions about the study's origins and can be used to develop impact metrics. 
+\textbf{Usage:} A usage type mention occurs when software is used in an investigation and contributes to the study. This type of mention allows for conclusions about the study's origins and can be used to develop impact metrics. 
  
-Creation: When new software is introduced in a publication, it is a creation type mention. This type of mention can be used to provide scholarly credit to the software's authors, as well as map new creations and track down original software publications.
+\textbf{Creation:} When new software is introduced in a publication, it is a creation type mention. This type of mention can be used to provide scholarly credit to the software's authors, as well as map new creations and track down original software publications.
  
-Deposition: The publication of new software is regarded as a deposition mention. By including information about the publication, such as a license or URL, deposition expands on the creation type mention. When describing availability and licensing information for software, cross-references are used to annotate indirect statements about the software.
+\textbf{Deposition:} The publication of new software is regarded as a deposition mention. By including information about the publication, such as a license or URL, deposition expands on the creation type mention. When describing availability and licensing information for software, cross-references are used to annotate indirect statements about the software.
  
 In summary, allusion-type mentions provide a broad overview of the presence of software in the text, while usage mentions allow for conclusions regarding its actual contribution. Creation mentions are used to identify newly created software, and deposition mentions provide details on its publication and availability.
 
@@ -803,7 +843,7 @@ We queried the database instance from R using code adapted from the SofwareKG-PM
 \section{Survey Qualitative Responses}
 \label{sec-supp-survey}
 
-Supplementary Table \ref{tab:survey_table} shows the responses of several ITCR developers in response to a question about their goals in evaluating their scientific software. The participants had a variety of different responses to this question demonstrating the breadth of the potential use of such analyses.
+Supplementary Table \ref{tab:survey_table} shows the responses of several ITCR developers in response to a question about their goals in evaluating their scientific software. The survey participants expressed diverse perspectives, highlighting the wide range of applications for such analyses. The qualitative feedback to the open-ended question was compiled and organized into a tabular format for enhanced readability, providing a comprehensive overview of the developers' inputs about their goals and objectives. Note that direct quotes from the respondents are included with quotation marks.
 
 
 
